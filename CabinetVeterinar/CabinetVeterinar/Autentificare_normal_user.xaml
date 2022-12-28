@@ -18,12 +18,11 @@
                 <GradientStop Color="#FF772864" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="BtnProgramare" Background="Gray" Foreground="#C0C0C0" Content="Fa o programare" HorizontalAlignment="Left" Margin="21,173,0,0" VerticalAlignment="Top" Width="148" Click="BtnProgramare_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnListaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Lista animale" HorizontalAlignment="Left" Margin="21,241,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnSOS" Content="Situatii de urgenta" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,106,0,0" VerticalAlignment="Top" Width="148" FontSize="16" Height="39" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnIntrebari" Content="Pune o intrebare" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,304,0,0" VerticalAlignment="Top" Width="148" Height="39" FontSize="16" Click="BtnIntrebari_Click" Grid.ColumnSpan="2"/>
-        <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="396.2,10,0,0" VerticalAlignment="Top" Width="174" FontSize="16" Grid.Column="1"/>
+        <Button x:Name="BtnProgramare" Background="Gray" Foreground="#C0C0C0" Content="Fa o programare" HorizontalAlignment="Left" Margin="21,101,0,0" VerticalAlignment="Top" Width="148" Click="BtnProgramare_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnListaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Lista animale" HorizontalAlignment="Left" Margin="21,256,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnIntrebari" Content="Pune o intrebare" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,181,0,0" VerticalAlignment="Top" Width="148" Height="39" FontSize="16" Click="BtnIntrebari_Click" Grid.ColumnSpan="2"/>
+        <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="297.2,10,0,0" VerticalAlignment="Top" Width="273" FontSize="16" Grid.Column="1"/>
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="228.2,145,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid Grid.Column="1" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="52.2,77,0,0" VerticalAlignment="Top" Width="518"/>
     </Grid>
 </Window>

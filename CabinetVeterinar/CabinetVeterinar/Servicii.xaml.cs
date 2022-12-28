@@ -12,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CabinetVeterinar
 {
@@ -20,16 +23,21 @@ namespace CabinetVeterinar
     /// </summary>
     public partial class Servicii : Window
     {
-        public IEnumerable<string> orase;
+        public class OrasSelectat
+        {
+            public string adresa { get; set; }
+            public string nrTelef { get; set; }
+            public string program { get; set; }
 
-       
+        }
+        string selectedCity;
         public Servicii()
         {
             InitializeComponent();
             LoadOrase();
+         
         }
        
-
         public void LoadOrase()
         {
             var context = new HomeVetEntities1();
@@ -45,10 +53,43 @@ namespace CabinetVeterinar
                 DragMove();
         }
 
-        private void boxOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void afisareDetalii_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            boxOras.DataContext = orase;
+         
+            var context = new HomeVetEntities1();
+            var orasSelectat = boxOras.SelectedItem.ToString(); //preiau ce am selectat in combobox
+           
+            var cabinete = from c in context.Cabinete
+                              where c.Oras == selectedCity
+                              select new
+                              {
+                                  c.Adresa,
+                                  c.NrTelefon,
+                                  c.Program
+                              }; //preiau toate cabinetele din acel oras selectat
 
+
+            //de ce nu le afiseaza?????????????????????/
+            if (cabinete.Count() != 0) //daca am mai multe cabinete in acel oras
+            { 
+                OrasSelectat city = new OrasSelectat(); //creez un cabinet nou ca sa l bag in data grid
+                foreach (var item in cabinete)
+                {
+
+                    city.adresa = item.Adresa.ToString();
+                    city.nrTelef = item.NrTelefon.ToString();
+                    city.program = item.Program.ToString();
+
+                }
+                afisareDetalii.Items.Add(city);
+            }
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+            this.Close();
         }
     }
 }

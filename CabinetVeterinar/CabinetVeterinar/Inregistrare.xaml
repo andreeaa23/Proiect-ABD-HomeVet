@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Inregistrare" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown"
+        Title="Inregistrare" Height="500" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown"
         Icon="/Images/Vetlogo.png">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,17 +18,19 @@
                 <GradientStop Color="#FF772864" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="txtNume" HorizontalAlignment="Left" Height="34" Margin="137,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" TextAlignment="Center"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
-        <Label x:Name="lblNume" Content="Nume" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Margin="46,100,0,0" Width="69" Height="37"/>
-        <Label x:Name="lblPrenume" Content="Prenume" HorizontalAlignment="Left" Margin="37,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="100"/>
-        <TextBox x:Name="txtPrenume" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
-        <Label x:Name="lblEmail" Content="Email"  HorizontalAlignment="Left" Margin="49,205,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="66"/>
-        <TextBox x:Name="txtEmail" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
-        <Label x:Name="lblParola" Content="Parola"  HorizontalAlignment="Left" Margin="49,252,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="69"/>
-        <TextBox x:Name="txtParola" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0"/>
-        <Button x:Name="btnLogare"  Foreground="#C0C0C0" Content="Inregistreaza-te" HorizontalAlignment="Left" Margin="291,330,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnLogare_Click_1" />
-        <Button x:Name="btnCancel"  Foreground="#C0C0C0" Content="Cancel" HorizontalAlignment="Left" Margin="85,330,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnCancel_Click" />
-        <Label x:Name="lblCreare" Content="CREARE CONT" HorizontalAlignment="Left" Margin="151,39,0,0" VerticalAlignment="Top" FontSize="25" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="180"/>
+        <TextBox x:Name="txtNume" HorizontalAlignment="Left" Height="34" Margin="137,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" TextAlignment="Center"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
+        <Label x:Name="lblNume" Content="Nume" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Margin="32,85,0,0" Width="69" Height="37"/>
+        <Label x:Name="lblPrenume" Content="Prenume" HorizontalAlignment="Left" Margin="32,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="100"/>
+        <TextBox x:Name="txtPrenume" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
+        <Label x:Name="lblEmail" Content="Email"  HorizontalAlignment="Left" Margin="32,213,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="66"/>
+        <TextBox x:Name="txtEmail" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" />
+        <Label x:Name="lblParola" Content="Parola"  HorizontalAlignment="Left" Margin="32,281,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="69"/>
+        <TextBox x:Name="txtParola" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0"/>
+        <Button x:Name="btnLogare"  Foreground="#C0C0C0" Content="Inregistreaza-te" HorizontalAlignment="Left" Margin="312,408,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnLogare_Click_1" />
+        <Button x:Name="btnCancel"  Foreground="#C0C0C0" Content="Cancel" HorizontalAlignment="Left" Margin="84,408,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnCancel_Click" />
+        <Label x:Name="lblCreare" Content="CREARE CONT" HorizontalAlignment="Left" Margin="151,27,0,0" VerticalAlignment="Top" FontSize="25" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="180"/>
+        <Label x:Name="lblParola_Copy" Content="Tip Cont"  HorizontalAlignment="Left" Margin="32,342,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="100"/>
+        <TextBox x:Name="txtTip" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="137,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0"/>
 
     </Grid>
 </Window>

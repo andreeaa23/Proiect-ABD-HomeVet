@@ -35,6 +35,7 @@ namespace CabinetVeterinar
             string prenume = txtPrenume.Text;
             string email = txtEmail.Text;
             string parola = txtParola.Text;
+            string tip = txtTip.Text;
             DateTime data = DateTime.Now;
 
             var context = new HomeVetEntities1();
@@ -55,10 +56,12 @@ namespace CabinetVeterinar
                     Nume = nume,
                     Prenume = prenume,
                     Parola = parola,
-                    DataInregistrare = data
+                    DataInregistrare = data,
+                    Tip = tip
+                    
                 };
                 context.Utilizatori.Add(newUser);
-                context.SaveChanges();
+                context.SaveChanges(); //dc drc da eroare aici cand bag user nou?
 
                 var credentials = (from u in context.Utilizatori
                                    where u.Email == email
@@ -66,10 +69,11 @@ namespace CabinetVeterinar
                                    {
                                        u.Prenume,
                                        u.Nume,
-                                       u.idUtilizator
+                                       u.idUtilizator,
+                                       u.Tip
                                    }).First();
-                Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
-                auth.Show();
+                MainWindow main = new MainWindow();
+                main.Show();
                 Hide();
             }
         }
@@ -78,7 +82,6 @@ namespace CabinetVeterinar
         {
             Application.Current.MainWindow.Show();
             this.Close();
-            //////to dooooo
         }
     }
 }

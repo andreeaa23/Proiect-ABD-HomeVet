@@ -22,11 +22,13 @@ namespace CabinetVeterinar
         int id;
         string nume;
         string prenume;
-        public Autentificare_normal_user(int ID,string Prenume, string Nume)
+        string tip;
+        public Autentificare_normal_user(int ID,string Prenume, string Nume, string Tip)
         {
             id = ID;
             nume = Nume;
             prenume = Prenume;
+            tip = Tip;
           
             InitializeComponent();
             WriteLblUserName(prenume,nume);
@@ -38,7 +40,8 @@ namespace CabinetVeterinar
         }
         private void BtnProgramare_Click(object sender, RoutedEventArgs e)
         {
-
+            Programare programare = new Programare();
+            programare.Show();
         }
 
         private void BtnListaAnimale_Click(object sender, RoutedEventArgs e)
@@ -48,7 +51,8 @@ namespace CabinetVeterinar
 
         private void BtnIntrebari_Click(object sender, RoutedEventArgs e)
         {
-
+            Intrebari_user intrb = new Intrebari_user();
+            intrb.Show();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

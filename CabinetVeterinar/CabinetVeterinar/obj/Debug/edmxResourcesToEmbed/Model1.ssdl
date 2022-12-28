@@ -80,7 +80,7 @@
     <Property Name="idPacient" Type="int" />
     <Property Name="idMedic" Type="int" />
     <Property Name="DataProgramare" Type="date" />
-    <Property Name="Urgenta" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Tip" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityType Name="Raspunsuri">
     <Key>

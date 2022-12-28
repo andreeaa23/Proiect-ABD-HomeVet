@@ -25,7 +25,7 @@ namespace CabinetVeterinar
         public MainWindow()
         {
             InitializeComponent();
-            // Console.WriteLine($"{userName} {password}");
+
            
 
         }
@@ -56,14 +56,7 @@ namespace CabinetVeterinar
                          where u.Email == userName
                          select u);
 
-            var tip = (from u in context.Utilizatori
-                       where u.Email == userName
-                       select u.Tip).ToString();
-
            
-
-
-         
 
             if (user.Count() == 0)
             { 
@@ -86,19 +79,24 @@ namespace CabinetVeterinar
                                        {
                                            u.Prenume,
                                            u.Nume,
-                                           u.idUtilizator
+                                           u.idUtilizator,
+                                           u.Tip
                                        }).First();
-                    if (tip == "U") { 
-                    Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
-                    auth.Show();
-                    Hide();
-                         }
-                    else if(tip=="M")
+                    var tip = (from u in context.Utilizatori
+                               where u.Email == userName
+                               select u.Tip).First();
+                    if (tip == "U")
+                    { 
+                         Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString(),credentials.Tip.ToString()); //user,parola
+                         auth.Show();
+                         Hide();
+                     }
+                    else if(tip == "M")
                     {
                         //to do autentificare_medic
+                      
                     }
-
-                    else if(tip =="A")
+                    else if(tip == "A")
                     {
                         //to do autentificare_asistent
                     }

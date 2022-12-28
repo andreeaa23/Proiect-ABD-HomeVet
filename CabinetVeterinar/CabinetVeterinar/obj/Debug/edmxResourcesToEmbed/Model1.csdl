@@ -97,7 +97,7 @@
     <Property Name="idPacient" Type="Int32" />
     <Property Name="idMedic" Type="Int32" />
     <Property Name="DataProgramare" Type="DateTime" Precision="0" />
-    <Property Name="Urgenta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Programari" ToRole="Consultatii" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Programari" ToRole="Medici" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Programar__idPac__398D8EEE" FromRole="Programari" ToRole="Pacienti" />
