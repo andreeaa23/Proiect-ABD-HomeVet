@@ -27,6 +27,7 @@ namespace CabinetVeterinar
         public string Email { get; set; }
         public string Parola { get; set; }
         public System.DateTime DataInregistrare { get; set; }
+        public string Tip { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Intrebari> Intrebari { get; set; }

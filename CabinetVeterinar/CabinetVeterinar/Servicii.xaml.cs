@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,31 +29,26 @@ namespace CabinetVeterinar
             LoadOrase();
         }
        
-        public IEnumerable<string> ColectieOrase
-        {
-            get { return orase; }
-            set
-            {
-                orase = value;
-
-            }
-        }
 
         public void LoadOrase()
         {
             var context = new HomeVetEntities1();
-            var cities = from o in context.Cabinete
-                         select o.Oras;
+            var cities = (from o in context.Cabinete
+                         select o.Oras).Distinct();
 
-            foreach (var item in cities)
-                ColectieOrase.Append(item);
+            foreach (var c in cities)
+                boxOras.Items.Add(c.ToString());
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-       
-      
+
+        private void boxOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            boxOras.DataContext = orase;
+
+        }
     }
 }

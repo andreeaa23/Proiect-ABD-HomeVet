@@ -40,7 +40,7 @@
     <Property Name="idConsultatie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idProgramare" Type="Int32" Nullable="false" />
     <Property Name="Pret" Type="Decimal" Precision="6" Scale="2" />
-    <NavigationProperty Name="Programari" Relationship="Self.FK__Consultat__idPro__5CD6CB2B" FromRole="Consultatii" ToRole="Programari" />
+    <NavigationProperty Name="Programari" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Consultatii" ToRole="Programari" />
   </EntityType>
   <EntityType Name="Intrebari">
     <Key>
@@ -97,7 +97,8 @@
     <Property Name="idPacient" Type="Int32" />
     <Property Name="idMedic" Type="Int32" />
     <Property Name="DataProgramare" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__5CD6CB2B" FromRole="Programari" ToRole="Consultatii" />
+    <Property Name="Urgenta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Programari" ToRole="Consultatii" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Programari" ToRole="Medici" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Programar__idPac__398D8EEE" FromRole="Programari" ToRole="Pacienti" />
   </EntityType>
@@ -129,16 +130,6 @@
     <Property Name="Denumire" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Pacienti__idSpec__29572725" FromRole="Specii" ToRole="Pacienti" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Utilizatori">
     <Key>
       <PropertyRef Name="idUtilizator" />
@@ -149,6 +140,7 @@
     <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Parola" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DataInregistrare" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Tip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Utilizatori" ToRole="Intrebari" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Pacienti__idUtil__286302EC" FromRole="Utilizatori" ToRole="Pacienti" />
   </EntityType>
@@ -212,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Consultat__idPro__5CD6CB2B">
+  <Association Name="FK__Consultat__idPro__3D5E1FD2">
     <End Role="Programari" Type="Self.Programari" Multiplicity="1" />
     <End Role="Consultatii" Type="Self.Consultatii" Multiplicity="*" />
     <ReferentialConstraint>
@@ -321,7 +313,6 @@
     <EntitySet Name="Raspunsuri" EntityType="Self.Raspunsuri" />
     <EntitySet Name="Sectii" EntityType="Self.Sectii" />
     <EntitySet Name="Specii" EntityType="Self.Specii" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Utilizatori" EntityType="Self.Utilizatori" />
     <AssociationSet Name="FK__Asistenti__idMed__36B12243" Association="Self.FK__Asistenti__idMed__36B12243">
       <End Role="Medici" EntitySet="Medici" />
@@ -343,7 +334,7 @@
       <End Role="CabineteSectii" EntitySet="CabineteSectii" />
       <End Role="Medici" EntitySet="Medici" />
     </AssociationSet>
-    <AssociationSet Name="FK__Consultat__idPro__5CD6CB2B" Association="Self.FK__Consultat__idPro__5CD6CB2B">
+    <AssociationSet Name="FK__Consultat__idPro__3D5E1FD2" Association="Self.FK__Consultat__idPro__3D5E1FD2">
       <End Role="Programari" EntitySet="Programari" />
       <End Role="Consultatii" EntitySet="Consultatii" />
     </AssociationSet>
@@ -375,46 +366,5 @@
       <End Role="Pacienti" EntitySet="Pacienti" />
       <End Role="Programari" EntitySet="Programari" />
     </AssociationSet>
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HomeVetModel.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HomeVetModel.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
-  </ComplexType>
 </Schema>

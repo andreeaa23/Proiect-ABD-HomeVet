@@ -20,7 +20,7 @@
         </Grid.Background>
         <Image x:Name="btnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="301"/>
         <Label x:Name="lblDescriere" FontSize="30" Foreground="#C0C0C0" FontWeight="Bold" Content="Din dragoste pentru animale" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="422"/>
-        <ComboBox x:Name="boxOras" ItemsSource="{Binding ColectieOras, RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor},Mode=OneWay}" HorizontalAlignment="Left" Margin="223,193,0,0" VerticalAlignment="Top" Width="196" Height="36"/>
+        <ComboBox x:Name="boxOras" ItemsSource="{Binding ColectieOras, RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor},Mode=OneWay}" HorizontalAlignment="Left" Margin="223,193,0,0" VerticalAlignment="Top" Width="196" Height="36" SelectionChanged="boxOras_SelectionChanged"/>
         <Label x:Name="lblCabinet" Content="Selecteaza un oras" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top"/>
         <ListBox HorizontalAlignment="Left" Height="100" Margin="516,207,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>

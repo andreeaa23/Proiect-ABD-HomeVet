@@ -48,12 +48,21 @@ namespace CabinetVeterinar
         { //verificare parola mai trb
             string userName;
             string password;
+          
             userName = (string)TxtUser.Text; //preiau userName ul din buton
             password = TxtParola.Password.ToString();
             var context = new HomeVetEntities1();
             var user = (from u in context.Utilizatori
                          where u.Email == userName
                          select u);
+
+            var tip = (from u in context.Utilizatori
+                       where u.Email == userName
+                       select u.Tip).ToString();
+
+           
+
+
          
 
             if (user.Count() == 0)
@@ -68,21 +77,31 @@ namespace CabinetVeterinar
                 var passwd = (from u in context.Utilizatori
                               where u.Email == userName
                               select u.Parola); //selectex parola pt userul meu
-                
-                if(passwd.First().ToString() == password) //daca gasesc parola
+
+                if (passwd.First().ToString() == password) //daca gasesc parola
                 {
                     var credentials = (from u in context.Utilizatori
-                                  where u.Email == userName
-                                  select new
-                                  {
-                                      u.Prenume,
-                                      u.Nume,
-                                      u.idUtilizator
-                                  }).First();
-               
-                    Autentificare auth = new Autentificare((int)credentials.idUtilizator,credentials.Prenume.ToString(),credentials.Nume.ToString()); //user,parola
+                                       where u.Email == userName
+                                       select new
+                                       {
+                                           u.Prenume,
+                                           u.Nume,
+                                           u.idUtilizator
+                                       }).First();
+                    if (tip == "U") { 
+                    Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
                     auth.Show();
                     Hide();
+                         }
+                    else if(tip=="M")
+                    {
+                        //to do autentificare_medic
+                    }
+
+                    else if(tip =="A")
+                    {
+                        //to do autentificare_asistent
+                    }
                 }
                 else
                 {

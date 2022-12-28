@@ -68,7 +68,7 @@ namespace CabinetVeterinar
                                        u.Nume,
                                        u.idUtilizator
                                    }).First();
-                Autentificare auth = new Autentificare((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
+                Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
                 auth.Show();
                 Hide();
             }

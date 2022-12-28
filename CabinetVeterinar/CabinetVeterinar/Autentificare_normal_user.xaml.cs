@@ -17,12 +17,12 @@ namespace CabinetVeterinar
     /// <summary>
     /// Interaction logic for Autentificare.xaml
     /// </summary>
-    public partial class Autentificare : Window
+    public partial class Autentificare_normal_user : Window
     {
         int id;
         string nume;
         string prenume;
-        public Autentificare(int ID,string Prenume, string Nume)
+        public Autentificare_normal_user(int ID,string Prenume, string Nume)
         {
             id = ID;
             nume = Nume;
