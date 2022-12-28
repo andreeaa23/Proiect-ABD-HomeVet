@@ -78,6 +78,7 @@ namespace CabinetVeterinar
         {
             Application.Current.MainWindow.Show();
             this.Close();
+            //////to dooooo
         }
     }
 }
