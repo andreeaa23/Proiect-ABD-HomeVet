@@ -24,5 +24,6 @@
         <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="297.2,10,0,0" VerticalAlignment="Top" Width="273" FontSize="16" Grid.Column="1"/>
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
         <DataGrid Grid.Column="1" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="52.2,77,0,0" VerticalAlignment="Top" Width="518"/>
+        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal" HorizontalAlignment="Left" Margin="21,321,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

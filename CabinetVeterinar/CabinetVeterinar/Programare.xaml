@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Programare" Height="500" Width="900"  Icon="/Images/Vetlogo.png"
+        Title="Programare" Height="550" Width="900"  Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.Background>
@@ -15,25 +15,21 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Image x:Name="btnImagine"  Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
-        <Label x:Name="LblSpecie" FontWeight="Bold" Foreground="#C0C0C0" Content="Specie" HorizontalAlignment="Left" Margin="13,167,0,0" VerticalAlignment="Top" Width="134" FontSize="20"/>
-        <Label x:Name="LblVarsta" FontWeight="Bold"  Foreground="#C0C0C0" Content="Varsta" HorizontalAlignment="Left" Margin="13,248,0,0" VerticalAlignment="Top" Width="134" FontSize="20"/>
-        <Label x:Name="LblNume" FontWeight="Bold"  Foreground="#C0C0C0" Content="Nume animal" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="174" FontSize="20"/>
-        <Label x:Name="LblGreutate" FontWeight="Bold"  Foreground="#C0C0C0" Content="Greutate" HorizontalAlignment="Left" Margin="13,324,0,0" VerticalAlignment="Top" Width="174" FontSize="20"/>
+        <Label x:Name="LbllistaAnimale" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza un animal" HorizontalAlignment="Left" Margin="39,96,0,0" VerticalAlignment="Top" Width="245" FontSize="20"/>
         <Label x:Name="LblOras" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza un oras" HorizontalAlignment="Left" Margin="367,96,0,0" VerticalAlignment="Top" Width="188" FontSize="20"/>
         <Label x:Name="LblCabinet" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza un cabinet" HorizontalAlignment="Left" Margin="367,170,0,0" VerticalAlignment="Top" Width="212" FontSize="20"/>
         <Label x:Name="LblTipProg" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza tipul programarii" HorizontalAlignment="Left" Margin="367,248,0,0" VerticalAlignment="Top" Width="272" FontSize="20"/>
         <Label x:Name="LblSectie" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza sectia" HorizontalAlignment="Left" Margin="367,324,0,0" VerticalAlignment="Top" Width="226" FontSize="20"/>
-        <TextBox x:Name="txtNume" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="152,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
-        <TextBox x:Name="txtSpecie" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="152,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
-        <TextBox x:Name="txtVarsta" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="152,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
-        <TextBox x:Name="txtGreutate" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="152,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
-        <Button x:Name="btnCancel" Content="Cancel" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="220,401,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
-        <Button x:Name="btnProgramare" Foreground="#C0C0C0" Background="Gray" FontSize="15" Content="Programeaza-te" HorizontalAlignment="Left" Margin="574,401,0,0" VerticalAlignment="Top" Width="117" Height="40" Click="btnProgramare_Click"/>
-        <ComboBox x:Name="cbOras" HorizontalAlignment="Left" Margin="665,96,0,0" VerticalAlignment="Top" Width="193" Height="34"/>
-        <ComboBox x:Name="cbCabinet" HorizontalAlignment="Left" Margin="665,170,0,0" VerticalAlignment="Top" Width="193" Height="34"/>
+        <Button x:Name="btnCancel" Content="Cancel" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="168,454,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Button x:Name="btnProgramare" Foreground="#C0C0C0" Background="Gray" FontSize="15" Content="Programeaza-te" HorizontalAlignment="Left" Margin="550,454,0,0" VerticalAlignment="Top" Width="117" Height="40" Click="btnProgramare_Click"/>
+        <ComboBox x:Name="cbOras" HorizontalAlignment="Left" Margin="665,96,0,0" VerticalAlignment="Top" Width="193" Height="34" SelectionChanged="cbOras_SelectionChanged"/>
+        <ComboBox x:Name="cbCabinet" HorizontalAlignment="Left" Margin="665,170,0,0" VerticalAlignment="Top" Width="193" Height="34" SelectionChanged="cbCabinet_SelectionChanged"/>
         <ComboBox x:Name="cbTipProgramare" HorizontalAlignment="Left" Margin="665,248,0,0" VerticalAlignment="Top" Width="193" Height="34"/>
-        <ComboBox x:Name="cbSectie" HorizontalAlignment="Left" Margin="665,324,0,0" VerticalAlignment="Top" Width="193" Height="34"/>
+        <ComboBox x:Name="cbSectie" HorizontalAlignment="Left" Margin="665,324,0,0" VerticalAlignment="Top" Width="193" Height="34" SelectionChanged="cbSectie_SelectionChanged" />
         <Label x:Name="LblProgramare" FontWeight="Bold"  Foreground="#C0C0C0" Content="CREARE PROGRAMARE" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="335" FontSize="30"/>
+        <ComboBox x:Name="cbListaAnimale" HorizontalAlignment="Left" Margin="39,152,0,0" VerticalAlignment="Top" Width="193" Height="34" />
+        <Label x:Name="LblSectie_Copy" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza medicul" HorizontalAlignment="Left" Margin="367,394,0,0" VerticalAlignment="Top" Width="226" FontSize="20"/>
+        <ComboBox x:Name="cbMedic" HorizontalAlignment="Left" Margin="665,394,0,0" VerticalAlignment="Top" Width="193" Height="34"/>
 
     </Grid>
 </Window>

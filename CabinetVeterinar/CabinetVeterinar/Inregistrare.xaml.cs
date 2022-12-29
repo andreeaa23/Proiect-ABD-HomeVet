@@ -61,7 +61,7 @@ namespace CabinetVeterinar
                     
                 };
                 context.Utilizatori.Add(newUser);
-                context.SaveChanges(); //dc drc da eroare aici cand bag user nou?
+                context.SaveChanges(); 
 
                 var credentials = (from u in context.Utilizatori
                                    where u.Email == email

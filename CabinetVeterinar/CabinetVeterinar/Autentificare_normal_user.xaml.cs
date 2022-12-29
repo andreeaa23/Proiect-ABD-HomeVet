@@ -40,7 +40,7 @@ namespace CabinetVeterinar
         }
         private void BtnProgramare_Click(object sender, RoutedEventArgs e)
         {
-            Programare programare = new Programare();
+            Programare programare = new Programare(id);
             programare.Show();
         }
 

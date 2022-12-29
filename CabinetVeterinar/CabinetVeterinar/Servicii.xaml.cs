@@ -30,7 +30,7 @@ namespace CabinetVeterinar
             public string program { get; set; }
 
         }
-        string selectedCity;
+     
         public Servicii()
         {
             InitializeComponent();
@@ -53,43 +53,43 @@ namespace CabinetVeterinar
                 DragMove();
         }
 
-        private void afisareDetalii_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-         
-            var context = new HomeVetEntities1();
-            var orasSelectat = boxOras.SelectedItem.ToString(); //preiau ce am selectat in combobox
-           
-            var cabinete = from c in context.Cabinete
-                              where c.Oras == selectedCity
-                              select new
-                              {
-                                  c.Adresa,
-                                  c.NrTelefon,
-                                  c.Program
-                              }; //preiau toate cabinetele din acel oras selectat
-
-
-            //de ce nu le afiseaza?????????????????????/
-            if (cabinete.Count() != 0) //daca am mai multe cabinete in acel oras
-            { 
-                OrasSelectat city = new OrasSelectat(); //creez un cabinet nou ca sa l bag in data grid
-                foreach (var item in cabinete)
-                {
-
-                    city.adresa = item.Adresa.ToString();
-                    city.nrTelef = item.NrTelefon.ToString();
-                    city.program = item.Program.ToString();
-
-                }
-                afisareDetalii.Items.Add(city);
-            }
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();
             this.Close();
+        }
+
+        private void boxOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            afisareDetalii.Items.Clear();
+            var context = new HomeVetEntities1();
+            var orasSelectat = boxOras.SelectedItem.ToString(); //preiau ce am selectat in combobox
+
+            var cabinete = from c in context.Cabinete
+                           where c.Oras == orasSelectat
+                           select new
+                           {
+                               c.Adresa,
+                               c.NrTelefon,
+                               c.Program
+                           };
+
+
+
+            if (cabinete.Count() != 0)
+            {
+
+                foreach (var item in cabinete)
+                {
+                    OrasSelectat city = new OrasSelectat();
+                    city.adresa = item.Adresa.ToString();
+                    city.nrTelef = item.NrTelefon.ToString();
+                    city.program = item.Program.ToString();
+                    afisareDetalii.Items.Add(city);
+                }
+
+            }
         }
     }
 }
