@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Autentificare" Height="400" Width="780" Icon="/Images/Vetlogo.png"
+        Title="Autentificare" Height="450" Width="780" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,7 +23,24 @@
         <Button x:Name="BtnIntrebari" Content="Pune o intrebare" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,181,0,0" VerticalAlignment="Top" Width="148" Height="39" FontSize="16" Click="BtnIntrebari_Click" Grid.ColumnSpan="2"/>
         <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="297.2,10,0,0" VerticalAlignment="Top" Width="273" FontSize="16" Grid.Column="1"/>
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
-        <DataGrid Grid.Column="1" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="52.2,77,0,0" VerticalAlignment="Top" Width="518"/>
-        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal" HorizontalAlignment="Left" Margin="21,321,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="gridListaAnimale" Grid.Column="1" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="52.2,77,0,0" VerticalAlignment="Top" Width="518">
+            <DataGrid.Resources>
+            <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nume" Binding="{Binding numeAnimal}" Width="120"/>
+                <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="120"/>
+                <DataGridTextColumn Header="Varsta" Binding="{Binding varsta}" Width="120"/>
+                <DataGridTextColumn Header="Greutate" Binding="{Binding greutate}" Width="180"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal nou" HorizontalAlignment="Left" Margin="21,321,0,0" VerticalAlignment="Top" Width="148"  Height="39" FontSize="16" Grid.ColumnSpan="2" Click="BtnAdaugaAnimale_Click"/>
+        <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="447.2,371,0,0" VerticalAlignment="Top" Width="137" Click="BtnListaAnimale_Click" Height="30" FontSize="16" Grid.Column="1"/>
+
     </Grid>
 </Window>

@@ -20,10 +20,8 @@ namespace CabinetVeterinar
     public partial class Programare : Window
     {
         int id; //pacient
-       // int idMedic;
         DateTime data;
-        //char tipProg;
-
+  
         public Programare(int ID)
         {
             id = ID;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Intrebari" Height="500" Width="800" Icon="/Images/Vetlogo.png"
+        Title="Intrebari" Height="510" Width="800" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.Background>
@@ -18,9 +18,23 @@
         <Label x:Name="LblIntrebare" FontWeight="Bold"  Foreground="#C0C0C0" Content="Scrie o intrebare" HorizontalAlignment="Left" Margin="58,85,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
         <Label x:Name="LblTitluIntrebare" FontWeight="Bold"  Foreground="#C0C0C0" Content="SECTIUNE INTREBARI" HorizontalAlignment="Left"  Margin="309,24,0,0" VerticalAlignment="Top" Width="318" FontSize="30"/>
         <TextBox x:Name="txtIntrebare" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="58,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
-        <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Intrebarile mele" HorizontalAlignment="Left" Margin="58,166,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
-        <DataGrid HorizontalAlignment="Left" Height="167" Margin="58,208,0,0" VerticalAlignment="Top" Width="686"/>
-        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="335,405,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Intrebarile mele" HorizontalAlignment="Left" Margin="58,191,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
+        <DataGrid x:Name="gridIntrebari" HorizontalAlignment="Left" Height="167" Margin="58,233,0,0" VerticalAlignment="Top" Width="686">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="400"/>
+                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="300"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="326,420,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Posteaza" HorizontalAlignment="Left" Margin="644,169,0,0" VerticalAlignment="Top" Width="100" Click="BtnListaAnimale_Click" Height="30" FontSize="16"/>
 
     </Grid>
 </Window>

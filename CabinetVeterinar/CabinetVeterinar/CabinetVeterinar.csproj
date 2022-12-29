@@ -66,8 +66,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdaugareAnimalNou.xaml.cs">
+      <DependentUpon>AdaugareAnimalNou.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Asistenti.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Autentificare_asistent.xaml.cs">
+      <DependentUpon>Autentificare_asistent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autentificare_medic.xaml.cs">
       <DependentUpon>Autentificare_medic.xaml</DependentUpon>
@@ -135,6 +141,14 @@
     <Compile Include="Utilizatori.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AdaugareAnimalNou.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autentificare_asistent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autentificare_medic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
