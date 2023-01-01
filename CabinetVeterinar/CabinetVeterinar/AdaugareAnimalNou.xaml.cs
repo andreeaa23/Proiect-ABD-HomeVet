@@ -47,7 +47,7 @@ namespace CabinetVeterinar
                          where s.Denumire == specie
                          select s; //daca am deja specia in tabel sa n o mai adaug iar
 
-            if (specii.Count() != 0) //daca n am specia, o adaug in tabel
+            if (specii.Count() == 0) //daca n am specia, o adaug in tabel
             {
                 var specieNoua = new Specii()
                 {

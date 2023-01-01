@@ -1,7 +1,8 @@
 Sa te uiti la functiile:(necesita remediere)
--pentru afisarea listei de animale  private void BtnListaAnimale_Click(object sender, RoutedEventArgs e) 
-din autentificare user normal: incarca doar primul animal gasit, nu pe toate pentru userul respectiv
--cand adaug un nou animal mi se adauga si specia, desi ea exista in tabel. trebuie facuta modificare ca atunci cand gasesc
+
+REMEDIAT:-pentru afisarea listei de animale  private void BtnListaAnimale_Click(object sender, RoutedEventArgs e) 
+din autentificare user normal: incarca doar primul animal gasit, nu pe toate pentru userul respectiv 
+REMEDIAT:-cand adaug un nou animal mi se adauga si specia, desi ea exista in tabel. trebuie facuta modificare ca atunci cand gasesc
 specia introdusa de mine in table sa nu mi se mai introduca iar(am incercat cv da n am mai stat  sa vad dc nu merge)
 
 La grid din autentificare medici trb modificate headerele plus facut bindingul

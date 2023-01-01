@@ -107,3 +107,13 @@ C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\Ca
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.baml
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.g.cs
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.baml

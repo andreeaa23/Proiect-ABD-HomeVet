@@ -60,16 +60,17 @@ namespace CabinetVeterinar
             gridListaAnimale.Items.Clear();
 
             var context = new HomeVetEntities1();
-            var animale = from a in context.Pacienti
-                           join p in context.Pacienti
-                           on a.idPacient equals p.idPacient
+            var animale =  from a in context.Pacienti
                            join s in context.Specii
-                           on p.idSpecie equals s.idSpecie
-                           where a.idPacient == id
+                           on a.idSpecie equals s.idSpecie
+                           where a.idUtilizator == id
                            select new
                            {
-                               p,
-                               s.Denumire
+                               a.Nume,
+                               a.Varsta,
+                               a.Greutate,
+                               s.Denumire,
+
                            };
 
 
@@ -78,15 +79,15 @@ namespace CabinetVeterinar
                 foreach (var item in animale)
                 {
                     Animale animal = new Animale();
-                    animal.numeAnimal = item.p.Nume;
-                    animal.specie = item.Denumire;
-                    animal.varsta = item.p.Varsta.ToString();
-                    animal.greutate = item.p.Greutate.ToString();
+                    animal.numeAnimal = item.Nume.ToString();
+                    animal.specie = item.Denumire.ToString();
+                    animal.varsta = item.Varsta.ToString();
+                    animal.greutate = item.Greutate.ToString();
                     gridListaAnimale.Items.Add(animal);
                 }
             }
 
-            context.SaveChanges();
+          
         }
 
         private void BtnIntrebari_Click(object sender, RoutedEventArgs e)
