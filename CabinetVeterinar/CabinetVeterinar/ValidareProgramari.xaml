@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="ValidareProgramari" Height="450" Width="780" Icon="/Images/Vetlogo.png"
+        Title="ValidareProgramari" Height="460" Width="780" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.Background>
@@ -16,7 +16,7 @@
 
 
         </Grid.Background>
-        <DataGrid x:Name="dataGridProgramari" HorizontalAlignment="Left" Height="311" Margin="47,48,0,0" VerticalAlignment="Top" Width="695" >
+        <DataGrid x:Name="dataGridProgramari" AutoGenerateColumns="False" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Height="311" Margin="47,48,0,0" VerticalAlignment="Top" Width="695" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Gray"/>
@@ -25,11 +25,11 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nume stapan" Binding="{Binding numeStapan}" Width="120"/>
-                <DataGridTextColumn Header="Nume pacient" Binding="{Binding numePacient}" Width="120"/>
+                <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="120"/>
+                <DataGridTextColumn Header="Pacient" Binding="{Binding numePacient}" Width="120"/>
                 <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="120"/>
-                <DataGridTextColumn Header="Data programare" Binding="{Binding data}" Width="120"/>
-                <DataGridTextColumn Header="Tip programare" Binding="{Binding tip}" Width="180"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="120"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="180"/>
 
             </DataGrid.Columns>
         </DataGrid>

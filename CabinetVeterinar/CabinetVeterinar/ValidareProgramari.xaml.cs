@@ -35,8 +35,9 @@ namespace CabinetVeterinar
             numeMedic = nume;
             prenumeMedic = prenume;
 
-            LoadProgramari();
+         
             InitializeComponent();
+            LoadProgramari();
         }
 
 
@@ -50,6 +51,7 @@ namespace CabinetVeterinar
 
         void LoadProgramari()
         {
+           // dataGridProgramari.Items.Clear();
             var context = new HomeVetEntities1();
             var programari = (from p in context.Programari
                               join a in context.Pacienti
@@ -70,9 +72,9 @@ namespace CabinetVeterinar
        
 
                 if (programari.Count() !=0)
-            {
-                foreach(var item in programari)
                 {
+                 foreach(var item in programari)
+                 {
                     Programare prog = new Programare();
                     prog.numeStapan = item.Nume.ToString() + " " + item.Prenume.ToString();
                     prog.numePacient = item.NumeP.ToString();
@@ -84,8 +86,8 @@ namespace CabinetVeterinar
                     else
                         prog.tip = "Control";
                     dataGridProgramari.Items.Add(prog);
+                 }
                 }
-            }
         }
     }
 }
