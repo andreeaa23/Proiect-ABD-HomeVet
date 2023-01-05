@@ -94,6 +94,9 @@ namespace CabinetVeterinar
                     else if(tip == "M")
                     {
                         //to do autentificare_medic
+                        Autentificare_medic medic = new Autentificare_medic(credentials.Nume.ToString(), credentials.Prenume.ToString());
+                        medic.Show();
+                        Hide();
                       
                     }
                     else if(tip == "A")

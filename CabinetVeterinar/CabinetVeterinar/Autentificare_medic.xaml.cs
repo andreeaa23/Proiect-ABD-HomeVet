@@ -14,13 +14,17 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Autentificare_medic.xaml
-    /// </summary>
+        
+    
     public partial class Autentificare_medic : Window
     {
-        public Autentificare_medic()
+        string numeMedic, prenumeMedic;
+
+        public Autentificare_medic(string nume, string prenume)
         {
+            numeMedic = nume;
+            prenumeMedic = prenume;
+
             InitializeComponent();
         }
 
@@ -28,6 +32,13 @@ namespace CabinetVeterinar
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+
+        private void BtnProgramare_Click(object sender, RoutedEventArgs e)
+        {
+            ValidareProgramari prog = new ValidareProgramari(numeMedic, prenumeMedic);
+            prog.Show();
+            this.Hide();
         }
     }
 }

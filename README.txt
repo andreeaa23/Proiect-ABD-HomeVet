@@ -11,3 +11,5 @@ Asistent: vede programarile de la medicul de la care apartine si natura vizitei(
 medicul cred atunci cand aproba programarile are bton pt colectare probe??  probe cand selectez ceva legat de sange(cardiologie, toxicologie) sau urina(urologie)
 
 ++ la serviciile nostre ar trb adaugate si sectiile pentru fiecare cabinet selectat
+
+-- sa adaugam un camp in Programari: Status programare(acceptata/respinsa/in asteptare cand se creeaza programarea)

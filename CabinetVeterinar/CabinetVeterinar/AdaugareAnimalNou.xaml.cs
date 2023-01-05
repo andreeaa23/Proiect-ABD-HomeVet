@@ -80,6 +80,8 @@ namespace CabinetVeterinar
         private void btnAdaugare_Click(object sender, RoutedEventArgs e)
         {
             LoadAnimalNou();
+            MessageBox.Show("Adaugare animal cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
         }
     }
 }
