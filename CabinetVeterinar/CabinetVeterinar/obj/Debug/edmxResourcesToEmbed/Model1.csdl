@@ -49,9 +49,9 @@
     <Property Name="idIntrebare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idUtilizator" Type="Int32" />
     <Property Name="MesajIntrebare" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="DataIntrebare" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Intrebari" ToRole="Utilizatori" />
     <NavigationProperty Name="Raspunsuri" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Intrebari" ToRole="Raspunsuri" />
+    <Property Name="StatusIntrebare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Medici">
     <Key>
@@ -111,7 +111,6 @@
     <Property Name="idMedic" Type="Int32" />
     <Property Name="idIntrebare" Type="Int32" />
     <Property Name="MesajRaspuns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="DataRaspuns" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Intrebari" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Raspunsuri" ToRole="Intrebari" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Raspunsur__idMed__4316F928" FromRole="Raspunsuri" ToRole="Medici" />
   </EntityType>

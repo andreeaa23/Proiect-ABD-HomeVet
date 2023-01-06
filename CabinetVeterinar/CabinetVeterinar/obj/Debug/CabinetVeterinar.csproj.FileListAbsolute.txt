@@ -119,3 +119,5 @@ E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari
 E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.baml
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.g.cs
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml

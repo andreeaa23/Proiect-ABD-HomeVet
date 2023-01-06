@@ -43,10 +43,10 @@
     <EntitySetMapping Name="Intrebari">
       <EntityTypeMapping TypeName="HomeVetModel.Intrebari">
         <MappingFragment StoreEntitySet="Intrebari">
+          <ScalarProperty Name="StatusIntrebare" ColumnName="StatusIntrebare" />
           <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
           <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
           <ScalarProperty Name="MesajIntrebare" ColumnName="MesajIntrebare" />
-          <ScalarProperty Name="DataIntrebare" ColumnName="DataIntrebare" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -100,7 +100,6 @@
           <ScalarProperty Name="idMedic" ColumnName="idMedic" />
           <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
           <ScalarProperty Name="MesajRaspuns" ColumnName="MesajRaspuns" />
-          <ScalarProperty Name="DataRaspuns" ColumnName="DataRaspuns" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

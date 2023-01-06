@@ -21,6 +21,7 @@ namespace CabinetVeterinar
     {
         string numeMedic, prenumeMedic;
         int id;
+        int idMedic;
         int ok;
        // int idMedic;
         public class Programare
@@ -33,8 +34,9 @@ namespace CabinetVeterinar
             public string data { get; set; }
             public string tip { get; set; }
         }
-        public ValidareProgramari( string nume, string prenume)
+        public ValidareProgramari(int idM, string nume, string prenume)
         {
+            idMedic = idM;
             ok = 0;
             numeMedic = nume;
             prenumeMedic = prenume;
@@ -62,7 +64,7 @@ namespace CabinetVeterinar
             {
                 var context = new HomeVetEntities1();
                 var acceptare = (from p in context.Programari
-                                 where p.idProgramare == id
+                                 where p.idProgramare == id && p.idMedic == idMedic
                                  select p).Single();
                 acceptare.StatusProgramare = "Accepted";
                 context.SaveChanges();
@@ -77,8 +79,8 @@ namespace CabinetVeterinar
             if (ok == 1)
             {
                 var context = new HomeVetEntities1();
-                var acceptare = (from p in context.Programari
-                                 where p.idProgramare == id
+                var acceptare = (from p in context.Programari 
+                                 where p.idProgramare == id && p.idMedic == idMedic
                                  select p).Single();
                 acceptare.StatusProgramare = "Refused";
                 context.SaveChanges();
@@ -117,7 +119,7 @@ namespace CabinetVeterinar
                               on a.idUtilizator equals u.idUtilizator
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
-                              where p.StatusProgramare == "Pending"
+                              where p.StatusProgramare == "Pending" && p.idMedic == idMedic
                               select new
                               {
                                   p.idProgramare,

@@ -42,7 +42,7 @@
     <Property Name="idIntrebare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idUtilizator" Type="int" />
     <Property Name="MesajIntrebare" Type="text" />
-    <Property Name="DataIntrebare" Type="date" />
+    <Property Name="StatusIntrebare" Type="nvarchar" MaxLength="32" />
   </EntityType>
   <EntityType Name="Medici">
     <Key>
@@ -91,7 +91,6 @@
     <Property Name="idMedic" Type="int" />
     <Property Name="idIntrebare" Type="int" />
     <Property Name="MesajRaspuns" Type="text" />
-    <Property Name="DataRaspuns" Type="date" />
   </EntityType>
   <EntityType Name="Sectii">
     <Key>

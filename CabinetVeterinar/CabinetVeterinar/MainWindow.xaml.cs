@@ -70,21 +70,7 @@ namespace CabinetVeterinar
 
                 if (passwd.First().ToString() == password) //daca gasesc parola
                 {
-                    //var credentials = (from u in context.Utilizatori
-                    //                   where u.Email == userName
-                    //                   select new
-                    //                   {
-                    //                       u.Prenume,
-                    //                       u.Nume,
-                    //                       u.idUtilizator,
-                    //                       u.Tip
-                    //                   }).First();
-                    var tip = (from u in context.Utilizatori
-                               where u.Email == userName
-                               select u.Tip).First();
-                    if (tip == "U")
-                    {
-                        var credentials = (from u in context.Utilizatori
+                    var credentials = (from u in context.Utilizatori
                                        where u.Email == userName
                                        select new
                                        {
@@ -93,26 +79,29 @@ namespace CabinetVeterinar
                                            u.idUtilizator,
                                            u.Tip
                                        }).First();
+                    var tip = (from u in context.Utilizatori
+                               where u.Email == userName
+                               select u.Tip).First();
+                    if (tip == "U")
+                    {
+                       
                          Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString(),credentials.Tip.ToString()); //user,parola
                          auth.Show();
                          Hide();
                      }
                     else if(tip == "M")
                     {
-                        //trb sa parser userName asta ca sa iau numele si prenumele
-                        string[] words = userName.Split('.');
-                        string[] nume = words[1].Split('@');
-                        //words[0]=prenume, nume[0] = nume
-                        var credentials = (from m in context.Medici
-                                           where m.Nume == nume.ElementAt(0) && m.Prenume == words.ElementAt(0)
+                       // trb sa parser userName asta ca sa iau numele si prenumele
+                      
+                        var idMed = (from m in context.Medici
+                                           where m.Nume == credentials.Nume && m.Prenume == credentials.Prenume
                                            select new
                                            {
-                                              m.idMedic,
-                                              m.Nume,
-                                              m.Prenume
+                                               m.idMedic
                                            }).First();
+
                         //to do autentificare_medic sa preluam id ul dupa nume si prenume
-                        Autentificare_medic medic = new Autentificare_medic((int)credentials.idMedic,credentials.Nume.ToString(), credentials.Prenume.ToString());
+                        Autentificare_medic medic = new Autentificare_medic((int)idMed.idMedic,credentials.Nume.ToString(), credentials.Prenume.ToString());
                         medic.Show();
                         Hide();
                       

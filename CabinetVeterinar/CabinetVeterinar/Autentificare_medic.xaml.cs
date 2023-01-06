@@ -65,7 +65,7 @@ namespace CabinetVeterinar
                               on a.idUtilizator equals u.idUtilizator
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
-                              where p.StatusProgramare == "Accepted"
+                              where p.StatusProgramare == "Accepted" && p.idMedic == idMedic
                               select new
                               {
                                   p.idProgramare,
@@ -99,9 +99,16 @@ namespace CabinetVeterinar
 
         private void BtnProgramare_Click(object sender, RoutedEventArgs e)
         {
-            ValidareProgramari prog = new ValidareProgramari(numeMedic, prenumeMedic);
+            ValidareProgramari prog = new ValidareProgramari(idMedic,numeMedic, prenumeMedic);
             prog.Show();
            // this.Hide();
+        }
+
+        private void BtnRaspunsuri_Click(object sender, RoutedEventArgs e)
+        {
+            RaspunsuriMedic rsp = new RaspunsuriMedic(idMedic);
+            rsp.Show();
+
         }
 
         private void WriteLblMedicName(string prn, string name)

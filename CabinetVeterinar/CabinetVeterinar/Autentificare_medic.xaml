@@ -18,7 +18,7 @@
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
         <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="430,10,0,0" VerticalAlignment="Top" Width="273" FontSize="16" Height="32"/>
         <Button x:Name="BtnProgramare" Background="Gray" Foreground="#C0C0C0" Content="Accepta/Respinge" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" Width="166"  Height="39" FontSize="16" Click="BtnProgramare_Click"/>
-        <Button x:Name="BtnRaspunsuri" Content="Raspunde la intrebari" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,215,0,0" VerticalAlignment="Top" Width="166" Height="39" FontSize="16" />
+        <Button x:Name="BtnRaspunsuri" Content="Raspunde la intrebari" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,215,0,0" VerticalAlignment="Top" Width="166" Height="39" FontSize="16" Click="BtnRaspunsuri_Click" />
         <Button x:Name="BtnListaProgramari" Background="Gray" Foreground="#C0C0C0" Content="Lista programari" HorizontalAlignment="Left" Margin="21,310,0,0" VerticalAlignment="Top" Width="166"  Height="39" FontSize="16" Grid.ColumnSpan="2" Click="BtnListaProgramari_Click"/>
         <DataGrid x:Name="gridListaProgramari" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="227,77,0,0" VerticalAlignment="Top" Width="518">
             <DataGrid.Resources>

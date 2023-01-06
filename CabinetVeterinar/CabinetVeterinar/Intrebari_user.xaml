@@ -28,13 +28,14 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="400"/>
-                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="300"/>
+                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="200"/>
+                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="200"/>
+                <DataGridTextColumn Header="Medic" Binding="{Binding medic}" Width="200"/>
 
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="326,420,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
-        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Posteaza" HorizontalAlignment="Left" Margin="644,169,0,0" VerticalAlignment="Top" Width="100" Click="BtnListaAnimale_Click" Height="30" FontSize="16"/>
+        <Button x:Name="BtnAdaugaIntrebare" Background="Gray" Foreground="#C0C0C0" Content="Posteaza" HorizontalAlignment="Left" Margin="644,169,0,0" VerticalAlignment="Top" Width="100" Click="BtnAdaugaIntrebare_Click" Height="30" FontSize="16"/>
 
     </Grid>
 </Window>

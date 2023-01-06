@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HomeVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HomeVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asistenti">
           <Key>
             <PropertyRef Name="idAsistent" />
@@ -47,7 +47,7 @@
           <Property Name="idIntrebare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idUtilizator" Type="int" />
           <Property Name="MesajIntrebare" Type="text" />
-          <Property Name="DataIntrebare" Type="date" />
+          <Property Name="StatusIntrebare" Type="nvarchar" MaxLength="32" />
         </EntityType>
         <EntityType Name="Medici">
           <Key>
@@ -96,7 +96,6 @@
           <Property Name="idMedic" Type="int" />
           <Property Name="idIntrebare" Type="int" />
           <Property Name="MesajRaspuns" Type="text" />
-          <Property Name="DataRaspuns" Type="date" />
         </EntityType>
         <EntityType Name="Sectii">
           <Key>
@@ -389,8 +388,7 @@
             <End Role="Raspunsuri" EntitySet="Raspunsuri" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HomeVetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -443,9 +441,9 @@
           <Property Name="idIntrebare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idUtilizator" Type="Int32" />
           <Property Name="MesajIntrebare" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DataIntrebare" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Intrebari" ToRole="Utilizatori" />
           <NavigationProperty Name="Raspunsuri" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Intrebari" ToRole="Raspunsuri" />
+          <Property Name="StatusIntrebare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Medici">
           <Key>
@@ -505,7 +503,6 @@
           <Property Name="idMedic" Type="Int32" />
           <Property Name="idIntrebare" Type="Int32" />
           <Property Name="MesajRaspuns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DataRaspuns" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Intrebari" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Raspunsuri" ToRole="Intrebari" />
           <NavigationProperty Name="Medici" Relationship="Self.FK__Raspunsur__idMed__4316F928" FromRole="Raspunsuri" ToRole="Medici" />
         </EntityType>
@@ -862,10 +859,10 @@
           <EntitySetMapping Name="Intrebari">
             <EntityTypeMapping TypeName="HomeVetModel.Intrebari">
               <MappingFragment StoreEntitySet="Intrebari">
+                <ScalarProperty Name="StatusIntrebare" ColumnName="StatusIntrebare" />
                 <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
                 <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
                 <ScalarProperty Name="MesajIntrebare" ColumnName="MesajIntrebare" />
-                <ScalarProperty Name="DataIntrebare" ColumnName="DataIntrebare" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -919,7 +916,6 @@
                 <ScalarProperty Name="idMedic" ColumnName="idMedic" />
                 <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
                 <ScalarProperty Name="MesajRaspuns" ColumnName="MesajRaspuns" />
-                <ScalarProperty Name="DataRaspuns" ColumnName="DataRaspuns" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -23,7 +23,7 @@ namespace CabinetVeterinar
         public int idIntrebare { get; set; }
         public Nullable<int> idUtilizator { get; set; }
         public string MesajIntrebare { get; set; }
-        public Nullable<System.DateTime> DataIntrebare { get; set; }
+        public string StatusIntrebare { get; set; }
     
         public virtual Utilizatori Utilizatori { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

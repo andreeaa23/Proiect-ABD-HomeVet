@@ -18,7 +18,6 @@ namespace CabinetVeterinar
         public Nullable<int> idMedic { get; set; }
         public Nullable<int> idIntrebare { get; set; }
         public string MesajRaspuns { get; set; }
-        public Nullable<System.DateTime> DataRaspuns { get; set; }
     
         public virtual Intrebari Intrebari { get; set; }
         public virtual Medici Medici { get; set; }
