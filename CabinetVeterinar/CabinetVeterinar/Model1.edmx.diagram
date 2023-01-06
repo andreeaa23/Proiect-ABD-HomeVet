@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="24f5e5db33b04c9d9949cb102cb6b6b4" Name="Diagram1">
+      <Diagram DiagramId="422a17d92aad43cfa6422ad2c1955914" Name="Diagram1">
         <EntityTypeShape EntityType="HomeVetModel.Asistenti" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeVetModel.Cabinete" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeVetModel.CabineteSectii" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="HomeVetModel.Raspunsuri" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeVetModel.Sectii" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeVetModel.Specii" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeVetModel.Utilizatori" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
         <AssociationConnector Association="HomeVetModel.FK__Asistenti__idMed__36B12243" ManuallyRouted="false" />
         <AssociationConnector Association="HomeVetModel.FK__ProbeCole__idAsi__46E78A0C" ManuallyRouted="false" />

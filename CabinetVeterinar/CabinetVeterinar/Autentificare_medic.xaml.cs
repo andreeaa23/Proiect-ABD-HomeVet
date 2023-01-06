@@ -19,13 +19,26 @@ namespace CabinetVeterinar
     public partial class Autentificare_medic : Window
     {
         string numeMedic, prenumeMedic;
+        int idMedic;
 
-        public Autentificare_medic(string nume, string prenume)
+        public Autentificare_medic(int ID, string nume, string prenume)
         {
             numeMedic = nume;
             prenumeMedic = prenume;
+            idMedic = ID;
 
             InitializeComponent();
+            WriteLblMedicName(prenume, nume);
+        }
+
+        public class Programare
+        {
+            public string numeStapan { get; set; }
+            public string numePacient { get; set; }
+
+            public string specie { get; set; }
+            public string data { get; set; }
+            public string tip { get; set; }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -34,11 +47,66 @@ namespace CabinetVeterinar
                 DragMove();
         }
 
+        private void BtnDeconectare_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Application.Current.MainWindow.Show();
+        }
+
+        private void BtnListaProgramari_Click(object sender, RoutedEventArgs e)
+        {
+            gridListaProgramari.Items.Clear();
+
+            var context = new HomeVetEntities1();
+            var programari = (from p in context.Programari
+                              join a in context.Pacienti
+                              on p.idPacient equals a.idPacient
+                              join u in context.Utilizatori
+                              on a.idUtilizator equals u.idUtilizator
+                              join s in context.Specii
+                              on a.idSpecie equals s.idSpecie
+                              where p.StatusProgramare == "Accepted"
+                              select new
+                              {
+                                  p.idProgramare,
+                                  u.Nume,
+                                  u.Prenume,
+                                  NumeP = a.Nume,
+                                  s.Denumire,
+                                  p.DataProgramare,
+                                  p.Tip
+                              });
+
+
+            if (programari.Count() != 0)
+            {
+                foreach (var item in programari)
+                {
+                    Programare prog = new Programare();
+                    prog.numeStapan = item.Nume.ToString() + " " + item.Prenume.ToString();
+                    prog.numePacient = item.NumeP.ToString();
+                    prog.specie = item.Denumire.ToString();
+                    prog.data = item.DataProgramare.ToString();
+
+                    if (item.Tip == "D")
+                        prog.tip = "Urgenta";
+                    else
+                        prog.tip = "Control";
+                    gridListaProgramari.Items.Add(prog);
+                }
+            }
+        }
+
         private void BtnProgramare_Click(object sender, RoutedEventArgs e)
         {
             ValidareProgramari prog = new ValidareProgramari(numeMedic, prenumeMedic);
             prog.Show();
-            this.Hide();
+           // this.Hide();
+        }
+
+        private void WriteLblMedicName(string prn, string name)
+        {
+            LblUserName.Content = "Hello, " + name + " " + prn; //to do aici
         }
     }
 }

@@ -40,7 +40,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal nou" HorizontalAlignment="Left" Margin="21,321,0,0" VerticalAlignment="Top" Width="148"  Height="39" FontSize="16" Grid.ColumnSpan="2" Click="BtnAdaugaAnimale_Click"/>
-        <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="447.2,371,0,0" VerticalAlignment="Top" Width="137" Click="BtnListaAnimale_Click" Height="30" FontSize="16" Grid.Column="1"/>
+        <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="447.2,371,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Grid.Column="1" Click="BtnDeconectare_Click"/>
 
     </Grid>
 </Window>

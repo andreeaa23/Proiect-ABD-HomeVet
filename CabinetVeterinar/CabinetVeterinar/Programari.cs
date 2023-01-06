@@ -25,6 +25,7 @@ namespace CabinetVeterinar
         public Nullable<int> idMedic { get; set; }
         public Nullable<System.DateTime> DataProgramare { get; set; }
         public string Tip { get; set; }
+        public string StatusProgramare { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Consultatii> Consultatii { get; set; }
