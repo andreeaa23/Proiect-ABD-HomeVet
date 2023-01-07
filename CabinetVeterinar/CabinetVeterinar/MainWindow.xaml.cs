@@ -109,6 +109,15 @@ namespace CabinetVeterinar
                     else if(tip == "A")
                     {
                         //to do autentificare_asistent
+                        var idAsist = (from a in context.Asistenti
+                                       where a.Nume == credentials.Nume && a.Prenume == credentials.Prenume
+                                       select new
+                                       {
+                                           a.idAsistent
+                                       }).First();
+                        Autentificare_asistent asist = new Autentificare_asistent((int)idAsist.idAsistent, credentials.Nume.ToString(), credentials.Prenume.ToString());
+                        asist.Show();
+                        Hide();
                     }
                 }
                 else
@@ -126,4 +135,5 @@ namespace CabinetVeterinar
             Hide();
         }
     }
+    
 }
