@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="RaspunsuriMedic" Height="450" Width="800" Icon="/Images/Vetlogo.png"
+        Title="RaspunsuriMedic" Height="500" Width="800" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.Background>
@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Image x:Name="btnImagine"  Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="gridRaspunsuri" HorizontalAlignment="Left" Height="274" Margin="28,79,0,0" VerticalAlignment="Top" Width="742">
+        <DataGrid x:Name="gridRaspunsuri" HorizontalAlignment="Left" Height="274" Margin="28,79,0,0" VerticalAlignment="Top" Width="742" MouseLeftButtonUp="gridRaspunsuri_MouseLeftButtonUp">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="White"/>
@@ -24,11 +24,16 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="IdIntrebare" Binding="{Binding id}" Width="200"/>
                 <DataGridTextColumn Header="Utilizator" Binding="{Binding user}" Width="200"/>
-                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="200"/>
-                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="200"/>
+                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="250"/>
+
             </DataGrid.Columns>
+
         </DataGrid>
-        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="332,370,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="668,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Button x:Name="btnRaspunde" Content="Raspunde" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="533,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnRaspunde_Click"/>
+        <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Intrebarile mele" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
+        <TextBox x:Name="txtRaspuns" HorizontalAlignment="Left" Height="45" Margin="28,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="480"/>
     </Grid>
 </Window>

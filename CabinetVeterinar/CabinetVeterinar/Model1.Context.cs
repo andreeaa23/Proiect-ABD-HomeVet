@@ -36,7 +36,6 @@ namespace CabinetVeterinar
         public virtual DbSet<Pacienti> Pacienti { get; set; }
         public virtual DbSet<ProbeColectate> ProbeColectate { get; set; }
         public virtual DbSet<Programari> Programari { get; set; }
-        public virtual DbSet<Raspunsuri> Raspunsuri { get; set; }
         public virtual DbSet<Sectii> Sectii { get; set; }
         public virtual DbSet<Specii> Specii { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

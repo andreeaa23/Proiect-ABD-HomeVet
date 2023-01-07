@@ -49,9 +49,11 @@
     <Property Name="idIntrebare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idUtilizator" Type="Int32" />
     <Property Name="MesajIntrebare" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Intrebari" ToRole="Utilizatori" />
-    <NavigationProperty Name="Raspunsuri" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Intrebari" ToRole="Raspunsuri" />
     <Property Name="StatusIntrebare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="MesajRaspuns" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="idMedic" Type="Int32" />
+    <NavigationProperty Name="Medici" Relationship="Self.FK__Intrebari__idMed__5AEE82B9" FromRole="Intrebari" ToRole="Medici" />
+    <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Intrebari" ToRole="Utilizatori" />
   </EntityType>
   <EntityType Name="Medici">
     <Key>
@@ -63,8 +65,8 @@
     <Property Name="Prenume" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Asistenti" Relationship="Self.FK__Asistenti__idMed__36B12243" FromRole="Medici" ToRole="Asistenti" />
     <NavigationProperty Name="CabineteSectii" Relationship="Self.FK__Medici__idCabine__33D4B598" FromRole="Medici" ToRole="CabineteSectii" />
+    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idMed__5AEE82B9" FromRole="Medici" ToRole="Intrebari" />
     <NavigationProperty Name="Programari" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Medici" ToRole="Programari" />
-    <NavigationProperty Name="Raspunsuri" Relationship="Self.FK__Raspunsur__idMed__4316F928" FromRole="Medici" ToRole="Raspunsuri" />
   </EntityType>
   <EntityType Name="Pacienti">
     <Key>
@@ -102,17 +104,6 @@
     <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Programari" ToRole="Consultatii" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Programari" ToRole="Medici" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Programar__idPac__398D8EEE" FromRole="Programari" ToRole="Pacienti" />
-  </EntityType>
-  <EntityType Name="Raspunsuri">
-    <Key>
-      <PropertyRef Name="idRaspuns" />
-    </Key>
-    <Property Name="idRaspuns" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idMedic" Type="Int32" />
-    <Property Name="idIntrebare" Type="Int32" />
-    <Property Name="MesajRaspuns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Raspunsur__idInt__440B1D61" FromRole="Raspunsuri" ToRole="Intrebari" />
-    <NavigationProperty Name="Medici" Relationship="Self.FK__Raspunsur__idMed__4316F928" FromRole="Raspunsuri" ToRole="Medici" />
   </EntityType>
   <EntityType Name="Sectii">
     <Key>
@@ -226,6 +217,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Intrebari__idMed__5AEE82B9">
+    <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
+    <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medici">
+        <PropertyRef Name="idMedic" />
+      </Principal>
+      <Dependent Role="Intrebari">
+        <PropertyRef Name="idMedic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Intrebari__idUti__403A8C7D">
     <End Role="Utilizatori" Type="Self.Utilizatori" Multiplicity="0..1" />
     <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
@@ -238,18 +241,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raspunsur__idInt__440B1D61">
-    <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="0..1" />
-    <End Role="Raspunsuri" Type="Self.Raspunsuri" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Intrebari">
-        <PropertyRef Name="idIntrebare" />
-      </Principal>
-      <Dependent Role="Raspunsuri">
-        <PropertyRef Name="idIntrebare" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Programar__idMed__3A81B327">
     <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
     <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
@@ -258,18 +249,6 @@
         <PropertyRef Name="idMedic" />
       </Principal>
       <Dependent Role="Programari">
-        <PropertyRef Name="idMedic" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Raspunsur__idMed__4316F928">
-    <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
-    <End Role="Raspunsuri" Type="Self.Raspunsuri" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Medici">
-        <PropertyRef Name="idMedic" />
-      </Principal>
-      <Dependent Role="Raspunsuri">
         <PropertyRef Name="idMedic" />
       </Dependent>
     </ReferentialConstraint>
@@ -320,7 +299,6 @@
     <EntitySet Name="Pacienti" EntityType="Self.Pacienti" />
     <EntitySet Name="ProbeColectate" EntityType="Self.ProbeColectate" />
     <EntitySet Name="Programari" EntityType="Self.Programari" />
-    <EntitySet Name="Raspunsuri" EntityType="Self.Raspunsuri" />
     <EntitySet Name="Sectii" EntityType="Self.Sectii" />
     <EntitySet Name="Specii" EntityType="Self.Specii" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -349,21 +327,17 @@
       <End Role="Programari" EntitySet="Programari" />
       <End Role="Consultatii" EntitySet="Consultatii" />
     </AssociationSet>
+    <AssociationSet Name="FK__Intrebari__idMed__5AEE82B9" Association="Self.FK__Intrebari__idMed__5AEE82B9">
+      <End Role="Medici" EntitySet="Medici" />
+      <End Role="Intrebari" EntitySet="Intrebari" />
+    </AssociationSet>
     <AssociationSet Name="FK__Intrebari__idUti__403A8C7D" Association="Self.FK__Intrebari__idUti__403A8C7D">
       <End Role="Utilizatori" EntitySet="Utilizatori" />
       <End Role="Intrebari" EntitySet="Intrebari" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raspunsur__idInt__440B1D61" Association="Self.FK__Raspunsur__idInt__440B1D61">
-      <End Role="Intrebari" EntitySet="Intrebari" />
-      <End Role="Raspunsuri" EntitySet="Raspunsuri" />
-    </AssociationSet>
     <AssociationSet Name="FK__Programar__idMed__3A81B327" Association="Self.FK__Programar__idMed__3A81B327">
       <End Role="Medici" EntitySet="Medici" />
       <End Role="Programari" EntitySet="Programari" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Raspunsur__idMed__4316F928" Association="Self.FK__Raspunsur__idMed__4316F928">
-      <End Role="Medici" EntitySet="Medici" />
-      <End Role="Raspunsuri" EntitySet="Raspunsuri" />
     </AssociationSet>
     <AssociationSet Name="FK__Pacienti__idSpec__29572725" Association="Self.FK__Pacienti__idSpec__29572725">
       <End Role="Specii" EntitySet="Specii" />

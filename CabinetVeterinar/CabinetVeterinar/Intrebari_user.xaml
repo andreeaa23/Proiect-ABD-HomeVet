@@ -29,7 +29,7 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="200"/>
-                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="200"/>
+                <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="250"/>
                 <DataGridTextColumn Header="Medic" Binding="{Binding medic}" Width="200"/>
 
             </DataGrid.Columns>

@@ -14,19 +14,14 @@ namespace CabinetVeterinar
     
     public partial class Intrebari
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Intrebari()
-        {
-            this.Raspunsuri = new HashSet<Raspunsuri>();
-        }
-    
         public int idIntrebare { get; set; }
         public Nullable<int> idUtilizator { get; set; }
         public string MesajIntrebare { get; set; }
         public string StatusIntrebare { get; set; }
+        public string MesajRaspuns { get; set; }
+        public Nullable<int> idMedic { get; set; }
     
+        public virtual Medici Medici { get; set; }
         public virtual Utilizatori Utilizatori { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Raspunsuri> Raspunsuri { get; set; }
     }
 }

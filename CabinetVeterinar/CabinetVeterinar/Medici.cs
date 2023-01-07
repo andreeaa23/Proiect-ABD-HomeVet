@@ -18,8 +18,8 @@ namespace CabinetVeterinar
         public Medici()
         {
             this.Asistenti = new HashSet<Asistenti>();
+            this.Intrebari = new HashSet<Intrebari>();
             this.Programari = new HashSet<Programari>();
-            this.Raspunsuri = new HashSet<Raspunsuri>();
         }
     
         public int idMedic { get; set; }
@@ -31,8 +31,8 @@ namespace CabinetVeterinar
         public virtual ICollection<Asistenti> Asistenti { get; set; }
         public virtual CabineteSectii CabineteSectii { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Programari> Programari { get; set; }
+        public virtual ICollection<Intrebari> Intrebari { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Raspunsuri> Raspunsuri { get; set; }
+        public virtual ICollection<Programari> Programari { get; set; }
     }
 }

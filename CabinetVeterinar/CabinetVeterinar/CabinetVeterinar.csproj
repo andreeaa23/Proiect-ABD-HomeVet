@@ -126,9 +126,6 @@
     <Compile Include="Programari.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Raspunsuri.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="RaspunsuriMedic.xaml.cs">
       <DependentUpon>RaspunsuriMedic.xaml</DependentUpon>
     </Compile>

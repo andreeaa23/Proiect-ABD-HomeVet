@@ -63,7 +63,10 @@ namespace CabinetVeterinar
             var intrebareNoua = new Intrebari()
             {
                 idUtilizator = idUser,
+                idMedic = null,
+
                 MesajIntrebare = intrebare,
+                MesajRaspuns = "",
                 StatusIntrebare = "NU"
                 
             };
@@ -78,36 +81,32 @@ namespace CabinetVeterinar
             gridIntrebari.Items.Clear();
             var context = new HomeVetEntities1();
             var intrebari = (from i in context.Intrebari
-                            where i.idUtilizator == idUser
-                            select i);
+                             join m in context.Medici on i.idMedic equals m.idMedic
+                             where i.idUtilizator == idUser
+                             select new
+                             {
+                                 m.Nume,
+                                 m.Prenume,
+                                 i
+                             });
 
-            int ok;
+           
 
             if (intrebari.Count() != 0)
             {
                 foreach (var item in intrebari)
                 {
 
-                    var raspunsuri = (from r in context.Raspunsuri
-                                      select r); //pt fiecare intrebare ii iau raspunsul
+                  
 
                     Intrebare intrb = new Intrebare();
-                    intrb.intrebare = item.MesajIntrebare.ToString();
+                    intrb.intrebare = item.i.MesajIntrebare.ToString();
+                    intrb.raspuns = item.i.MesajRaspuns.ToString();
+                    intrb.medic = item.Nume.ToString() + " " + item.Prenume.ToString();
                   
-                    ok = 0;
+                 
 
-                    foreach (var itemR in raspunsuri)
-                    {
-                        if (item.idIntrebare == itemR.idIntrebare)
-                        {
-                            ok = 1;
-                            intrb.raspuns = itemR.MesajRaspuns;
-                        }
-                     
-                     if(ok==0)
-                         intrb.raspuns = "-";
-                     
-                    }
+                 
                     gridIntrebari.Items.Add(intrb);
 
                 }
