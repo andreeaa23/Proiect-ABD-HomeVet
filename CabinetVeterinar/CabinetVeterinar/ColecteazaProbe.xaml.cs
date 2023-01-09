@@ -28,7 +28,7 @@ namespace CabinetVeterinar
             InitializeComponent();
             LoadProgramari();
         }
-
+       
         public class Programare
         {
             public int id { get; set; }
@@ -144,11 +144,22 @@ namespace CabinetVeterinar
         private void cbAsistenti_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             LoadLocatieProgramare();
+            //aici trb sa preluam id ul asistentului
         }
 
         private void BtnModifica_Click(object sender, RoutedEventArgs e)
         {
             //to do
+            var context = new HomeVetEntities1();
+
+
+
+            var newUpdate = new ProbeColectate()
+            {
+                idProgramare = id,
+                Locatie = cbLocatie.Text
+                //   idAsistent
+            };
         }
     }
 }
