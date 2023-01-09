@@ -77,9 +77,10 @@
     <EntitySetMapping Name="ProbeColectate">
       <EntityTypeMapping TypeName="HomeVetModel.ProbeColectate">
         <MappingFragment StoreEntitySet="ProbeColectate">
+          <ScalarProperty Name="Locatie" ColumnName="Locatie" />
+          <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
           <ScalarProperty Name="idProba" ColumnName="idProba" />
           <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
-          <ScalarProperty Name="TipProba" ColumnName="TipProba" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

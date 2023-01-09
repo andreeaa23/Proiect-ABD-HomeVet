@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HomeVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HomeVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asistenti">
           <Key>
             <PropertyRef Name="idAsistent" />
@@ -77,7 +77,8 @@
           </Key>
           <Property Name="idProba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idAsistent" Type="int" />
-          <Property Name="TipProba" Type="nvarchar" MaxLength="16" />
+          <Property Name="idProgramare" Type="int" />
+          <Property Name="Locatie" Type="nvarchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="Programari">
           <Key>
@@ -246,6 +247,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ProbeCole__idPro__5BE2A6F2">
+          <End Role="Programari" Type="Self.Programari" Multiplicity="0..1" />
+          <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programari">
+              <PropertyRef Name="idProgramare" />
+            </Principal>
+            <Dependent Role="ProbeColectate">
+              <PropertyRef Name="idProgramare" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Programar__idMed__3A81B327">
           <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
           <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
@@ -355,6 +368,10 @@
             <End Role="Asistenti" EntitySet="Asistenti" />
             <End Role="ProbeColectate" EntitySet="ProbeColectate" />
           </AssociationSet>
+          <AssociationSet Name="FK__ProbeCole__idPro__5BE2A6F2" Association="Self.FK__ProbeCole__idPro__5BE2A6F2">
+            <End Role="Programari" EntitySet="Programari" />
+            <End Role="ProbeColectate" EntitySet="ProbeColectate" />
+          </AssociationSet>
           <AssociationSet Name="FK__Programar__idMed__3A81B327" Association="Self.FK__Programar__idMed__3A81B327">
             <End Role="Medici" EntitySet="Medici" />
             <End Role="Programari" EntitySet="Programari" />
@@ -364,8 +381,7 @@
             <End Role="Programari" EntitySet="Programari" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HomeVetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -457,8 +473,10 @@
           </Key>
           <Property Name="idProba" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idAsistent" Type="Int32" />
-          <Property Name="TipProba" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Asistenti" Relationship="Self.FK__ProbeCole__idAsi__46E78A0C" FromRole="ProbeColectate" ToRole="Asistenti" />
+          <Property Name="idProgramare" Type="Int32" />
+          <Property Name="Locatie" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Programari" Relationship="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2" FromRole="ProbeColectate" ToRole="Programari" />
         </EntityType>
         <EntityType Name="Programari">
           <Key>
@@ -473,6 +491,7 @@
           <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Programari" ToRole="Consultatii" />
           <NavigationProperty Name="Medici" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Programari" ToRole="Medici" />
           <NavigationProperty Name="Pacienti" Relationship="Self.FK__Programar__idPac__398D8EEE" FromRole="Programari" ToRole="Pacienti" />
+          <NavigationProperty Name="ProbeColectate" Relationship="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2" FromRole="Programari" ToRole="ProbeColectate" />
         </EntityType>
         <EntityType Name="Sectii">
           <Key>
@@ -750,6 +769,10 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <AssociationSet Name="FK__ProbeCole__idPro__5BE2A6F2" Association="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2">
+            <End Role="Programari" EntitySet="Programari" />
+            <End Role="ProbeColectate" EntitySet="ProbeColectate" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -762,6 +785,18 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <Association Name="FK__ProbeCole__idPro__5BE2A6F2">
+          <End Type="HomeVetModel.Programari" Role="Programari" Multiplicity="0..1" />
+          <End Type="HomeVetModel.ProbeColectate" Role="ProbeColectate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programari">
+              <PropertyRef Name="idProgramare" />
+            </Principal>
+            <Dependent Role="ProbeColectate">
+              <PropertyRef Name="idProgramare" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -844,9 +879,10 @@
           <EntitySetMapping Name="ProbeColectate">
             <EntityTypeMapping TypeName="HomeVetModel.ProbeColectate">
               <MappingFragment StoreEntitySet="ProbeColectate">
+                <ScalarProperty Name="Locatie" ColumnName="Locatie" />
+                <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
                 <ScalarProperty Name="idProba" ColumnName="idProba" />
                 <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
-                <ScalarProperty Name="TipProba" ColumnName="TipProba" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

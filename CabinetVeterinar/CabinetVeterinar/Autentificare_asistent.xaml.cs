@@ -50,6 +50,11 @@ namespace CabinetVeterinar
             Application.Current.MainWindow.Show();
         }
 
+        private void WriteLblMedicName(string prn, string name)
+        {
+            LblUserName.Content = "Hello, " + name + " " + prn; 
+        }
+
         private void BtnListaProgramari_Click(object sender, RoutedEventArgs e)
         {
             gridListaProgramari.Items.Clear();

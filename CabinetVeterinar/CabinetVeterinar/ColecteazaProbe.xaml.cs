@@ -14,25 +14,24 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-        
-    
-    public partial class Autentificare_medic : Window
+    /// <summary>
+    /// Interaction logic for ColecteazaProbe.xaml
+    /// </summary>
+    public partial class ColecteazaProbe : Window
     {
-        string numeMedic, prenumeMedic;
+        int ok = 0;
+        int id;
         int idMedic;
-
-        public Autentificare_medic(int ID, string nume, string prenume)
+        public ColecteazaProbe(int id)
         {
-            numeMedic = nume;
-            prenumeMedic = prenume;
-            idMedic = ID;
-
+            idMedic = id;
             InitializeComponent();
-            WriteLblMedicName(prenume, nume);
+            LoadProgramari();
         }
 
         public class Programare
         {
+            public int id { get; set; }
             public string numeStapan { get; set; }
             public string numePacient { get; set; }
 
@@ -41,22 +40,46 @@ namespace CabinetVeterinar
             public string tip { get; set; }
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
-        }
-
         private void BtnDeconectare_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             Application.Current.MainWindow.Show();
         }
 
-        private void BtnListaProgramari_Click(object sender, RoutedEventArgs e)
+        public void LoadLocatieProgramare()
+        {
+            cbLocatie.Items.Clear();
+            cbLocatie.Items.Add("Domiciliu");
+            cbLocatie.Items.Add("Cabinet");
+        }
+
+        public void LoadAsistenti()
+        {
+            cbAsistenti.Items.Clear();
+            var context = new HomeVetEntities1();
+
+            var asistenti = from a in context.Asistenti
+                            where a.idMedic == idMedic
+                            select new
+                            {
+                                a.Nume,
+                                a.Prenume
+                            };
+
+            if(asistenti.Count()!=0)
+            {
+                foreach(var item in asistenti)
+                {
+                    cbAsistenti.Items.Add(item.Nume + " " + item.Prenume);
+                } 
+            }
+
+
+
+        }
+         public void LoadProgramari()
         {
             gridListaProgramari.Items.Clear();
-
             var context = new HomeVetEntities1();
             var programari = (from p in context.Programari
                               join a in context.Pacienti
@@ -66,6 +89,7 @@ namespace CabinetVeterinar
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
                               where p.StatusProgramare == "Accepted" && p.idMedic == idMedic
+                              orderby p.Tip descending ,p.DataProgramare
                               select new
                               {
                                   p.idProgramare,
@@ -83,6 +107,7 @@ namespace CabinetVeterinar
                 foreach (var item in programari)
                 {
                     Programare prog = new Programare();
+                    prog.id = item.idProgramare;
                     prog.numeStapan = item.Nume.ToString() + " " + item.Prenume.ToString();
                     prog.numePacient = item.NumeP.ToString();
                     prog.specie = item.Denumire.ToString();
@@ -95,31 +120,35 @@ namespace CabinetVeterinar
                     gridListaProgramari.Items.Add(prog);
                 }
             }
-        }
-
-        private void BtnProgramare_Click(object sender, RoutedEventArgs e)
-        {
-            ValidareProgramari prog = new ValidareProgramari(idMedic,numeMedic, prenumeMedic);
-            prog.Show();
-           // this.Hide();
-        }
-
-        private void BtnRaspunsuri_Click(object sender, RoutedEventArgs e)
-        {
-            RaspunsuriMedic rsp = new RaspunsuriMedic(idMedic);
-            rsp.Show();
 
         }
 
-        private void BtnUpdatareProgramare_Click(object sender, RoutedEventArgs e)
+        private void gridListaProgramari_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ColecteazaProbe probe = new ColecteazaProbe(idMedic);
-            probe.Show();
+            ok = 1;
+            string cellValue = "";
+            foreach (DataGridCellInfo cell in gridListaProgramari.SelectedCells)
+            {
+                if (cell.Column.Header.ToString() == "ID")
+                {
+                    object cellContent = cell.Column.GetCellContent(cell.Item);
+                    if (cellContent is TextBlock)
+                        cellValue = ((TextBlock)cellContent).Text;
+                    break;
+                }
+            }
+            Int32.TryParse(cellValue, out id);
+            LoadAsistenti();
         }
 
-        private void WriteLblMedicName(string prn, string name)
+        private void cbAsistenti_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            LblUserName.Content = "Hello, " + name + " " + prn; //to do aici
+            LoadLocatieProgramare();
+        }
+
+        private void BtnModifica_Click(object sender, RoutedEventArgs e)
+        {
+            //to do
         }
     }
 }

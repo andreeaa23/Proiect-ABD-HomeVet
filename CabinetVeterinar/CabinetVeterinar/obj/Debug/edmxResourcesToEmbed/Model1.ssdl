@@ -72,7 +72,8 @@
     </Key>
     <Property Name="idProba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idAsistent" Type="int" />
-    <Property Name="TipProba" Type="nvarchar" MaxLength="16" />
+    <Property Name="idProgramare" Type="int" />
+    <Property Name="Locatie" Type="nvarchar" MaxLength="64" />
   </EntityType>
   <EntityType Name="Programari">
     <Key>
@@ -241,6 +242,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__ProbeCole__idPro__5BE2A6F2">
+    <End Role="Programari" Type="Self.Programari" Multiplicity="0..1" />
+    <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programari">
+        <PropertyRef Name="idProgramare" />
+      </Principal>
+      <Dependent Role="ProbeColectate">
+        <PropertyRef Name="idProgramare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Programar__idMed__3A81B327">
     <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
     <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
@@ -348,6 +361,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__ProbeCole__idAsi__46E78A0C" Association="Self.FK__ProbeCole__idAsi__46E78A0C">
       <End Role="Asistenti" EntitySet="Asistenti" />
+      <End Role="ProbeColectate" EntitySet="ProbeColectate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProbeCole__idPro__5BE2A6F2" Association="Self.FK__ProbeCole__idPro__5BE2A6F2">
+      <End Role="Programari" EntitySet="Programari" />
       <End Role="ProbeColectate" EntitySet="ProbeColectate" />
     </AssociationSet>
     <AssociationSet Name="FK__Programar__idMed__3A81B327" Association="Self.FK__Programar__idMed__3A81B327">

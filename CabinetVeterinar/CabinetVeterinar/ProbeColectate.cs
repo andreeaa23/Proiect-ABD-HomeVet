@@ -16,8 +16,10 @@ namespace CabinetVeterinar
     {
         public int idProba { get; set; }
         public Nullable<int> idAsistent { get; set; }
-        public string TipProba { get; set; }
+        public Nullable<int> idProgramare { get; set; }
+        public string Locatie { get; set; }
     
         public virtual Asistenti Asistenti { get; set; }
+        public virtual Programari Programari { get; set; }
     }
 }

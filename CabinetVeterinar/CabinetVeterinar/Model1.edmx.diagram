@@ -30,6 +30,7 @@
         <AssociationConnector Association="HomeVetModel.FK__Pacienti__idSpec__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="HomeVetModel.FK__Pacienti__idUtil__286302EC" ManuallyRouted="false" />
         <AssociationConnector Association="HomeVetModel.FK__Programar__idPac__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
