@@ -123,3 +123,9 @@ C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\Ca
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.g.cs
 C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml

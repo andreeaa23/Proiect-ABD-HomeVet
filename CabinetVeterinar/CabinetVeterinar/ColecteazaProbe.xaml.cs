@@ -20,7 +20,8 @@ namespace CabinetVeterinar
     public partial class ColecteazaProbe : Window
     {
         int ok = 0;
-        int id;
+        int idProgramare;
+        int idAsistent;
         int idMedic;
         public ColecteazaProbe(int id)
         {
@@ -137,13 +138,22 @@ namespace CabinetVeterinar
                     break;
                 }
             }
-            Int32.TryParse(cellValue, out id);
+            Int32.TryParse(cellValue, out idProgramare);
             LoadAsistenti();
         }
 
         private void cbAsistenti_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             LoadLocatieProgramare();
+            var context = new HomeVetEntities1();
+            string[] vars = cbAsistenti.SelectedItem.ToString().Split(' ');
+            string n = vars[0];
+            string p = vars[1];
+            var id = (from a in context.Asistenti
+                     where a.Nume == n && a.Prenume == p
+                     select a.idAsistent).First();
+
+            idAsistent = id;
             //aici trb sa preluam id ul asistentului
         }
 
@@ -156,10 +166,12 @@ namespace CabinetVeterinar
 
             var newUpdate = new ProbeColectate()
             {
-                idProgramare = id,
-                Locatie = cbLocatie.Text
-                //   idAsistent
+                idProgramare = idProgramare,
+                Locatie = cbLocatie.Text,
+                idAsistent=idAsistent
             };
+            context.ProbeColectate.Add(newUpdate);
+            context.SaveChanges();
         }
     }
 }

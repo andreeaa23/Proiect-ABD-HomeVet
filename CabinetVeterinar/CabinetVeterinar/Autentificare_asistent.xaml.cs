@@ -20,13 +20,16 @@ namespace CabinetVeterinar
     public partial class Autentificare_asistent : Window
     {
         int idAsistent;
+        int idMedic;
         string nume, prenume;
-        public Autentificare_asistent(int ID, string Nume, string Prenume)
+        public Autentificare_asistent(int ID,int IDM, string Nume, string Prenume)
         {
             idAsistent = ID;
+            idMedic = IDM;
             nume = Nume;
             prenume = Prenume;
             InitializeComponent();
+            
         }
         public class Programare
         {
@@ -55,11 +58,55 @@ namespace CabinetVeterinar
             LblUserName.Content = "Hello, " + name + " " + prn; 
         }
 
+        private void BtnListaProbeColectate_Click(object sender, RoutedEventArgs e)
+        {
+            gridListaProgramari.Items.Clear();
+
+            var context = new HomeVetEntities1();
+
+            var programari = (from p in context.ProbeColectate
+                              join pr in context.Programari
+                              on p.idProgramare equals pr.idProgramare
+                              join a in context.Pacienti
+                              on pr.idPacient equals a.idPacient
+                              join u in context.Utilizatori
+                              on a.idUtilizator equals u.idUtilizator
+                              join s in context.Specii
+                              on a.idSpecie equals s.idSpecie
+                         
+                              select new
+                              {
+                                  p.idProgramare,
+                                  u.Nume,
+                                  u.Prenume,
+                                  NumeP = a.Nume,
+                                  s.Denumire,
+                                  pr.DataProgramare,
+                                  p.Locatie
+                              });
+
+
+            if (programari.Count() != 0)
+            {
+                foreach (var item in programari)
+                {
+                    Programare prog = new Programare();
+                    prog.numeStapan = item.Nume.ToString() + " " + item.Prenume.ToString();
+                    prog.numePacient = item.NumeP.ToString();
+                    prog.specie = item.Denumire.ToString();
+                    prog.data = item.DataProgramare.ToString();
+                    prog.tip = item.Locatie.ToString();
+                    gridListaProgramari.Items.Add(prog);
+                }
+            }
+        }
+
         private void BtnListaProgramari_Click(object sender, RoutedEventArgs e)
         {
             gridListaProgramari.Items.Clear();
 
             var context = new HomeVetEntities1();
+            
             var programari = (from p in context.Programari
                               join a in context.Pacienti
                               on p.idPacient equals a.idPacient
@@ -67,11 +114,7 @@ namespace CabinetVeterinar
                               on a.idUtilizator equals u.idUtilizator
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
-                              join m in context.Medici
-                              on p.idMedic equals m.idMedic
-                              join asist in context.Asistenti
-                              on m.idMedic equals asist.idMedic
-                              where p.StatusProgramare == "Accepted" && asist.idMedic == idAsistent
+                              where p.StatusProgramare == "Accepted" && p.idMedic==idMedic
                               select new
                               {
                                   p.idProgramare,
@@ -82,7 +125,7 @@ namespace CabinetVeterinar
                                   p.DataProgramare,
                                   p.Tip
                               });
-
+           
 
             if (programari.Count() != 0)
             {
