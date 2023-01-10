@@ -23,10 +23,10 @@
         <ComboBox x:Name="boxOras"  HorizontalAlignment="Left" Margin="223,193,0,0" VerticalAlignment="Top" Width="196" Height="36" SelectionChanged="boxOras_SelectionChanged" >
         </ComboBox>
         <Label x:Name="lblCabinet" Content="Selecteaza un oras" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="afisareDetalii" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="273" Margin="49,263,0,0" VerticalAlignment="Top" Width="604">
+        <DataGrid x:Name="afisareDetalii" AutoGenerateColumns="False" Foreground="#C0C0C0" Background="Gray" HorizontalAlignment="Left" Height="273" Margin="49,263,0,0" VerticalAlignment="Top" Width="604">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Background" Value="Gray"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="HorizontalAlignment" Value="Center"/>
                 </Style>
@@ -35,9 +35,11 @@
                 <DataGridTextColumn Header="Adresa" Binding="{Binding adresa}" Width="200"/>
                 <DataGridTextColumn Header="NrTelefon" Binding="{Binding nrTelef}" Width="200"/>
                 <DataGridTextColumn Header="Program" Binding="{Binding program}" Width="200"/>
-                
+
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnCancel" Content="Back" HorizontalAlignment="Left" Margin="294,541,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+
+        <Button x:Name="btnCancel" Content="Cancel" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="294,541,0,0" VerticalAlignment="Top" Width="98" Click="Button_Click" FontSize="15" FontWeight="Bold" Background="Gray" Height="29"/>
     </Grid>
 </Window>

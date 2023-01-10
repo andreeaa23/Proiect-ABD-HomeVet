@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for AdaugareAnimalNou.xaml
-    /// </summary>
     public partial class AdaugareAnimalNou : Window
     {
         int idUser;
@@ -74,7 +71,7 @@ namespace CabinetVeterinar
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdaugare_Click(object sender, RoutedEventArgs e)

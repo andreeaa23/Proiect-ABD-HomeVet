@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Inregistrare.xaml
-    /// </summary>
     public partial class Inregistrare : Window
     {
         public Inregistrare()

@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for ColecteazaProbe.xaml
-    /// </summary>
+
     public partial class ColecteazaProbe : Window
     {
         int ok = 0;
@@ -74,8 +72,6 @@ namespace CabinetVeterinar
                     cbAsistenti.Items.Add(item.Nume + " " + item.Prenume);
                 } 
             }
-
-
 
         }
          public void LoadProgramari()
@@ -159,10 +155,8 @@ namespace CabinetVeterinar
 
         private void BtnModifica_Click(object sender, RoutedEventArgs e)
         {
-            //to do
+            
             var context = new HomeVetEntities1();
-
-
 
             var newUpdate = new ProbeColectate()
             {
@@ -172,6 +166,14 @@ namespace CabinetVeterinar
             };
             context.ProbeColectate.Add(newUpdate);
             context.SaveChanges();
+
+            MessageBox.Show("Programare modificata!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -53,6 +53,7 @@ namespace CabinetVeterinar
         {
             Programare programare = new Programare(id);
             programare.Show();
+           
         }
 
         private void BtnListaAnimale_Click(object sender, RoutedEventArgs e)
@@ -94,6 +95,7 @@ namespace CabinetVeterinar
         {
             Intrebari_user intrb = new Intrebari_user(id);
             intrb.Show();
+          
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

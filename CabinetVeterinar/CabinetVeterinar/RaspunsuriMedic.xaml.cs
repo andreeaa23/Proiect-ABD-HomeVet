@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for RaspunsuriMedic.xaml
-    /// </summary>
     public partial class RaspunsuriMedic : Window
     {
         int id;
@@ -101,13 +98,8 @@ namespace CabinetVeterinar
 
             if (ok == 1)
             {
-               
-
-
 
                 var context = new HomeVetEntities1();
-
-            
 
                 var intrebare = (from i in context.Intrebari
                                  where i.idIntrebare == id
@@ -120,12 +112,6 @@ namespace CabinetVeterinar
                 LoadIntrebari();
             }
         }
-
-        
-
        
     }
-
-        
-    
 }

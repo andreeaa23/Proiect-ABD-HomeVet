@@ -40,6 +40,7 @@
         </DataGrid>
         <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="728,463,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnDeconectare_Click"/>
         <Button x:Name="BtnModifica" Background="Gray" Foreground="#C0C0C0" Content="Modifica" HorizontalAlignment="Left" Margin="85,338,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnModifica_Click" />
+        <Button x:Name="BtnCancel" Background="Gray" Foreground="#C0C0C0" Content="Back" HorizontalAlignment="Left" Margin="542,463,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnCancel_Click" />
 
     </Grid>
 </Window>

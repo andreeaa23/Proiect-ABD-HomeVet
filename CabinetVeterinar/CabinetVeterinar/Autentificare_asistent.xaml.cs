@@ -29,6 +29,7 @@ namespace CabinetVeterinar
             nume = Nume;
             prenume = Prenume;
             InitializeComponent();
+            WriteLblMedicName(prenume, nume);
             
         }
         public class Programare
@@ -55,7 +56,7 @@ namespace CabinetVeterinar
 
         private void WriteLblMedicName(string prn, string name)
         {
-            LblUserName.Content = "Hello, " + name + " " + prn; 
+            LblUserName.Content = "Hello, Asist. " + name + " " + prn; 
         }
 
         private void BtnListaProbeColectate_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,6 @@ namespace CabinetVeterinar
                               on a.idUtilizator equals u.idUtilizator
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
-                         
                               select new
                               {
                                   p.idProgramare,

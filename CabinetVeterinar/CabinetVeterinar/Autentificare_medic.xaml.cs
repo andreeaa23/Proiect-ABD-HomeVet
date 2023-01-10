@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 namespace CabinetVeterinar
 {
         
-    
     public partial class Autentificare_medic : Window
     {
         string numeMedic, prenumeMedic;
@@ -119,7 +118,7 @@ namespace CabinetVeterinar
 
         private void WriteLblMedicName(string prn, string name)
         {
-            LblUserName.Content = "Hello, " + name + " " + prn; //to do aici
+            LblUserName.Content = "Hello, Dr. " + name + " " + prn; //to do aici
         }
     }
 }

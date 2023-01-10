@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Programare.xaml
-    /// </summary>
     public partial class Programare : Window
     {
         int id; //pacient
@@ -43,7 +40,7 @@ namespace CabinetVeterinar
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.Show();
+            //Application.Current.MainWindow.Show();
             this.Close();
         }
 
@@ -70,7 +67,9 @@ namespace CabinetVeterinar
             context.Programari.Add(newProg);
             context.SaveChanges();
 
-         }   
+            MessageBox.Show("Programare realizata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
+        }   
 
         public void LoadListaAnimale()
         {

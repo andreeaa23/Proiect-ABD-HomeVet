@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-
-   
     public partial class Intrebari_user : Window
     {
         int idUser;
-      
 
         public class Intrebare
         {
@@ -47,10 +44,7 @@ namespace CabinetVeterinar
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            // Application.Current.MainWindow.Show();
-            // this.Close();
             this.Close();
-            
         }
 
         private void BtnAdaugaIntrebare_Click(object sender, RoutedEventArgs e)
@@ -90,23 +84,15 @@ namespace CabinetVeterinar
                                  i
                              });
 
-           
-
             if (intrebari.Count() != 0)
             {
                 foreach (var item in intrebari)
                 {
-
-                  
-
                     Intrebare intrb = new Intrebare();
                     intrb.intrebare = item.i.MesajIntrebare.ToString();
                     intrb.raspuns = item.i.MesajRaspuns.ToString();
                     intrb.medic = item.Nume.ToString() + " " + item.Prenume.ToString();
-                  
-                 
-
-                 
+      
                     gridIntrebari.Items.Add(intrb);
 
                 }
