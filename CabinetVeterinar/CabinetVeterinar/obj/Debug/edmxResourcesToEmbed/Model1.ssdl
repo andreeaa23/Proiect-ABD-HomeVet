@@ -5,9 +5,11 @@
       <PropertyRef Name="idAsistent" />
     </Key>
     <Property Name="idAsistent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMedic" Type="int" />
     <Property Name="Nume" Type="nvarchar" MaxLength="32" />
     <Property Name="Prenume" Type="nvarchar" MaxLength="32" />
-    <Property Name="idMedic" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
   </EntityType>
   <EntityType Name="Cabinete">
     <Key>
@@ -27,24 +29,16 @@
     <Property Name="idCabinet" Type="int" />
     <Property Name="idSectie" Type="int" />
   </EntityType>
-  <EntityType Name="Consultatii">
-    <Key>
-      <PropertyRef Name="idConsultatie" />
-    </Key>
-    <Property Name="idConsultatie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idProgramare" Type="int" Nullable="false" />
-    <Property Name="Pret" Type="decimal" Precision="6" Scale="2" />
-  </EntityType>
   <EntityType Name="Intrebari">
     <Key>
       <PropertyRef Name="idIntrebare" />
     </Key>
     <Property Name="idIntrebare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idUtilizator" Type="int" />
-    <Property Name="MesajIntrebare" Type="text" />
-    <Property Name="StatusIntrebare" Type="nvarchar" MaxLength="32" />
-    <Property Name="MesajRaspuns" Type="nvarchar" MaxLength="64" />
     <Property Name="idMedic" Type="int" />
+    <Property Name="MesajIntrebare" Type="text" />
+    <Property Name="StatusIntrebare" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="MesajRaspuns" Type="nvarchar" MaxLength="64" />
   </EntityType>
   <EntityType Name="Medici">
     <Key>
@@ -54,6 +48,8 @@
     <Property Name="idCabineteSectii" Type="int" />
     <Property Name="Nume" Type="nvarchar" MaxLength="32" />
     <Property Name="Prenume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
   </EntityType>
   <EntityType Name="Pacienti">
     <Key>
@@ -73,7 +69,7 @@
     <Property Name="idProba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idAsistent" Type="int" />
     <Property Name="idProgramare" Type="int" />
-    <Property Name="Locatie" Type="nvarchar" MaxLength="64" />
+    <Property Name="Locatie" Type="nvarchar" MaxLength="32" />
   </EntityType>
   <EntityType Name="Programari">
     <Key>
@@ -84,7 +80,7 @@
     <Property Name="idMedic" Type="int" />
     <Property Name="DataProgramare" Type="date" />
     <Property Name="Tip" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="StatusProgramare" Type="nvarchar" MaxLength="64" />
+    <Property Name="StatusProgramare" Type="nvarchar" MaxLength="32" />
   </EntityType>
   <EntityType Name="Sectii">
     <Key>
@@ -100,16 +96,6 @@
     <Property Name="idSpecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Denumire" Type="nvarchar" MaxLength="32" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Utilizatori">
     <Key>
       <PropertyRef Name="idUtilizator" />
@@ -120,7 +106,6 @@
     <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="DataInregistrare" Type="date" Nullable="false" />
-    <Property Name="Tip" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <Association Name="FK__Asistenti__idMed__36B12243">
     <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
@@ -158,19 +143,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Consultat__idPro__3D5E1FD2">
-    <End Role="Programari" Type="Self.Programari" Multiplicity="1" />
-    <End Role="Consultatii" Type="Self.Consultatii" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programari">
-        <PropertyRef Name="idProgramare" />
-      </Principal>
-      <Dependent Role="Consultatii">
-        <PropertyRef Name="idProgramare" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Intrebari__idMed__5AEE82B9">
+  <Association Name="FK__Intrebari__idMed__3E52440B">
     <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
     <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Intrebari__idUti__403A8C7D">
+  <Association Name="FK__Intrebari__idUti__3D5E1FD2">
     <End Role="Utilizatori" Type="Self.Utilizatori" Multiplicity="0..1" />
     <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ProbeCole__idAsi__46E78A0C">
+  <Association Name="FK__ProbeCole__idAsi__412EB0B6">
     <End Role="Asistenti" Type="Self.Asistenti" Multiplicity="0..1" />
     <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,7 +215,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ProbeCole__idPro__5BE2A6F2">
+  <Association Name="FK__ProbeCole__idPro__4222D4EF">
     <End Role="Programari" Type="Self.Programari" Multiplicity="0..1" />
     <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
     <ReferentialConstraint>
@@ -278,42 +251,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="HomeVetModelStoreContainer">
     <EntitySet Name="Asistenti" EntityType="Self.Asistenti" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cabinete" EntityType="Self.Cabinete" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CabineteSectii" EntityType="Self.CabineteSectii" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Consultatii" EntityType="Self.Consultatii" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Intrebari" EntityType="Self.Intrebari" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medici" EntityType="Self.Medici" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacienti" EntityType="Self.Pacienti" Schema="dbo" store:Type="Tables" />
@@ -321,7 +262,6 @@
     <EntitySet Name="Programari" EntityType="Self.Programari" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sectii" EntityType="Self.Sectii" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Specii" EntityType="Self.Specii" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilizatori" EntityType="Self.Utilizatori" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Asistenti__idMed__36B12243" Association="Self.FK__Asistenti__idMed__36B12243">
       <End Role="Medici" EntitySet="Medici" />
@@ -335,15 +275,11 @@
       <End Role="Sectii" EntitySet="Sectii" />
       <End Role="CabineteSectii" EntitySet="CabineteSectii" />
     </AssociationSet>
-    <AssociationSet Name="FK__Consultat__idPro__3D5E1FD2" Association="Self.FK__Consultat__idPro__3D5E1FD2">
-      <End Role="Programari" EntitySet="Programari" />
-      <End Role="Consultatii" EntitySet="Consultatii" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Intrebari__idMed__5AEE82B9" Association="Self.FK__Intrebari__idMed__5AEE82B9">
+    <AssociationSet Name="FK__Intrebari__idMed__3E52440B" Association="Self.FK__Intrebari__idMed__3E52440B">
       <End Role="Medici" EntitySet="Medici" />
       <End Role="Intrebari" EntitySet="Intrebari" />
     </AssociationSet>
-    <AssociationSet Name="FK__Intrebari__idUti__403A8C7D" Association="Self.FK__Intrebari__idUti__403A8C7D">
+    <AssociationSet Name="FK__Intrebari__idUti__3D5E1FD2" Association="Self.FK__Intrebari__idUti__3D5E1FD2">
       <End Role="Utilizatori" EntitySet="Utilizatori" />
       <End Role="Intrebari" EntitySet="Intrebari" />
     </AssociationSet>
@@ -359,11 +295,11 @@
       <End Role="Utilizatori" EntitySet="Utilizatori" />
       <End Role="Pacienti" EntitySet="Pacienti" />
     </AssociationSet>
-    <AssociationSet Name="FK__ProbeCole__idAsi__46E78A0C" Association="Self.FK__ProbeCole__idAsi__46E78A0C">
+    <AssociationSet Name="FK__ProbeCole__idAsi__412EB0B6" Association="Self.FK__ProbeCole__idAsi__412EB0B6">
       <End Role="Asistenti" EntitySet="Asistenti" />
       <End Role="ProbeColectate" EntitySet="ProbeColectate" />
     </AssociationSet>
-    <AssociationSet Name="FK__ProbeCole__idPro__5BE2A6F2" Association="Self.FK__ProbeCole__idPro__5BE2A6F2">
+    <AssociationSet Name="FK__ProbeCole__idPro__4222D4EF" Association="Self.FK__ProbeCole__idPro__4222D4EF">
       <End Role="Programari" EntitySet="Programari" />
       <End Role="ProbeColectate" EntitySet="ProbeColectate" />
     </AssociationSet>

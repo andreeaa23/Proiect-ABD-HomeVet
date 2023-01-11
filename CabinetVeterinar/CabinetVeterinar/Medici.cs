@@ -26,6 +26,8 @@ namespace CabinetVeterinar
         public Nullable<int> idCabineteSectii { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
+        public string Email { get; set; }
+        public string Parola { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistenti> Asistenti { get; set; }

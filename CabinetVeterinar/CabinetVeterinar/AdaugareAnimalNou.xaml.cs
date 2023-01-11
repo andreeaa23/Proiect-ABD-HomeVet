@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,13 +24,33 @@ namespace CabinetVeterinar
             InitializeComponent();
            // LoadAnimalNou();
         }
+        public void AdaugaSpecie(string specie)
+        {
+            var context = new HomeVetEntities1();
+            var specii = from s in context.Specii
+                         where s.Denumire == specie
+                         select s; //daca am deja specia in tabel sa n o mai adaug iar
 
+            if (specii.Count() == 0) //daca n am specia, o adaug in tabel
+            {
+
+                var specieNoua = new Specii()
+                {
+                    Denumire = specie
+                };
+                context.Specii.Add(specieNoua);
+                context.SaveChanges();
+             
+            }
+            
+
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-
+        
         public void LoadAnimalNou()
         {
             var context = new HomeVetEntities1();
@@ -39,36 +60,30 @@ namespace CabinetVeterinar
             Decimal.TryParse(txtGreutate.Text, out greutate);
             int varsta;
             Int32.TryParse(txtvarsta.Text, out varsta);
-
-            var specii = from s in context.Specii
+            AdaugaSpecie(specie);
+            var specii = (from s in context.Specii
                          where s.Denumire == specie
-                         select s; //daca am deja specia in tabel sa n o mai adaug iar
+                         select s.idSpecie).First();
 
-            if (specii.Count() == 0) //daca n am specia, o adaug in tabel
-            {
-                var specieNoua = new Specii()
-                {
-                    Denumire = specie
-                };
-                context.Specii.Add(specieNoua);
-            }
 
-            foreach (var item in specii) //o sa trb sa am una singura gen
-            {
+         
 
-                var pacientNou = new Pacienti()
-                {
-                    idUtilizator = idUser,
-                    idSpecie = item.idSpecie,
-                    Nume = numeAnimal,
-                    Varsta = varsta,
-                    Greutate = greutate
-                };
-                context.Pacienti.Add(pacientNou);
-            }
-            context.SaveChanges();
+             
+
+                    var pacientNou = new Pacienti()
+                    {
+                        idUtilizator = idUser,
+                        idSpecie = specii,
+                        Nume = numeAnimal,
+                        Varsta = varsta,
+                        Greutate = greutate
+                    };
+                    context.Pacienti.Add(pacientNou);
+
+                    context.SaveChanges();
+                
+           
         }
-
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

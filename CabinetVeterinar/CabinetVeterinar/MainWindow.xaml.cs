@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace CabinetVeterinar
         public MainWindow()
         {
             InitializeComponent();
+            LoadTypes();
 
         }
 
@@ -32,109 +34,165 @@ namespace CabinetVeterinar
             Inregistrare inreg = new Inregistrare();
             inreg.Show();
             Hide();
+            TxtParola.Clear();
+            TxtUser.Clear();
         }
-
+        public void LoadTypes()
+        {
+            cbTip.Items.Add("Utilizator");
+            cbTip.Items.Add("Medic");
+            cbTip.Items.Add("Asistent");
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-
-      
         private void BtnAutentificare_Click(object sender, RoutedEventArgs e)
         { 
             string userName;
             string password;
           
-            userName = (string)TxtUser.Text; //preiau userName ul din buton
+            userName = TxtUser.Text; //preiau userName ul din buton
             password = TxtParola.Password.ToString();
+
+
             var context = new HomeVetEntities1();
-            var user = (from u in context.Utilizatori
-                         where u.Email == userName
-                         select u);
-
-           
-
-            if (user.Count() == 0)
-            { 
-                MessageBox.Show("User inexistent!", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-                Inregistrare inreg = new Inregistrare();
-                inreg.Show();
-                Hide();
-            }
-            else
+            if (string.IsNullOrEmpty(cbTip.Text))
             {
-                var passwd = (from u in context.Utilizatori
-                              where u.Email == userName
-                              select u.Parola); //selectex parola pt userul meu
+                MessageBox.Show("Va rugam selectati tipul utilizatorului!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                if (passwd.First().ToString() == password) //daca gasesc parola
+            else if (cbTip.SelectedItem.ToString() == "Utilizator")
+            {
+                var user = (from u in context.Utilizatori
+                            where u.Email == userName
+                            select u);
+
+                if (user.Count() == 0)
                 {
-                    var credentials = (from u in context.Utilizatori
-                                       where u.Email == userName
-                                       select new
-                                       {
-                                           u.Prenume,
-                                           u.Nume,
-                                           u.idUtilizator,
-                                           u.Tip
-                                       }).First();
-                    var tip = (from u in context.Utilizatori
-                               where u.Email == userName
-                               select u.Tip).First();
-                    if (tip == "U")
-                    {
-                       
-                         Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString(),credentials.Tip.ToString()); //user,parola
-                         auth.Show();
-                         Hide();
-                     }
-                    else if(tip == "M")
-                    {
-                       // trb sa parser userName asta ca sa iau numele si prenumele
-                      
-                        var idMed = (from m in context.Medici
-                                           where m.Nume == credentials.Nume && m.Prenume == credentials.Prenume
-                                           select new
-                                           {
-                                               m.idMedic
-                                           }).First();
+                    MessageBox.Show("User inexistent!", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                        //to do autentificare_medic sa preluam id ul dupa nume si prenume
-                        Autentificare_medic medic = new Autentificare_medic((int)idMed.idMedic,credentials.Nume.ToString(), credentials.Prenume.ToString());
-                        medic.Show();
-                        Hide();
-                      
-                    }
-                    else if(tip == "A")
-                    {
-                        //to do autentificare_asistent
-                        var id = (from a in context.Asistenti
-                                       where a.Nume == credentials.Nume && a.Prenume == credentials.Prenume
-                                       select new
-                                       {
-                                           a.idAsistent,
-                                           a.idMedic
-                                       }).First();
-               
-                        Autentificare_asistent asist = new Autentificare_asistent((int)id.idAsistent,(int)id.idMedic, credentials.Nume.ToString(), credentials.Prenume.ToString());
-                        asist.Show();
-                        Hide();
-                    }
                 }
                 else
                 {
-                    MessageBox.Show("Parola gresita!\nVa rugam incercati din nou.", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var passwd = (from u in context.Utilizatori
+                                  where u.Email == userName
+                                  select u.Parola); //selectex parola pt userul meu
+
+                    if (passwd.First().ToString() == password) //daca gasesc parola
+                    {
+                        var credentials = (from u in context.Utilizatori
+                                           where u.Email == userName
+                                           select new
+                                           {
+                                               u.Prenume,
+                                               u.Nume,
+                                               u.idUtilizator
+
+                                           }).First();
+
+                        Autentificare_normal_user auth = new Autentificare_normal_user((int)credentials.idUtilizator, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
+                        auth.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Parola gresita!\nVa rugam incercati din nou.", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else if (cbTip.SelectedItem.ToString() == "Medic")
+            {
+                var user = (from m in context.Medici
+                            where m.Email == userName
+                            select m);
+
+                if (user.Count() == 0)
+                {
+                    MessageBox.Show("User inexistent!", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                else
+                {
+                    var passwd = (from m in context.Medici
+                                  where m.Email == userName
+                                  select m.Parola); //selectex parola pt userul meu
+
+                    if (passwd.First().ToString() == password) //daca gasesc parola
+                    {
+                        var credentials = (from u in context.Medici
+                                           where u.Email == userName
+                                           select new
+                                           {
+                                               u.Prenume,
+                                               u.Nume,
+                                               u.idMedic
+
+                                           }).First();
+
+                        Autentificare_medic auth = new Autentificare_medic((int)credentials.idMedic, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
+                        auth.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Parola gresita!\nVa rugam incercati din nou.", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else if (cbTip.SelectedItem.ToString() == "Asistent")
+            {
+                var user = (from a in context.Asistenti
+                            where a.Email == userName
+                            select a);
+
+                if (user.Count() == 0)
+                {
+                    MessageBox.Show("User inexistent!", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                else
+                {
+                    var passwd = (from a in context.Asistenti
+                                  where a.Email == userName
+                                  select a.Parola); //selectex parola pt userul meu
+
+                    if (passwd.First().ToString() == password) //daca gasesc parola
+                    {
+                        var credentials = (from u in context.Asistenti
+                                           where u.Email == userName
+                                           select new
+                                           {
+                                               u.Prenume,
+                                               u.Nume,
+                                               u.idAsistent,
+                                               u.idMedic
+
+                                           }).First();
+
+                        Autentificare_asistent auth = new Autentificare_asistent((int)credentials.idAsistent,(int)credentials.idMedic, credentials.Prenume.ToString(), credentials.Nume.ToString()); //user,parola
+                        auth.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Parola gresita!\nVa rugam incercati din nou.", "Login ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
 
-        }
+          
+}
 
         private void BtnServicii_Click(object sender, RoutedEventArgs e)
         {
             Servicii srv = new Servicii();
             srv.Show();
             Hide();
+            TxtParola.Clear();
+            TxtUser.Clear();
         }
     }
     

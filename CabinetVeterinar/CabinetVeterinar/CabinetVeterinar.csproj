@@ -87,9 +87,6 @@
     <Compile Include="ColecteazaProbe.xaml.cs">
       <DependentUpon>ColecteazaProbe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Consultatii.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Inregistrare.xaml.cs">
       <DependentUpon>Inregistrare.xaml</DependentUpon>
     </Compile>
@@ -140,15 +137,6 @@
       <DependentUpon>Servicii.xaml</DependentUpon>
     </Compile>
     <Compile Include="Specii.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Utilizatori.cs">

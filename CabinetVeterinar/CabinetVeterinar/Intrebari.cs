@@ -16,10 +16,10 @@ namespace CabinetVeterinar
     {
         public int idIntrebare { get; set; }
         public Nullable<int> idUtilizator { get; set; }
+        public Nullable<int> idMedic { get; set; }
         public string MesajIntrebare { get; set; }
         public string StatusIntrebare { get; set; }
         public string MesajRaspuns { get; set; }
-        public Nullable<int> idMedic { get; set; }
     
         public virtual Medici Medici { get; set; }
         public virtual Utilizatori Utilizatori { get; set; }

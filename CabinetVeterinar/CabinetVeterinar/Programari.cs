@@ -17,7 +17,6 @@ namespace CabinetVeterinar
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Programari()
         {
-            this.Consultatii = new HashSet<Consultatii>();
             this.ProbeColectate = new HashSet<ProbeColectate>();
         }
     
@@ -28,8 +27,6 @@ namespace CabinetVeterinar
         public string Tip { get; set; }
         public string StatusProgramare { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Consultatii> Consultatii { get; set; }
         public virtual Medici Medici { get; set; }
         public virtual Pacienti Pacienti { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -5,11 +5,13 @@
       <PropertyRef Name="idAsistent" />
     </Key>
     <Property Name="idAsistent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMedic" Type="Int32" />
     <Property Name="Nume" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <Property Name="Prenume" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="idMedic" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parola" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Asistenti__idMed__36B12243" FromRole="Asistenti" ToRole="Medici" />
-    <NavigationProperty Name="ProbeColectate" Relationship="Self.FK__ProbeCole__idAsi__46E78A0C" FromRole="Asistenti" ToRole="ProbeColectate" />
+    <NavigationProperty Name="ProbeColectate" Relationship="Self.FK__ProbeCole__idAsi__412EB0B6" FromRole="Asistenti" ToRole="ProbeColectate" />
   </EntityType>
   <EntityType Name="Cabinete">
     <Key>
@@ -33,27 +35,18 @@
     <NavigationProperty Name="Sectii" Relationship="Self.FK__CabineteS__idSec__30F848ED" FromRole="CabineteSectii" ToRole="Sectii" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Medici__idCabine__33D4B598" FromRole="CabineteSectii" ToRole="Medici" />
   </EntityType>
-  <EntityType Name="Consultatii">
-    <Key>
-      <PropertyRef Name="idConsultatie" />
-    </Key>
-    <Property Name="idConsultatie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idProgramare" Type="Int32" Nullable="false" />
-    <Property Name="Pret" Type="Decimal" Precision="6" Scale="2" />
-    <NavigationProperty Name="Programari" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Consultatii" ToRole="Programari" />
-  </EntityType>
   <EntityType Name="Intrebari">
     <Key>
       <PropertyRef Name="idIntrebare" />
     </Key>
     <Property Name="idIntrebare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idUtilizator" Type="Int32" />
-    <Property Name="MesajIntrebare" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="StatusIntrebare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="MesajRaspuns" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
     <Property Name="idMedic" Type="Int32" />
-    <NavigationProperty Name="Medici" Relationship="Self.FK__Intrebari__idMed__5AEE82B9" FromRole="Intrebari" ToRole="Medici" />
-    <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Intrebari" ToRole="Utilizatori" />
+    <Property Name="MesajIntrebare" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StatusIntrebare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MesajRaspuns" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Medici" Relationship="Self.FK__Intrebari__idMed__3E52440B" FromRole="Intrebari" ToRole="Medici" />
+    <NavigationProperty Name="Utilizatori" Relationship="Self.FK__Intrebari__idUti__3D5E1FD2" FromRole="Intrebari" ToRole="Utilizatori" />
   </EntityType>
   <EntityType Name="Medici">
     <Key>
@@ -63,9 +56,11 @@
     <Property Name="idCabineteSectii" Type="Int32" />
     <Property Name="Nume" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <Property Name="Prenume" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parola" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Asistenti" Relationship="Self.FK__Asistenti__idMed__36B12243" FromRole="Medici" ToRole="Asistenti" />
     <NavigationProperty Name="CabineteSectii" Relationship="Self.FK__Medici__idCabine__33D4B598" FromRole="Medici" ToRole="CabineteSectii" />
-    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idMed__5AEE82B9" FromRole="Medici" ToRole="Intrebari" />
+    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idMed__3E52440B" FromRole="Medici" ToRole="Intrebari" />
     <NavigationProperty Name="Programari" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Medici" ToRole="Programari" />
   </EntityType>
   <EntityType Name="Pacienti">
@@ -88,10 +83,10 @@
     </Key>
     <Property Name="idProba" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idAsistent" Type="Int32" />
-    <NavigationProperty Name="Asistenti" Relationship="Self.FK__ProbeCole__idAsi__46E78A0C" FromRole="ProbeColectate" ToRole="Asistenti" />
     <Property Name="idProgramare" Type="Int32" />
-    <Property Name="Locatie" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Programari" Relationship="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2" FromRole="ProbeColectate" ToRole="Programari" />
+    <Property Name="Locatie" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Asistenti" Relationship="Self.FK__ProbeCole__idAsi__412EB0B6" FromRole="ProbeColectate" ToRole="Asistenti" />
+    <NavigationProperty Name="Programari" Relationship="Self.FK__ProbeCole__idPro__4222D4EF" FromRole="ProbeColectate" ToRole="Programari" />
   </EntityType>
   <EntityType Name="Programari">
     <Key>
@@ -102,11 +97,10 @@
     <Property Name="idMedic" Type="Int32" />
     <Property Name="DataProgramare" Type="DateTime" Precision="0" />
     <Property Name="Tip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="StatusProgramare" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Consultatii" Relationship="Self.FK__Consultat__idPro__3D5E1FD2" FromRole="Programari" ToRole="Consultatii" />
+    <Property Name="StatusProgramare" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Medici" Relationship="Self.FK__Programar__idMed__3A81B327" FromRole="Programari" ToRole="Medici" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Programar__idPac__398D8EEE" FromRole="Programari" ToRole="Pacienti" />
-    <NavigationProperty Name="ProbeColectate" Relationship="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2" FromRole="Programari" ToRole="ProbeColectate" />
+    <NavigationProperty Name="ProbeColectate" Relationship="Self.FK__ProbeCole__idPro__4222D4EF" FromRole="Programari" ToRole="ProbeColectate" />
   </EntityType>
   <EntityType Name="Sectii">
     <Key>
@@ -124,16 +118,6 @@
     <Property Name="Denumire" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Pacienti__idSpec__29572725" FromRole="Specii" ToRole="Pacienti" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Utilizatori">
     <Key>
       <PropertyRef Name="idUtilizator" />
@@ -144,8 +128,7 @@
     <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Parola" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DataInregistrare" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Tip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idUti__403A8C7D" FromRole="Utilizatori" ToRole="Intrebari" />
+    <NavigationProperty Name="Intrebari" Relationship="Self.FK__Intrebari__idUti__3D5E1FD2" FromRole="Utilizatori" ToRole="Intrebari" />
     <NavigationProperty Name="Pacienti" Relationship="Self.FK__Pacienti__idUtil__286302EC" FromRole="Utilizatori" ToRole="Pacienti" />
   </EntityType>
   <Association Name="FK__Asistenti__idMed__36B12243">
@@ -160,7 +143,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ProbeCole__idAsi__46E78A0C">
+  <Association Name="FK__ProbeCole__idAsi__412EB0B6">
     <End Role="Asistenti" Type="Self.Asistenti" Multiplicity="0..1" />
     <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,19 +191,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Consultat__idPro__3D5E1FD2">
-    <End Role="Programari" Type="Self.Programari" Multiplicity="1" />
-    <End Role="Consultatii" Type="Self.Consultatii" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programari">
-        <PropertyRef Name="idProgramare" />
-      </Principal>
-      <Dependent Role="Consultatii">
-        <PropertyRef Name="idProgramare" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Intrebari__idMed__5AEE82B9">
+  <Association Name="FK__Intrebari__idMed__3E52440B">
     <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
     <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
     <ReferentialConstraint>
@@ -232,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Intrebari__idUti__403A8C7D">
+  <Association Name="FK__Intrebari__idUti__3D5E1FD2">
     <End Role="Utilizatori" Type="Self.Utilizatori" Multiplicity="0..1" />
     <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
     <ReferentialConstraint>
@@ -292,11 +263,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__ProbeCole__idPro__4222D4EF">
+    <End Role="Programari" Type="Self.Programari" Multiplicity="0..1" />
+    <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programari">
+        <PropertyRef Name="idProgramare" />
+      </Principal>
+      <Dependent Role="ProbeColectate">
+        <PropertyRef Name="idProgramare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HomeVetEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Asistenti" EntityType="Self.Asistenti" />
     <EntitySet Name="Cabinete" EntityType="Self.Cabinete" />
     <EntitySet Name="CabineteSectii" EntityType="Self.CabineteSectii" />
-    <EntitySet Name="Consultatii" EntityType="Self.Consultatii" />
     <EntitySet Name="Intrebari" EntityType="Self.Intrebari" />
     <EntitySet Name="Medici" EntityType="Self.Medici" />
     <EntitySet Name="Pacienti" EntityType="Self.Pacienti" />
@@ -304,13 +286,12 @@
     <EntitySet Name="Programari" EntityType="Self.Programari" />
     <EntitySet Name="Sectii" EntityType="Self.Sectii" />
     <EntitySet Name="Specii" EntityType="Self.Specii" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Utilizatori" EntityType="Self.Utilizatori" />
     <AssociationSet Name="FK__Asistenti__idMed__36B12243" Association="Self.FK__Asistenti__idMed__36B12243">
       <End Role="Medici" EntitySet="Medici" />
       <End Role="Asistenti" EntitySet="Asistenti" />
     </AssociationSet>
-    <AssociationSet Name="FK__ProbeCole__idAsi__46E78A0C" Association="Self.FK__ProbeCole__idAsi__46E78A0C">
+    <AssociationSet Name="FK__ProbeCole__idAsi__412EB0B6" Association="Self.FK__ProbeCole__idAsi__412EB0B6">
       <End Role="Asistenti" EntitySet="Asistenti" />
       <End Role="ProbeColectate" EntitySet="ProbeColectate" />
     </AssociationSet>
@@ -326,15 +307,11 @@
       <End Role="CabineteSectii" EntitySet="CabineteSectii" />
       <End Role="Medici" EntitySet="Medici" />
     </AssociationSet>
-    <AssociationSet Name="FK__Consultat__idPro__3D5E1FD2" Association="Self.FK__Consultat__idPro__3D5E1FD2">
-      <End Role="Programari" EntitySet="Programari" />
-      <End Role="Consultatii" EntitySet="Consultatii" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Intrebari__idMed__5AEE82B9" Association="Self.FK__Intrebari__idMed__5AEE82B9">
+    <AssociationSet Name="FK__Intrebari__idMed__3E52440B" Association="Self.FK__Intrebari__idMed__3E52440B">
       <End Role="Medici" EntitySet="Medici" />
       <End Role="Intrebari" EntitySet="Intrebari" />
     </AssociationSet>
-    <AssociationSet Name="FK__Intrebari__idUti__403A8C7D" Association="Self.FK__Intrebari__idUti__403A8C7D">
+    <AssociationSet Name="FK__Intrebari__idUti__3D5E1FD2" Association="Self.FK__Intrebari__idUti__3D5E1FD2">
       <End Role="Utilizatori" EntitySet="Utilizatori" />
       <End Role="Intrebari" EntitySet="Intrebari" />
     </AssociationSet>
@@ -354,62 +331,9 @@
       <End Role="Pacienti" EntitySet="Pacienti" />
       <End Role="Programari" EntitySet="Programari" />
     </AssociationSet>
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HomeVetModel.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HomeVetModel.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
-    <AssociationSet Name="FK__ProbeCole__idPro__5BE2A6F2" Association="HomeVetModel.FK__ProbeCole__idPro__5BE2A6F2">
+    <AssociationSet Name="FK__ProbeCole__idPro__4222D4EF" Association="Self.FK__ProbeCole__idPro__4222D4EF">
       <End Role="Programari" EntitySet="Programari" />
       <End Role="ProbeColectate" EntitySet="ProbeColectate" />
     </AssociationSet>
   </EntityContainer>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
-  </ComplexType>
-  <Association Name="FK__ProbeCole__idPro__5BE2A6F2">
-    <End Type="HomeVetModel.Programari" Role="Programari" Multiplicity="0..1" />
-    <End Type="HomeVetModel.ProbeColectate" Role="ProbeColectate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programari">
-        <PropertyRef Name="idProgramare" />
-      </Principal>
-      <Dependent Role="ProbeColectate">
-        <PropertyRef Name="idProgramare" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

@@ -22,7 +22,7 @@ namespace CabinetVeterinar
         int id;
         string nume;
         string prenume;
-        string tip;
+        
 
         public class Animale
         {
@@ -34,12 +34,12 @@ namespace CabinetVeterinar
 
         }
 
-        public Autentificare_normal_user(int ID,string Prenume, string Nume, string Tip)
+        public Autentificare_normal_user(int ID,string Prenume, string Nume)
         {
             id = ID;
             nume = Nume;
             prenume = Prenume;
-            tip = Tip;
+           
           
             InitializeComponent();
             WriteLblUserName(prenume,nume);

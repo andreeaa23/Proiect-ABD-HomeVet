@@ -59,8 +59,8 @@ namespace CabinetVeterinar
                     Nume = nume,
                     Prenume = prenume,
                     Parola = parola,
-                    DataInregistrare = data,
-                    Tip = tip
+                    DataInregistrare = data
+                    
                     
                 };
                 context.Utilizatori.Add(newUser);
@@ -72,8 +72,8 @@ namespace CabinetVeterinar
                                    {
                                        u.Prenume,
                                        u.Nume,
-                                       u.idUtilizator,
-                                       u.Tip
+                                       u.idUtilizator
+                                       
                                    }).First();
                 MainWindow main = new MainWindow();
                 main.Show();
