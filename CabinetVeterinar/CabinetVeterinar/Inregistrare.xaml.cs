@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,26 +20,20 @@ namespace CabinetVeterinar
         public Inregistrare()
         {
             InitializeComponent();
-            LoadTip();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-        public void LoadTip()
-        {
-            cbTip.Items.Add("User");
-            cbTip.Items.Add("Medic");
-            cbTip.Items.Add("Asistent");
-        }
+      
         private void btnLogare_Click_1(object sender, RoutedEventArgs e)
         {
             string nume = txtNume.Text;
             string prenume = txtPrenume.Text;
             string email = txtEmail.Text;
             string parola = txtParola.Text;
-            string tip = cbTip.SelectedItem.ToString().Substring(0,1);
+            string hashedPass;
             DateTime data = DateTime.Now;
 
             var context = new HomeVetEntities1();
@@ -53,28 +48,27 @@ namespace CabinetVeterinar
             }
             else
             {
+                byte[] passwdBytes = Encoding.UTF8.GetBytes(parola);
+
+                using (var sha256 = SHA256.Create())
+                {
+                    byte[] hash = sha256.ComputeHash(passwdBytes);
+                    hashedPass= Encoding.UTF8.GetString(hash);
+                    // Store the `storedPasswordHash` in your database
+                }
                 var newUser = new Utilizatori()
                 {
                     Email = email,
                     Nume = nume,
                     Prenume = prenume,
-                    Parola = parola,
+                    Parola = hashedPass,
                     DataInregistrare = data
                     
                     
                 };
                 context.Utilizatori.Add(newUser);
-                context.SaveChanges(); 
-
-                var credentials = (from u in context.Utilizatori
-                                   where u.Email == email
-                                   select new
-                                   {
-                                       u.Prenume,
-                                       u.Nume,
-                                       u.idUtilizator
-                                       
-                                   }).First();
+                context.SaveChanges();
+                MessageBox.Show("Inregistrare cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow main = new MainWindow();
                 main.Show();
                 Hide();

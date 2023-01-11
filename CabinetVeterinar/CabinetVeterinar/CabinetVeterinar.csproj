@@ -90,6 +90,12 @@
     <Compile Include="Inregistrare.xaml.cs">
       <DependentUpon>Inregistrare.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Inregistrare_asistent.xaml.cs">
+      <DependentUpon>Inregistrare_asistent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inregistrare_medic.xaml.cs">
+      <DependentUpon>Inregistrare_medic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Intrebari.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <Compile Include="Programari.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramariUser.xaml.cs">
+      <DependentUpon>ProgramariUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="RaspunsuriMedic.xaml.cs">
       <DependentUpon>RaspunsuriMedic.xaml</DependentUpon>
@@ -169,6 +178,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Inregistrare_asistent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inregistrare_medic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Intrebari_user.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,6 +206,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Programare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgramariUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

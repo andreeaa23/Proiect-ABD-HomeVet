@@ -18,18 +18,18 @@
                 <GradientStop Color="#FF772864" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="BtnProgramare" Background="Gray" Foreground="#C0C0C0" Content="Fa o programare" HorizontalAlignment="Left" Margin="21,101,0,0" VerticalAlignment="Top" Width="148" Click="BtnProgramare_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnListaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Lista animale" HorizontalAlignment="Left" Margin="21,256,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnIntrebari" Content="Pune o intrebare" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="21,181,0,0" VerticalAlignment="Top" Width="148" Height="39" FontSize="16" Click="BtnIntrebari_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnProgramare" Background="Gray" Foreground="#C0C0C0" Content="Fa o programare" HorizontalAlignment="Left" Margin="23,82,0,0" VerticalAlignment="Top" Width="148" Click="BtnProgramare_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnListaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Lista animale" HorizontalAlignment="Left" Margin="23,222,0,0" VerticalAlignment="Top" Width="148" Click="BtnListaAnimale_Click" Height="39" FontSize="16" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnIntrebari" Content="Pune o intrebare" Background="Gray" Foreground="#C0C0C0" HorizontalAlignment="Left" Margin="23,152,0,0" VerticalAlignment="Top" Width="148" Height="39" FontSize="16" Click="BtnIntrebari_Click" Grid.ColumnSpan="2"/>
         <Label x:Name="LblUserName"  Foreground="#C0C0C0" Content="Hello, UserName" HorizontalAlignment="Left" Margin="297.2,10,0,0" VerticalAlignment="Top" Width="273" FontSize="16" Grid.Column="1"/>
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
         <DataGrid x:Name="gridListaAnimale" Grid.Column="1" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="272" Margin="52.2,77,0,0" VerticalAlignment="Top" Width="518">
             <DataGrid.Resources>
-            <Style TargetType="{x:Type DataGridColumnHeader}">
-                <Setter Property="Background" Value="Gray"/>
-                <Setter Property="FontWeight" Value="SemiBold"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-            </Style>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Gray"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nume" Binding="{Binding numeAnimal}" Width="120"/>
@@ -39,8 +39,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal nou" HorizontalAlignment="Left" Margin="21,321,0,0" VerticalAlignment="Top" Width="148"  Height="39" FontSize="16" Grid.ColumnSpan="2" Click="BtnAdaugaAnimale_Click"/>
+        <Button x:Name="BtnAdaugaAnimale" Background="Gray" Foreground="#C0C0C0" Content="Adauga animal nou" HorizontalAlignment="Left" Margin="23,292,0,0" VerticalAlignment="Top" Width="148"  Height="39" FontSize="16" Click="BtnAdaugaAnimale_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="447.2,371,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Grid.Column="1" Click="BtnDeconectare_Click"/>
+        <Button x:Name="BtnIstoricProg" Background="Gray" Foreground="#C0C0C0" Content="Istoric Programari" HorizontalAlignment="Left" Margin="23,362,0,0" VerticalAlignment="Top" Width="148"  Height="39" FontSize="16" Grid.ColumnSpan="2" Click="BtnIstoricProg_Click"/>
 
     </Grid>
 </Window>

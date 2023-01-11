@@ -16,12 +16,13 @@ namespace CabinetVeterinar
 {
     public partial class Programare : Window
     {
-        int id; //pacient
+        int idUser; //utilizator
+        int idA;
         DateTime data;
   
         public Programare(int ID)
         {
-            id = ID;
+            idUser = ID;
             data = DateTime.Now;
 
 
@@ -57,11 +58,11 @@ namespace CabinetVeterinar
 
             var newProg = new Programari()
             {
-                idPacient = id,
+                idPacient = idA,
                 idMedic = getIdMedic(),
                 DataProgramare = data,
-                Tip = tip
-
+                Tip = tip,
+                StatusProgramare = "Pending"
             };
 
             context.Programari.Add(newProg);
@@ -75,7 +76,7 @@ namespace CabinetVeterinar
         {
             var context = new HomeVetEntities1();
             var animals = (from a in context.Pacienti
-                           where a.idUtilizator == id
+                           where a.idUtilizator == idUser
                           select a.Nume).Distinct();
 
             foreach (var c in animals)
@@ -148,18 +149,20 @@ namespace CabinetVeterinar
         {
             var context = new HomeVetEntities1();
             var sectieSelectata = cbSectie.SelectedItem.ToString();
-
-            var medici = (from cs in context.CabineteSectii
-                          join m in context.Medici
-                          on cs.idCabineteSectii equals m.idCabineteSectii
+            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
+            var medici = (from m in context.Medici
+                          join cs in context.CabineteSectii
+                          on m.idCabineteSectii equals cs.idCabineteSectii
                           join s in context.Sectii
                           on cs.idSectie equals s.idSectie
-                          where s.Denumire == sectieSelectata
+                          join c in context.Cabinete
+                          on cs.idCabinet equals c.idCabinet
+                          where s.Denumire == sectieSelectata && c.Adresa==cabinetSelectat
                           select new
                           {
                               m.Nume,
                               m.Prenume
-                          }).Distinct();
+                          });
             
             foreach (var item in medici)
                 cbMedic.Items.Add(item.Nume.ToString() +" "+ item.Prenume.ToString());
@@ -178,6 +181,16 @@ namespace CabinetVeterinar
                          select m.idMedic).First();
 
              return (int)medici;
+        }
+
+        private void cbListaAnimale_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var context = new HomeVetEntities1();
+            idA = (from a in context.Pacienti
+                      where a.Nume == cbListaAnimale.SelectedItem.ToString()
+                      select a.idPacient).First();
+
+                      
         }
     }
 }

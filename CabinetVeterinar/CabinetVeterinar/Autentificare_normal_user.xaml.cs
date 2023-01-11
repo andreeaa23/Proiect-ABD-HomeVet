@@ -114,5 +114,13 @@ namespace CabinetVeterinar
             this.Close();
             Application.Current.MainWindow.Show();
         }
+
+        private void BtnIstoricProg_Click(object sender, RoutedEventArgs e)
+        {
+            ProgramariUser prog = new ProgramariUser(id);
+            prog.Show();
+
+            
+        }
     }
 }

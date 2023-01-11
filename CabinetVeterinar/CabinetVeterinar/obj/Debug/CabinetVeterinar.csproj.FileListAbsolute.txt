@@ -129,3 +129,9 @@ E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareP
 E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
 E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
 E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.baml
