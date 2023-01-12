@@ -67,6 +67,8 @@ namespace CabinetVeterinar
 
             context.Intrebari.Add(intrebareNoua);
             context.SaveChanges();
+            MessageBox.Show("Intrebare inregistrata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            txtIntrebare.Clear();
             LoadIntrebari();
         }
 

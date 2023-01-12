@@ -26,6 +26,7 @@ namespace CabinetVeterinar
             idMedic = id;
             InitializeComponent();
             LoadProgramari();
+            LoadAsistenti();
         }
        
         public class Programare
@@ -54,7 +55,7 @@ namespace CabinetVeterinar
 
         public void LoadAsistenti()
         {
-            cbAsistenti.Items.Clear();
+            
             var context = new HomeVetEntities1();
 
             var asistenti = from a in context.Asistenti
@@ -123,6 +124,7 @@ namespace CabinetVeterinar
         private void gridListaProgramari_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ok = 1;
+          
             string cellValue = "";
             foreach (DataGridCellInfo cell in gridListaProgramari.SelectedCells)
             {
@@ -135,7 +137,7 @@ namespace CabinetVeterinar
                 }
             }
             Int32.TryParse(cellValue, out idProgramare);
-            LoadAsistenti();
+       
         }
 
         private void cbAsistenti_SelectionChanged_1(object sender, SelectionChangedEventArgs e)

@@ -29,6 +29,14 @@ namespace CabinetVeterinar
 
 
         }
+        public ProgramariUser(int id)
+        {
+            idu = id;
+            InitializeComponent();
+            ShowProgramari();
+
+        }
+
         public void ShowProgramari()
         {
             gridProgramari.Items.Clear();
@@ -62,15 +70,7 @@ namespace CabinetVeterinar
             }
         
         }
-        public ProgramariUser(int id)
-        {
-            
-            InitializeComponent();
-            idu = id;
-            ShowProgramari();
-           
-        }
-
+   
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

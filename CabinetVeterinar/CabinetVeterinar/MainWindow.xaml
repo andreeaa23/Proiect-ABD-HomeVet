@@ -42,6 +42,8 @@
             </ComboBox.RenderTransform>
         </ComboBox>
         <Label x:Name="LabelTip" Content="Categorie" Grid.Column="5" HorizontalAlignment="Left" Margin="29.2,331,0,0" VerticalAlignment="Top" Width="137" Height="55" FontSize="24" Foreground="#C0C0C0" FontWeight="Bold" />
+        <Image x:Name="ImgPassw" Grid.Column="5" HorizontalAlignment="Left" Height="33" Margin="112.2,307,0,0" VerticalAlignment="Top" Width="44" Source="/Images/password-76.png"/>
+        <Image x:Name="ImgAccount" Grid.Column="5" HorizontalAlignment="Left" Height="33" Margin="112.2,206,0,0" VerticalAlignment="Top" Width="44" Source="/Images/acc.png"/>
 
 
     </Grid>

@@ -19,12 +19,15 @@ namespace CabinetVeterinar
         int idUser; //utilizator
         int idA;
         DateTime data;
-  
+        private HomeVetEntities1 context;
+
+        private static bool isLoadedCabinete = false;
+        private static bool isLoadedSectii = false;
         public Programare(int ID)
         {
             idUser = ID;
             data = DateTime.Now;
-
+            context = new HomeVetEntities1();
 
             InitializeComponent();
             LoadListaAnimale();
@@ -32,7 +35,99 @@ namespace CabinetVeterinar
             LoadTipProgramare();
 
         }
+        public void LoadListaOrase()
+        {
 
+            var cities = (from c in context.Cabinete
+                          select c.Oras).Distinct().ToList();
+
+            cbOras.ItemsSource = cities;
+        }
+
+        private void cbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            isLoadedCabinete = false;
+            cbCabinet.SelectedItem = null;
+            LoadListaCabinete();
+
+        }
+
+        public void LoadListaCabinete()
+        {
+
+            var oras = cbOras.SelectedItem.ToString();
+
+            var cabinete = (from c in context.Cabinete
+                            where c.Oras == oras
+                            select c.Adresa).ToList();
+
+            cbCabinet.ItemsSource = cabinete;
+            isLoadedCabinete = true;
+        }
+
+        private void cbCabinet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoadedCabinete)
+            {
+                LoadSectie();
+
+            }
+            isLoadedCabinete = false;
+            cbSectie.SelectedItem = null;
+        }
+
+        public void LoadSectie()
+        {
+
+            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
+
+            var sectii = (from cs in context.CabineteSectii
+                          join c in context.Cabinete
+                          on cs.idCabinet equals c.idCabinet
+                          join s in context.Sectii
+                          on cs.idSectie equals s.idSectie
+                          where c.Adresa == cabinetSelectat
+                          select s.Denumire).ToList();
+
+            cbSectie.ItemsSource = sectii;
+            isLoadedSectii = true;
+
+        }
+        private void cbSectie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoadedSectii)
+            {
+                LoadMedici();
+
+            }
+            isLoadedSectii = false;
+            cbMedic.SelectedItem = null;
+
+        }
+
+        public void LoadMedici()
+        {
+
+            var sectieSelectata = cbSectie.SelectedItem.ToString();
+            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
+            var medici = (from m in context.Medici
+                          join cs in context.CabineteSectii
+                          on m.idCabineteSectii equals cs.idCabineteSectii
+                          join s in context.Sectii
+                          on cs.idSectie equals s.idSectie
+                          join c in context.Cabinete
+                          on cs.idCabinet equals c.idCabinet
+                          where s.Denumire == sectieSelectata && c.Adresa == cabinetSelectat
+                          select
+
+                             m.Nume + " " + m.Prenume
+
+                         ).ToList();
+
+            cbMedic.ItemsSource = medici; //to do
+
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -47,7 +142,7 @@ namespace CabinetVeterinar
 
         private void btnProgramare_Click(object sender, RoutedEventArgs e)
         {
-            var context = new HomeVetEntities1();
+            
             string tipProg = cbTipProgramare.SelectedItem.ToString();
             string tip ="";
 
@@ -74,7 +169,7 @@ namespace CabinetVeterinar
 
         public void LoadListaAnimale()
         {
-            var context = new HomeVetEntities1();
+           
             var animals = (from a in context.Pacienti
                            where a.idUtilizator == idUser
                           select a.Nume).Distinct();
@@ -82,95 +177,15 @@ namespace CabinetVeterinar
             foreach (var c in animals)
                 cbListaAnimale.Items.Add(c.ToString());
         }
-
-        public void LoadListaOrase()
-        {
-            var context = new HomeVetEntities1();
-            var cities = (from c in context.Cabinete
-                           select c.Oras).Distinct();
-
-            foreach (var c in cities)
-                cbOras.Items.Add(c.ToString());
-        }
-
-        public void LoadListaCabinete()
-        {
-            var context = new HomeVetEntities1();
-            var oras = cbOras.SelectedItem.ToString();
-
-            var cabinete = (from c in context.Cabinete
-                            where c.Oras == oras
-                            select c.Adresa);
-
-            foreach (var c in cabinete)
-                cbCabinet.Items.Add(c.ToString());
-        }
-
-        private void cbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadListaCabinete();
-        }
-
         public void LoadTipProgramare()
         {
             cbTipProgramare.Items.Add("Urgenta");
             cbTipProgramare.Items.Add("Control");
         }
-
-        public void LoadSectie()
-        {
-            var context = new HomeVetEntities1();
-            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
-
-            var sectii = (from cs in context.CabineteSectii
-                         join c in context.Cabinete
-                         on cs.idCabinet equals c.idCabinet
-                         join s in context.Sectii
-                         on cs.idSectie equals s.idSectie
-                         where c.Adresa == cabinetSelectat
-                          select s.Denumire).Distinct();
-
-            foreach (var item in sectii)
-                cbSectie.Items.Add(item.ToString());
-
-        }
-
-        private void cbCabinet_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadSectie();
-        }
-
-        private void cbSectie_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadMedici();
-        }
-
-        public void LoadMedici()
-        {
-            var context = new HomeVetEntities1();
-            var sectieSelectata = cbSectie.SelectedItem.ToString();
-            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
-            var medici = (from m in context.Medici
-                          join cs in context.CabineteSectii
-                          on m.idCabineteSectii equals cs.idCabineteSectii
-                          join s in context.Sectii
-                          on cs.idSectie equals s.idSectie
-                          join c in context.Cabinete
-                          on cs.idCabinet equals c.idCabinet
-                          where s.Denumire == sectieSelectata && c.Adresa==cabinetSelectat
-                          select new
-                          {
-                              m.Nume,
-                              m.Prenume
-                          });
-            
-            foreach (var item in medici)
-                cbMedic.Items.Add(item.Nume.ToString() +" "+ item.Prenume.ToString());
-        }
-
+      
         public int getIdMedic()
         {
-            var context = new HomeVetEntities1();
+           
             var medicSelectat = cbMedic.SelectedItem.ToString();
             Int32 count = 2;
             string[] sep = { " " };
@@ -185,9 +200,9 @@ namespace CabinetVeterinar
 
         private void cbListaAnimale_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var context = new HomeVetEntities1();
+            
             idA = (from a in context.Pacienti
-                      where a.Nume == cbListaAnimale.SelectedItem.ToString()
+                      where a.Nume == cbListaAnimale.SelectedItem.ToString() && a.idUtilizator==idUser
                       select a.idPacient).First();
 
                       
