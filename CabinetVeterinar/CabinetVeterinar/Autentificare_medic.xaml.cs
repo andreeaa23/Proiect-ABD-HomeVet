@@ -17,6 +17,7 @@ namespace CabinetVeterinar
         
     public partial class Autentificare_medic : Window
     {
+        private HomeVetEntities1 context;
         string numeMedic, prenumeMedic;
         int idMedic;
 
@@ -27,6 +28,7 @@ namespace CabinetVeterinar
             idMedic = ID;
 
             InitializeComponent();
+            context = new HomeVetEntities1();
             WriteLblMedicName(prenume, nume);
         }
 
@@ -34,7 +36,6 @@ namespace CabinetVeterinar
         {
             public string numeStapan { get; set; }
             public string numePacient { get; set; }
-
             public string specie { get; set; }
             public string data { get; set; }
             public string tip { get; set; }
@@ -57,7 +58,6 @@ namespace CabinetVeterinar
         {
             gridListaProgramari.Items.Clear();
 
-            var context = new HomeVetEntities1();
             var programari = (from p in context.Programari
                               join a in context.Pacienti
                               on p.idPacient equals a.idPacient
@@ -101,7 +101,6 @@ namespace CabinetVeterinar
         {
             ValidareProgramari prog = new ValidareProgramari(idMedic,numeMedic, prenumeMedic);
             prog.Show();
-           // this.Hide();
         }
 
         private void BtnRaspunsuri_Click(object sender, RoutedEventArgs e)
@@ -119,7 +118,7 @@ namespace CabinetVeterinar
 
         private void WriteLblMedicName(string prn, string name)
         {
-            LblUserName.Content = "Hello, Dr. " + name + " " + prn; //to do aici
+            LblUserName.Content = "Hello, Dr. " + name + " " + prn; 
         }
     }
 }

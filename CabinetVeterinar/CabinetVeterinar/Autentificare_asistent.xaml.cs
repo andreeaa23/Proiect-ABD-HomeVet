@@ -14,11 +14,10 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Autentificare_asistent.xaml
-    /// </summary>
+ 
     public partial class Autentificare_asistent : Window
     {
+        private HomeVetEntities1 context;
         int idAsistent;
         int idMedic;
         string nume, prenume;
@@ -28,7 +27,9 @@ namespace CabinetVeterinar
             idMedic = IDM;
             nume = Nume;
             prenume = Prenume;
+
             InitializeComponent();
+            context = new HomeVetEntities1();
             WriteLblMedicName(prenume, nume);
             
         }
@@ -62,8 +63,6 @@ namespace CabinetVeterinar
         private void BtnListaProbeColectate_Click(object sender, RoutedEventArgs e)
         {
             gridListaProgramari.Items.Clear();
-
-            var context = new HomeVetEntities1();
 
             var programari = (from p in context.ProbeColectate
                               join pr in context.Programari
@@ -105,8 +104,6 @@ namespace CabinetVeterinar
         {
             gridListaProgramari.Items.Clear();
 
-            var context = new HomeVetEntities1();
-            
             var programari = (from p in context.Programari
                               join a in context.Pacienti
                               on p.idPacient equals a.idPacient

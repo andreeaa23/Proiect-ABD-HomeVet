@@ -18,11 +18,10 @@ using System.Configuration;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Servicii.xaml
-    /// </summary>
+
     public partial class Servicii : Window
     {
+        private HomeVetEntities1 context;
         public class OrasSelectat
         {
             public string adresa { get; set; }
@@ -33,6 +32,8 @@ namespace CabinetVeterinar
      
         public Servicii()
         {
+            context = new HomeVetEntities1();
+
             InitializeComponent();
             LoadOrase();
          
@@ -40,7 +41,6 @@ namespace CabinetVeterinar
        
         public void LoadOrase()
         {
-            var context = new HomeVetEntities1();
             var cities = (from o in context.Cabinete
                          select o.Oras).Distinct();
 
@@ -63,7 +63,7 @@ namespace CabinetVeterinar
         private void boxOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             afisareDetalii.Items.Clear();
-            var context = new HomeVetEntities1();
+           
             var orasSelectat = boxOras.SelectedItem.ToString(); //preiau ce am selectat in combobox
 
             var cabinete = from c in context.Cabinete
@@ -74,8 +74,6 @@ namespace CabinetVeterinar
                                c.NrTelefon,
                                c.Program
                            };
-
-
 
             if (cabinete.Count() != 0)
             {

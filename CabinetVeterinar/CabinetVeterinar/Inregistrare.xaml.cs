@@ -17,8 +17,10 @@ namespace CabinetVeterinar
 {
     public partial class Inregistrare : Window
     {
+        private HomeVetEntities1 context;
         public Inregistrare()
         {
+            context = new HomeVetEntities1();
             InitializeComponent();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,7 +38,6 @@ namespace CabinetVeterinar
             string hashedPass;
             DateTime data = DateTime.Now;
 
-            var context = new HomeVetEntities1();
             var user = (from u in context.Utilizatori
                         where u.Email == email
                         select u);
@@ -54,7 +55,6 @@ namespace CabinetVeterinar
                 {
                     byte[] hash = sha256.ComputeHash(passwdBytes);
                     hashedPass= Encoding.UTF8.GetString(hash);
-                    // Store the `storedPasswordHash` in your database
                 }
                 var newUser = new Utilizatori()
                 {
@@ -68,10 +68,13 @@ namespace CabinetVeterinar
                 };
                 context.Utilizatori.Add(newUser);
                 context.SaveChanges();
+
                 MessageBox.Show("Inregistrare cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 MainWindow main = new MainWindow();
                 main.Show();
-                Hide();
+
+                this.Hide();
             }
         }
 

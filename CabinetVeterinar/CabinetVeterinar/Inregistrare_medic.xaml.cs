@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Inregistrare_medic.xaml
-    /// </summary>
     public partial class Inregistrare_medic : Window
     {
         private HomeVetEntities1 context;
@@ -36,13 +33,10 @@ namespace CabinetVeterinar
                           select c.Oras).Distinct().ToList();
 
             cbOras.ItemsSource = cities;
-            //foreach (var c in cities)
-            //    cbOras.Items.Add(c.ToString());
         }
 
         private void cbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //cbCabinet.Items.Clear();
             isLoaded = false;
             cbCabinet.SelectedItem = null;
             LoadListaCabinete();
@@ -59,14 +53,11 @@ namespace CabinetVeterinar
 
             cbCabinet.ItemsSource = cabinete;
             isLoaded = true;
-            //foreach (var c in cabinete)
-            //    cbCabinet.Items.Add(c.ToString());
-       
+
         }
 
         private void cbCabinet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //cbSectie.Items.Clear();
             if (isLoaded)
             {
                 LoadSectie();
@@ -89,9 +80,7 @@ namespace CabinetVeterinar
                           select s.Denumire).ToList();
 
             cbSectie.ItemsSource = sectii;
-            //foreach (var item in sectii)
-            //    cbSectie.Items.Add(item.ToString());
-     
+
         }
 
   
@@ -124,7 +113,8 @@ namespace CabinetVeterinar
                              select c.idCabinet).First();
 
             var id = (from cs in context.CabineteSectii
-                     where cs.idCabinet == idCabinet && cs.idSectie == idSectie select cs.idCabineteSectii).First();
+                     where cs.idCabinet == idCabinet && cs.idSectie == idSectie
+                     select cs.idCabineteSectii).First();
 
 
             if (user.Count() != 0)
@@ -140,7 +130,7 @@ namespace CabinetVeterinar
                 {
                     byte[] hash = sha256.ComputeHash(passwdBytes);
                     hashedPass = Encoding.UTF8.GetString(hash);
-                    // Store the `storedPasswordHash` in your database
+
                 }
                 var newMedic = new Medici()
                 {
@@ -153,10 +143,13 @@ namespace CabinetVeterinar
                 };
                 context.Medici.Add(newMedic);
                 context.SaveChanges();
+
                 MessageBox.Show("Inregistrare cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 MainWindow main = new MainWindow();
                 main.Show();
-                Hide();
+
+                this.Hide();
             }
         }
 

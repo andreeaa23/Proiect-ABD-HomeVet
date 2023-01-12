@@ -14,16 +14,13 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Autentificare.xaml
-    /// </summary>
     public partial class Autentificare_normal_user : Window
     {
+        private HomeVetEntities1 context;
         int id;
         string nume;
         string prenume;
         
-
         public class Animale
         {
             public string numeAnimal { get; set; }
@@ -42,6 +39,7 @@ namespace CabinetVeterinar
            
           
             InitializeComponent();
+            context = new HomeVetEntities1();
             WriteLblUserName(prenume,nume);
         }
 
@@ -60,7 +58,6 @@ namespace CabinetVeterinar
         {
             gridListaAnimale.Items.Clear();
 
-            var context = new HomeVetEntities1();
             var animale =  from a in context.Pacienti
                            join s in context.Specii
                            on a.idSpecie equals s.idSpecie
@@ -118,9 +115,7 @@ namespace CabinetVeterinar
         private void BtnIstoricProg_Click(object sender, RoutedEventArgs e)
         {
             ProgramariUser prog = new ProgramariUser(id);
-            prog.Show();
-
-            
+            prog.Show(); 
         }
     }
 }

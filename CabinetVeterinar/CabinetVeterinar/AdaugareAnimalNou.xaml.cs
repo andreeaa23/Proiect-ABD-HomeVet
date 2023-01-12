@@ -17,16 +17,17 @@ namespace CabinetVeterinar
 {
     public partial class AdaugareAnimalNou : Window
     {
+        private HomeVetEntities1 context;
         int idUser;
         public AdaugareAnimalNou(int ID)
         {
             idUser = ID;
             InitializeComponent();
-           // LoadAnimalNou();
+            context = new HomeVetEntities1();
+   
         }
         public void AdaugaSpecie(string specie)
         {
-            var context = new HomeVetEntities1();
             var specii = from s in context.Specii
                          where s.Denumire == specie
                          select s; //daca am deja specia in tabel sa n o mai adaug iar
@@ -53,7 +54,6 @@ namespace CabinetVeterinar
         
         public void LoadAnimalNou()
         {
-            var context = new HomeVetEntities1();
             string numeAnimal = txtNume.Text;
             string specie = txtSpecie.Text;
             decimal greutate;
@@ -64,11 +64,6 @@ namespace CabinetVeterinar
             var specii = (from s in context.Specii
                          where s.Denumire == specie
                          select s.idSpecie).First();
-
-
-         
-
-             
 
                     var pacientNou = new Pacienti()
                     {
@@ -92,6 +87,7 @@ namespace CabinetVeterinar
         private void btnAdaugare_Click(object sender, RoutedEventArgs e)
         {
             LoadAnimalNou();
+
             MessageBox.Show("Adaugare animal cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }

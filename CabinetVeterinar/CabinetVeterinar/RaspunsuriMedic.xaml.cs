@@ -17,10 +17,11 @@ namespace CabinetVeterinar
 {
     public partial class RaspunsuriMedic : Window
     {
+        private HomeVetEntities1 context;
         int id;
         int idMedic;
         int ok = 0;
-
+     
         public class Intrebare
         {
             public int id { get; set; }
@@ -35,13 +36,12 @@ namespace CabinetVeterinar
 
             idMedic = idm;
             InitializeComponent();
+            context = new HomeVetEntities1();
             LoadIntrebari();
         }
         public void LoadIntrebari()
         {
             gridRaspunsuri.Items.Clear();
-
-            var context = new HomeVetEntities1();
 
             var intrebari = from i in context.Intrebari
                             join u in context.Utilizatori
@@ -98,9 +98,6 @@ namespace CabinetVeterinar
 
             if (ok == 1)
             {
-
-                var context = new HomeVetEntities1();
-
                 var intrebare = (from i in context.Intrebari
                                  where i.idIntrebare == id
                                  select i).Single();

@@ -19,7 +19,7 @@
         <ComboBox x:Name="cbAsistenti" HorizontalAlignment="Left" Margin="54,154,0,0" VerticalAlignment="Top" Width="193" Height="34" SelectionChanged="cbAsistenti_SelectionChanged_1"   />
         <Label x:Name="LbllistaLocatie" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza locatia" HorizontalAlignment="Left" Margin="39,207,0,0" VerticalAlignment="Top" Width="245" FontSize="20"/>
         <ComboBox x:Name="cbLocatie" HorizontalAlignment="Left" Margin="54,265,0,0" VerticalAlignment="Top" Width="193" Height="34" />
-        <Label x:Name="LblListaProgramari" FontWeight="Bold"  Foreground="#C0C0C0" Content="ACTUALIZARE PROGRAMARE" HorizontalAlignment="Left" Margin="304,37,0,0" VerticalAlignment="Top" Width="438" FontSize="30"/>
+        <Label x:Name="LblListaProgramari" FontWeight="Bold"  Foreground="#C0C0C0" Content="ACTUALIZARE PROGRAMARE" HorizontalAlignment="Left" Margin="348,37,0,0" VerticalAlignment="Top" Width="438" FontSize="30"/>
 
         <DataGrid x:Name="gridListaProgramari" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="332" Margin="304,113,0,0" VerticalAlignment="Top" Width="561" MouseLeftButtonUp="gridListaProgramari_MouseLeftButtonUp">
             <DataGrid.Resources>

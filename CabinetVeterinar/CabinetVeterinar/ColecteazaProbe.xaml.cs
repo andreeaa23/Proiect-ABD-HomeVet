@@ -17,6 +17,7 @@ namespace CabinetVeterinar
 
     public partial class ColecteazaProbe : Window
     {
+        private HomeVetEntities1 context;
         int ok = 0;
         int idProgramare;
         int idAsistent;
@@ -25,6 +26,7 @@ namespace CabinetVeterinar
         {
             idMedic = id;
             InitializeComponent();
+            context = new HomeVetEntities1();
             LoadProgramari();
             LoadAsistenti();
         }
@@ -50,9 +52,6 @@ namespace CabinetVeterinar
 
         public void LoadAsistenti()
         {
-            
-            var context = new HomeVetEntities1();
-
             var asistenti = from a in context.Asistenti
                             where a.idMedic == idMedic
                             select new
@@ -73,7 +72,7 @@ namespace CabinetVeterinar
          public void LoadProgramari()
         {
             gridListaProgramari.Items.Clear();
-            var context = new HomeVetEntities1();
+
             var programari = (from p in context.Programari
                               join a in context.Pacienti
                               on p.idPacient equals a.idPacient
@@ -138,7 +137,7 @@ namespace CabinetVeterinar
         private void cbAsistenti_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             LoadLocatieProgramare();
-            var context = new HomeVetEntities1();
+
             string[] vars = cbAsistenti.SelectedItem.ToString().Split(' ');
             string n = vars[0];
             string p = vars[1];
@@ -147,13 +146,10 @@ namespace CabinetVeterinar
                      select a.idAsistent).First();
 
             idAsistent = id;
-            //aici trb sa preluam id ul asistentului
         }
 
         private void BtnModifica_Click(object sender, RoutedEventArgs e)
         {
-            
-            var context = new HomeVetEntities1();
 
             var newUpdate = new ProbeColectate()
             {

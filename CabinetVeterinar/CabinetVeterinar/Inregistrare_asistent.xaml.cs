@@ -117,7 +117,7 @@ namespace CabinetVeterinar
                              
                          ).ToList();
 
-            cbMedic.ItemsSource = medici ; //to do
+            cbMedic.ItemsSource = medici ;
               
         }
 
@@ -173,7 +173,7 @@ namespace CabinetVeterinar
                 {
                     byte[] hash = sha256.ComputeHash(passwdBytes);
                     hashedPass = Encoding.UTF8.GetString(hash);
-                    // Store the `storedPasswordHash` in your database
+
                 }
                 var newAsistent = new Asistenti()
                 {

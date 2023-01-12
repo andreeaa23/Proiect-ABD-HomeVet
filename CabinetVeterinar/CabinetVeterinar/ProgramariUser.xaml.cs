@@ -14,11 +14,9 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for ProgramariUser.xaml
-    /// </summary>
     public partial class ProgramariUser : Window
     {
+        private HomeVetEntities1 context;
         private int idu;
         public class Programare
         {
@@ -33,6 +31,7 @@ namespace CabinetVeterinar
         {
             idu = id;
             InitializeComponent();
+            context = new HomeVetEntities1();
             ShowProgramari();
 
         }
@@ -40,8 +39,6 @@ namespace CabinetVeterinar
         public void ShowProgramari()
         {
             gridProgramari.Items.Clear();
-
-            var context = new HomeVetEntities1();
 
             var programari = from p in context.Programari
                              join a in context.Pacienti
@@ -56,6 +53,7 @@ namespace CabinetVeterinar
                                  m.Prenume,
                                  p.DataProgramare
                              };
+
             if(programari.Count()>0)
             {
                 foreach(var item in programari)

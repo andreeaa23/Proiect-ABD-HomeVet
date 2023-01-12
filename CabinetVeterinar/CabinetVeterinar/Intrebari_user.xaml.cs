@@ -16,6 +16,7 @@ namespace CabinetVeterinar
 {
     public partial class Intrebari_user : Window
     {
+        private HomeVetEntities1 context;
         int idUser;
 
         public class Intrebare
@@ -33,6 +34,7 @@ namespace CabinetVeterinar
             idUser = ID;
           
             InitializeComponent();
+            context = new HomeVetEntities1();
             LoadIntrebari();
         }
 
@@ -49,7 +51,6 @@ namespace CabinetVeterinar
 
         private void BtnAdaugaIntrebare_Click(object sender, RoutedEventArgs e)
         {
-            var context = new HomeVetEntities1();
             string intrebare = txtIntrebare.Text; //preiau ce scriun in text box
 
             //introducere intrebare in BD
@@ -75,7 +76,6 @@ namespace CabinetVeterinar
         public void LoadIntrebari()
         {
             gridIntrebari.Items.Clear();
-            var context = new HomeVetEntities1();
             var intrebari = (from i in context.Intrebari
                              join m in context.Medici on i.idMedic equals m.idMedic
                              where i.idUtilizator == idUser
