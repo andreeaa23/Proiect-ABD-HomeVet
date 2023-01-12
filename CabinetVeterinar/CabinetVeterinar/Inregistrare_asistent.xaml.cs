@@ -20,48 +20,61 @@ namespace CabinetVeterinar
     /// </summary>
     public partial class Inregistrare_asistent : Window
     {
+        private HomeVetEntities1 context;
+
+        private static bool isLoadedCabinete = false;
+        private static bool isLoadedSectii = false;
         public Inregistrare_asistent()
         {
             InitializeComponent();
+            context = new HomeVetEntities1();
             LoadListaOrase();
         }
         public void LoadListaOrase()
         {
-            var context = new HomeVetEntities1();
-            var cities = (from c in context.Cabinete
-                          select c.Oras).Distinct();
 
-            foreach (var c in cities)
-                cbOras.Items.Add(c.ToString());
+            var cities = (from c in context.Cabinete
+                          select c.Oras).Distinct().ToList();
+
+            cbOras.ItemsSource = cities;
         }
 
         private void cbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
+            isLoadedCabinete = false;
+            cbCabinet.SelectedItem = null;
             LoadListaCabinete();
 
         }
 
         public void LoadListaCabinete()
         {
-            var context = new HomeVetEntities1();
+
             var oras = cbOras.SelectedItem.ToString();
 
             var cabinete = (from c in context.Cabinete
                             where c.Oras == oras
-                            select c.Adresa);
+                            select c.Adresa).ToList();
 
-            foreach (var c in cabinete)
-                cbCabinet.Items.Add(c.ToString());
+            cbCabinet.ItemsSource = cabinete;
+            isLoadedCabinete = true;
         }
 
         private void cbCabinet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LoadSectie();
+            if (isLoadedCabinete)
+            {
+                LoadSectie();
+
+            }
+            isLoadedCabinete = false;
+            cbSectie.SelectedItem = null;
         }
 
         public void LoadSectie()
         {
-            var context = new HomeVetEntities1();
+
             var cabinetSelectat = cbCabinet.SelectedItem.ToString();
 
             var sectii = (from cs in context.CabineteSectii
@@ -70,12 +83,48 @@ namespace CabinetVeterinar
                           join s in context.Sectii
                           on cs.idSectie equals s.idSectie
                           where c.Adresa == cabinetSelectat
-                          select s.Denumire).Distinct();
+                          select s.Denumire).ToList();
 
-            foreach (var item in sectii)
-                cbSectie.Items.Add(item.ToString());
+            cbSectie.ItemsSource = sectii;
+            isLoadedSectii = true;
 
         }
+        private void cbSectie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isLoadedSectii)
+            {
+                LoadMedici();
+
+            }
+            isLoadedSectii = false;
+            cbMedic.SelectedItem = null;
+           
+        }
+
+        public void LoadMedici()
+        {
+
+            var sectieSelectata = cbSectie.SelectedItem.ToString();
+            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
+            var medici = (from m in context.Medici
+                          join cs in context.CabineteSectii
+                          on m.idCabineteSectii equals cs.idCabineteSectii
+                          join s in context.Sectii
+                          on cs.idSectie equals s.idSectie
+                          join c in context.Cabinete
+                          on cs.idCabinet equals c.idCabinet
+                          where s.Denumire == sectieSelectata && c.Adresa == cabinetSelectat
+                          select new
+                          {
+                              m.Nume,
+                              m.Prenume
+                          }).ToList();
+
+            cbMedic.ItemsSource = medici ; //to do
+              
+        }
+
+
 
 
 
@@ -86,7 +135,7 @@ namespace CabinetVeterinar
         }
         public int getIdMedic()
         {
-            var context = new HomeVetEntities1();
+
             var medicSelectat = cbMedic.SelectedItem.ToString();
             Int32 count = 2;
             string[] sep = { " " };
@@ -100,21 +149,21 @@ namespace CabinetVeterinar
         }
         private void btnLogare_Click(object sender, RoutedEventArgs e)
         {
-            
+
             string nume = txtNume.Text;
             string prenume = txtPrenume.Text;
             string email = txtEmail.Text;
             string parola = txtParola.Text;
             string hashedPass;
             int idM = getIdMedic();
-      
+
             string medic = cbMedic.SelectedItem.ToString();
 
             var context = new HomeVetEntities1();
             var user = (from u in context.Medici
                         where u.Email == email
                         select u);
-         
+
 
 
 
@@ -156,34 +205,6 @@ namespace CabinetVeterinar
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-        private void cbSectie_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            LoadMedici();
-        }
 
-        public void LoadMedici()
-        {
-            var context = new HomeVetEntities1();
-            var sectieSelectata = cbSectie.SelectedItem.ToString();
-            var cabinetSelectat = cbCabinet.SelectedItem.ToString();
-            var medici = (from m in context.Medici
-                          join cs in context.CabineteSectii
-                          on m.idCabineteSectii equals cs.idCabineteSectii
-                          join s in context.Sectii
-                          on cs.idSectie equals s.idSectie
-                          join c in context.Cabinete
-                          on cs.idCabinet equals c.idCabinet
-                          where s.Denumire == sectieSelectata && c.Adresa == cabinetSelectat
-                          select new
-                          {
-                              m.Nume,
-                              m.Prenume
-                          });
-
-            foreach (var item in medici)
-                cbMedic.Items.Add(item.Nume.ToString() + " " + item.Prenume.ToString());
-        }
-
-        
     }
 }

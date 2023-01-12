@@ -158,7 +158,7 @@ namespace CabinetVeterinar
                 }
                 else
                 {
-                    var passwd = (from u in context.Utilizatori
+                    var passwd = (from u in context.Medici
                                   where u.Email == userName
                                   select u.Parola).First(); //selectex parola pt userul meu
 

@@ -20,49 +20,64 @@ namespace CabinetVeterinar
     /// </summary>
     public partial class Inregistrare_medic : Window
     {
+        private HomeVetEntities1 context;
+
+        private static bool isLoaded = false;
         public Inregistrare_medic()
         {
             InitializeComponent();
+            context = new HomeVetEntities1();
             LoadListaOrase();
         }
 
         public void LoadListaOrase()
         {
-            var context = new HomeVetEntities1();
             var cities = (from c in context.Cabinete
-                          select c.Oras).Distinct();
+                          select c.Oras).Distinct().ToList();
 
-            foreach (var c in cities)
-                cbOras.Items.Add(c.ToString());
+            cbOras.ItemsSource = cities;
+            //foreach (var c in cities)
+            //    cbOras.Items.Add(c.ToString());
         }
 
         private void cbOras_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //cbCabinet.Items.Clear();
+            isLoaded = false;
+            cbCabinet.SelectedItem = null;
             LoadListaCabinete();
 
         }
 
         public void LoadListaCabinete()
         {
-            var context = new HomeVetEntities1();
             var oras = cbOras.SelectedItem.ToString();
 
             var cabinete = (from c in context.Cabinete
                             where c.Oras == oras
-                            select c.Adresa);
+                            select c.Adresa).ToList();
 
-            foreach (var c in cabinete)
-                cbCabinet.Items.Add(c.ToString());
+            cbCabinet.ItemsSource = cabinete;
+            isLoaded = true;
+            //foreach (var c in cabinete)
+            //    cbCabinet.Items.Add(c.ToString());
+       
         }
 
         private void cbCabinet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LoadSectie();
+            //cbSectie.Items.Clear();
+            if (isLoaded)
+            {
+                LoadSectie();
+
+            }
+            isLoaded = false;
+            cbSectie.SelectedItem = null;
         }
 
         public void LoadSectie()
         {
-            var context = new HomeVetEntities1();
             var cabinetSelectat = cbCabinet.SelectedItem.ToString();
 
             var sectii = (from cs in context.CabineteSectii
@@ -71,11 +86,12 @@ namespace CabinetVeterinar
                           join s in context.Sectii
                           on cs.idSectie equals s.idSectie
                           where c.Adresa == cabinetSelectat
-                          select s.Denumire).Distinct();
+                          select s.Denumire).ToList();
 
-            foreach (var item in sectii)
-                cbSectie.Items.Add(item.ToString());
-
+            cbSectie.ItemsSource = sectii;
+            //foreach (var item in sectii)
+            //    cbSectie.Items.Add(item.ToString());
+     
         }
 
   
@@ -97,7 +113,6 @@ namespace CabinetVeterinar
             string cabinet = cbCabinet.SelectedItem.ToString();
             string hashedPass;
 
-            var context = new HomeVetEntities1();
             var user = (from u in context.Medici
                         where u.Email == email
                         select u);
