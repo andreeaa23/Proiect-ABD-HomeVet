@@ -142,29 +142,32 @@ namespace CabinetVeterinar
 
         private void btnProgramare_Click(object sender, RoutedEventArgs e)
         {
-            
-            string tipProg = cbTipProgramare.SelectedItem.ToString();
-            string tip ="";
-
-            if (tipProg == "Urgenta")
-                tip = "D";
-            else if (tipProg == "Control")
-                tip = "N";
-
-            var newProg = new Programari()
+            if (cbMedic.SelectedItem!=null)
             {
-                idPacient = idA,
-                idMedic = getIdMedic(),
-                DataProgramare = data,
-                Tip = tip,
-                StatusProgramare = "Pending"
-            };
+                string tipProg = cbTipProgramare.SelectedItem.ToString();
+                string tip = "";
 
-            context.Programari.Add(newProg);
-            context.SaveChanges();
+                if (tipProg == "Urgenta")
+                    tip = "D";
+                else if (tipProg == "Control")
+                    tip = "N";
 
-            MessageBox.Show("Programare realizata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+                var newProg = new Programari()
+                {
+                    idPacient = idA,
+                    idMedic = getIdMedic(),
+                    DataProgramare = data,
+                    Tip = tip,
+                    StatusProgramare = "Pending"
+                };
+
+                context.Programari.Add(newProg);
+                context.SaveChanges();
+
+                MessageBox.Show("Programare realizata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+               
+            }
         }   
 
         public void LoadListaAnimale()

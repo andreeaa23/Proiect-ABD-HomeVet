@@ -128,68 +128,71 @@ namespace CabinetVeterinar
         }
         public int getIdMedic()
         {
+            
+                var medicSelectat = cbMedic.SelectedItem.ToString();
+                Int32 count = 2;
+                string[] sep = { " " };
+                string[] creds = medicSelectat.Split(sep, count, StringSplitOptions.RemoveEmptyEntries);
 
-            var medicSelectat = cbMedic.SelectedItem.ToString();
-            Int32 count = 2;
-            string[] sep = { " " };
-            string[] creds = medicSelectat.Split(sep, count, StringSplitOptions.RemoveEmptyEntries);
-
-            var medici = (from m in context.Medici.ToList()
-                          where m.Nume == creds.ElementAt(0) && m.Prenume == creds.ElementAt(1)
-                          select m.idMedic).First();
-
-            return (int)medici;
+                var medici = (from m in context.Medici.ToList()
+                              where m.Nume == creds.ElementAt(0) && m.Prenume == creds.ElementAt(1)
+                              select m.idMedic).First();
+               
+                return (int)medici;
+            
         }
         private void btnLogare_Click(object sender, RoutedEventArgs e)
         {
-
-            string nume = txtNume.Text;
-            string prenume = txtPrenume.Text;
-            string email = txtEmail.Text;
-            string parola = txtParola.Text;
-            string hashedPass;
-            int idM = getIdMedic();
-
-            string medic = cbMedic.SelectedItem.ToString();
-
-            var context = new HomeVetEntities1();
-            var user = (from u in context.Medici
-                        where u.Email == email
-                        select u);
-
-
-
-
-            if (user.Count() != 0)
+            if (cbMedic.SelectedItem != null)
             {
-                MessageBox.Show("User deja existent!", "Register ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                string nume = txtNume.Text;
+                string prenume = txtPrenume.Text;
+                string email = txtEmail.Text;
+                string parola = txtParola.Text;
+                string hashedPass;
+                int idM = getIdMedic();
 
-            }
-            else
-            {
-                byte[] passwdBytes = Encoding.UTF8.GetBytes(parola);
+                string medic = cbMedic.SelectedItem.ToString();
 
-                using (var sha256 = SHA256.Create())
+                var context = new HomeVetEntities1();
+                var user = (from u in context.Medici
+                            where u.Email == email
+                            select u);
+
+
+
+
+                if (user.Count() != 0)
                 {
-                    byte[] hash = sha256.ComputeHash(passwdBytes);
-                    hashedPass = Encoding.UTF8.GetString(hash);
-                    // Store the `storedPasswordHash` in your database
+                    MessageBox.Show("User deja existent!", "Register ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 }
-                var newAsistent = new Asistenti()
+                else
                 {
-                    Email = email,
-                    Nume = nume,
-                    Prenume = prenume,
-                    Parola = hashedPass,
-                    idMedic = idM
+                    byte[] passwdBytes = Encoding.UTF8.GetBytes(parola);
 
-                };
-                context.Asistenti.Add(newAsistent);
-                context.SaveChanges();
-                MessageBox.Show("Inregistrare cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow main = new MainWindow();
-                main.Show();
-                Hide();
+                    using (var sha256 = SHA256.Create())
+                    {
+                        byte[] hash = sha256.ComputeHash(passwdBytes);
+                        hashedPass = Encoding.UTF8.GetString(hash);
+                        // Store the `storedPasswordHash` in your database
+                    }
+                    var newAsistent = new Asistenti()
+                    {
+                        Email = email,
+                        Nume = nume,
+                        Prenume = prenume,
+                        Parola = hashedPass,
+                        idMedic = idM
+
+                    };
+                    context.Asistenti.Add(newAsistent);
+                    context.SaveChanges();
+                    MessageBox.Show("Inregistrare cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    Hide();
+                }
             }
         }
 

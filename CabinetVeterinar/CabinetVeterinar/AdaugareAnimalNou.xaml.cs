@@ -18,31 +18,34 @@ namespace CabinetVeterinar
     public partial class AdaugareAnimalNou : Window
     {
         int idUser;
+        private HomeVetEntities1 context;
         public AdaugareAnimalNou(int ID)
         {
             idUser = ID;
+            context = new HomeVetEntities1();
             InitializeComponent();
            // LoadAnimalNou();
         }
         public void AdaugaSpecie(string specie)
         {
-            var context = new HomeVetEntities1();
-            var specii = from s in context.Specii
-                         where s.Denumire == specie
-                         select s; //daca am deja specia in tabel sa n o mai adaug iar
-
-            if (specii.Count() == 0) //daca n am specia, o adaug in tabel
+            if (txtSpecie.Text != "")
             {
+                var specii = from s in context.Specii
+                             where s.Denumire == specie
+                             select s; //daca am deja specia in tabel sa n o mai adaug iar
 
-                var specieNoua = new Specii()
+                if (specii.Count() == 0) //daca n am specia, o adaug in tabel
                 {
-                    Denumire = specie
-                };
-                context.Specii.Add(specieNoua);
-                context.SaveChanges();
-             
+
+                    var specieNoua = new Specii()
+                    {
+                        Denumire = specie
+                    };
+                    context.Specii.Add(specieNoua);
+                    context.SaveChanges();
+
+                }
             }
-            
 
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,36 +56,34 @@ namespace CabinetVeterinar
         
         public void LoadAnimalNou()
         {
-            var context = new HomeVetEntities1();
-            string numeAnimal = txtNume.Text;
-            string specie = txtSpecie.Text;
-            decimal greutate;
-            Decimal.TryParse(txtGreutate.Text, out greutate);
-            int varsta;
-            Int32.TryParse(txtvarsta.Text, out varsta);
-            AdaugaSpecie(specie);
-            var specii = (from s in context.Specii
-                         where s.Denumire == specie
-                         select s.idSpecie).First();
-
-
          
+                string numeAnimal = txtNume.Text;
+                string specie = txtSpecie.Text;
+                decimal greutate;
+                Decimal.TryParse(txtGreutate.Text, out greutate);
+                int varsta;
+                Int32.TryParse(txtvarsta.Text, out varsta);
+                AdaugaSpecie(specie);
+                var specii = (from s in context.Specii
+                              where s.Denumire == specie
+                              select s.idSpecie).First();
+
+
+
+
+
+
+                var pacientNou = new Pacienti()
+                {
+                    idUtilizator = idUser,
+                    idSpecie = specii,
+                    Nume = numeAnimal,
+                    Varsta = varsta,
+                    Greutate = greutate
+                };
+                context.Pacienti.Add(pacientNou);
 
              
-
-                    var pacientNou = new Pacienti()
-                    {
-                        idUtilizator = idUser,
-                        idSpecie = specii,
-                        Nume = numeAnimal,
-                        Varsta = varsta,
-                        Greutate = greutate
-                    };
-                    context.Pacienti.Add(pacientNou);
-
-                    context.SaveChanges();
-                
-           
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -92,8 +93,17 @@ namespace CabinetVeterinar
         private void btnAdaugare_Click(object sender, RoutedEventArgs e)
         {
             LoadAnimalNou();
-            MessageBox.Show("Adaugare animal cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+            if ((txtNume.Text != "") && (txtGreutate.Text != "") && (txtvarsta.Text != ""))
+            {
+                MessageBox.Show("Adaugare animal cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                context.SaveChanges();
+                txtNume.Clear();
+                txtSpecie.Clear();
+                txtGreutate.Clear();
+                txtvarsta.Clear();
+                this.Close();
+            }
+           
         }
     }
 }

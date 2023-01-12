@@ -17,10 +17,11 @@ namespace CabinetVeterinar
 
     public partial class ColecteazaProbe : Window
     {
-        int ok = 0;
+        
         int idProgramare;
         int idAsistent;
         int idMedic;
+        bool isSelected = false;
         public ColecteazaProbe(int id)
         {
             idMedic = id;
@@ -118,7 +119,7 @@ namespace CabinetVeterinar
 
         private void gridListaProgramari_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ok = 1;
+          
           
             string cellValue = "";
             foreach (DataGridCellInfo cell in gridListaProgramari.SelectedCells)
@@ -147,6 +148,7 @@ namespace CabinetVeterinar
                      select a.idAsistent).First();
 
             idAsistent = id;
+            isSelected = true;
             //aici trb sa preluam id ul asistentului
         }
 
@@ -154,18 +156,19 @@ namespace CabinetVeterinar
         {
             
             var context = new HomeVetEntities1();
-
-            var newUpdate = new ProbeColectate()
+            if (isSelected==true)
             {
-                idProgramare = idProgramare,
-                Locatie = cbLocatie.Text,
-                idAsistent=idAsistent
-            };
-            context.ProbeColectate.Add(newUpdate);
-            context.SaveChanges();
-
-            MessageBox.Show("Programare modificata!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            
+                var newUpdate = new ProbeColectate()
+                {
+                    idProgramare = idProgramare,
+                    Locatie = cbLocatie.Text,
+                    idAsistent = idAsistent
+                };
+                context.ProbeColectate.Add(newUpdate);
+                context.SaveChanges();
+                isSelected = false;
+                MessageBox.Show("Programare modificata!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
