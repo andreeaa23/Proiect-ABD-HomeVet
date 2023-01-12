@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for Inregistrare_asistent.xaml
-    /// </summary>
     public partial class Inregistrare_asistent : Window
     {
         private HomeVetEntities1 context;
@@ -114,11 +111,11 @@ namespace CabinetVeterinar
                           join c in context.Cabinete
                           on cs.idCabinet equals c.idCabinet
                           where s.Denumire == sectieSelectata && c.Adresa == cabinetSelectat
-                          select new
-                          {
-                              m.Nume,
-                              m.Prenume
-                          }).ToList();
+                          select 
+                          
+                             m.Nume+" "+m.Prenume
+                             
+                         ).ToList();
 
             cbMedic.ItemsSource = medici ; //to do
               
