@@ -17,7 +17,7 @@
         <Image x:Name="btnImagine"  Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
         <Label x:Name="LblIntrebare" FontWeight="Bold"  Foreground="#C0C0C0" Content="Scrie o intrebare" HorizontalAlignment="Left" Margin="58,85,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
         <Label x:Name="LblTitluIntrebare" FontWeight="Bold"  Foreground="#C0C0C0" Content="SECTIUNE INTREBARI" HorizontalAlignment="Left"  Margin="309,24,0,0" VerticalAlignment="Top" Width="318" FontSize="30"/>
-        <TextBox x:Name="txtIntrebare" TextAlignment="Center" Background="Gray"   HorizontalAlignment="Left" Height="34" Margin="58,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
+        <TextBox x:Name="txtIntrebare" Cursor="Arrow" CaretBrush="White" TextAlignment="Center" Background="Gray"   HorizontalAlignment="Left" Height="34" Margin="58,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="686"  BorderBrush="#C0C0C0" FontSize="16" Foreground="#C0C0C0" />
         <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Intrebarile mele" HorizontalAlignment="Left" Margin="58,191,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
         <DataGrid x:Name="gridIntrebari" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="167" Margin="58,233,0,0" VerticalAlignment="Top" Width="686">
             <DataGrid.Resources>
@@ -30,7 +30,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="200"/>
                 <DataGridTextColumn Header="Raspuns" Binding="{Binding raspuns}" Width="250"/>
-                <DataGridTextColumn Header="Medic" Binding="{Binding medic}" Width="200"/>
+                <DataGridTextColumn Header="Medic" Binding="{Binding medic}" Width="250"/>
 
             </DataGrid.Columns>
         </DataGrid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="AdaugareAnimalNou" Height="450" Width="780" Icon="/Images/Vetlogo.png"
+        Title="AdaugareAnimalNou" Height="460" Width="780" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid RenderTransformOrigin="0.498,0.537">
         <Grid.Background>
@@ -20,10 +20,10 @@
         <Label x:Name="LblSpecie" FontWeight="Bold"  Foreground="#C0C0C0" Content="Specie" HorizontalAlignment="Left" Margin="141,167,0,0" VerticalAlignment="Top" Width="139" FontSize="20"/>
         <Label x:Name="LblGreutate" FontWeight="Bold"  Foreground="#C0C0C0" Content="Greutate" HorizontalAlignment="Left" Margin="141,236,0,0" VerticalAlignment="Top" Width="139" FontSize="20"/>
         <Label x:Name="LblVarsta" FontWeight="Bold"  Foreground="#C0C0C0" Content="Varsta" HorizontalAlignment="Left" Margin="141,300,0,0" VerticalAlignment="Top" Width="139" FontSize="20"/>
-        <TextBox x:Name="txtNume" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="txtSpecie" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="txtGreutate" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="txtvarsta" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="txtNume" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Cursor="Arrow" CaretBrush="White" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="txtSpecie" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0"  Cursor="Arrow" CaretBrush="White" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="txtGreutate" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0"  Cursor="Arrow" CaretBrush="White" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="txtvarsta" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Cursor="Arrow" CaretBrush="White" TextAlignment="Center" HorizontalAlignment="Left" Height="37" Margin="317,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319"/>
         <Button x:Name="btnCancel"  Foreground="#C0C0C0" Content="Cancel" HorizontalAlignment="Left" Margin="160,363,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnCancel_Click" />
         <Button x:Name="btnAdaugare"  Foreground="#C0C0C0" Content="Adauga in lista" HorizontalAlignment="Left" Margin="533,363,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnAdaugare_Click"  />
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Autentificare" Height="450" Width="780" Icon="/Images/Vetlogo.png"
+        Title="Autentificare" Height="460" Width="780" Icon="/Images/Vetlogo.png"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.ColumnDefinitions>

@@ -40,11 +40,6 @@ namespace CabinetVeterinar
             public string tip { get; set; }
         }
 
-        private void BtnDeconectare_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            Application.Current.MainWindow.Show();
-        }
 
         public void LoadLocatieProgramare()
         {

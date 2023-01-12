@@ -121,10 +121,6 @@ namespace CabinetVeterinar
               
         }
 
-
-
-
-
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();

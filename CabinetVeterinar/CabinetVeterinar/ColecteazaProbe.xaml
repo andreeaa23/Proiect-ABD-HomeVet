@@ -18,9 +18,10 @@
         <Label x:Name="LbllistaAsistenti" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza un asistent" HorizontalAlignment="Left" Margin="39,96,0,0" VerticalAlignment="Top" Width="245" FontSize="20"/>
         <ComboBox x:Name="cbAsistenti" HorizontalAlignment="Left" Margin="54,154,0,0" VerticalAlignment="Top" Width="193" Height="34" SelectionChanged="cbAsistenti_SelectionChanged_1"   />
         <Label x:Name="LbllistaLocatie" FontWeight="Bold"  Foreground="#C0C0C0" Content="Selecteaza locatia" HorizontalAlignment="Left" Margin="39,207,0,0" VerticalAlignment="Top" Width="245" FontSize="20"/>
-        <ComboBox x:Name="cbLocatie" HorizontalAlignment="Left" Margin="54,264,0,0" VerticalAlignment="Top" Width="193" Height="34" />
+        <ComboBox x:Name="cbLocatie" HorizontalAlignment="Left" Margin="54,265,0,0" VerticalAlignment="Top" Width="193" Height="34" />
+        <Label x:Name="LblListaProgramari" FontWeight="Bold"  Foreground="#C0C0C0" Content="ACTUALIZARE PROGRAMARE" HorizontalAlignment="Left" Margin="304,37,0,0" VerticalAlignment="Top" Width="438" FontSize="30"/>
 
-        <DataGrid x:Name="gridListaProgramari" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="363" Margin="304,82,0,0" VerticalAlignment="Top" Width="561" MouseLeftButtonUp="gridListaProgramari_MouseLeftButtonUp">
+        <DataGrid x:Name="gridListaProgramari" HorizontalAlignment="Left" Background="Gray" Foreground="#C0C0C0" Height="332" Margin="304,113,0,0" VerticalAlignment="Top" Width="561" MouseLeftButtonUp="gridListaProgramari_MouseLeftButtonUp">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Gray"/>
@@ -32,15 +33,14 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding id}" Width="50"/>
                 <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="100"/>
                 <DataGridTextColumn Header="Pacient" Binding="{Binding numePacient}" Width="100"/>
-                <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="100"/>
-                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="80"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="100"/>
+                <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="140"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="70"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="10"/>
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="728,463,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnDeconectare_Click"/>
         <Button x:Name="BtnModifica" Background="Gray" Foreground="#C0C0C0" Content="Modifica" HorizontalAlignment="Left" Margin="85,338,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnModifica_Click" />
-        <Button x:Name="BtnCancel" Background="Gray" Foreground="#C0C0C0" Content="Back" HorizontalAlignment="Left" Margin="542,463,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnCancel_Click" />
+        <Button x:Name="BtnCancel" Background="Gray" Foreground="#C0C0C0" Content="Back" HorizontalAlignment="Left" Margin="728,467,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnCancel_Click" />
 
     </Grid>
 </Window>

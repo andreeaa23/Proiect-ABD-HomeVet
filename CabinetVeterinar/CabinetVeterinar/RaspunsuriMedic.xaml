@@ -26,14 +26,16 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="IdIntrebare" Binding="{Binding id}" Width="200"/>
                 <DataGridTextColumn Header="Utilizator" Binding="{Binding user}" Width="200"/>
-                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="250"/>
+                <DataGridTextColumn Header="Intrebare" Binding="{Binding intrebare}" Width="400"/>
 
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="668,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
-        <Button x:Name="btnRaspunde" Content="Raspunde" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="533,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnRaspunde_Click"/>
-        <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Intrebarile mele" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
-        <TextBox x:Name="txtRaspuns" HorizontalAlignment="Left" Height="45" Margin="28,392,0,0" TextWrapping="Wrap" Background="Gray"  Foreground="#C0C0C0" VerticalAlignment="Top" Width="480"/>
+        <Button x:Name="btnCancel" Content="Back" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="654,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnCancel_Click"/>
+        <Button x:Name="btnRaspunde" Content="Raspunde" Foreground="#C0C0C0" Background="Gray" FontSize="15" HorizontalAlignment="Left" Margin="513,392,0,0" VerticalAlignment="Top" Width="116" Height="40" Click="btnRaspunde_Click"/>
+        <Label x:Name="LblListaIntrebari" FontWeight="Bold"  Foreground="#C0C0C0" Content="Adauga raspuns" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="186" FontSize="20"/>
+        <Label x:Name="LblListaProgramari" FontWeight="Bold"  Foreground="#C0C0C0" Content="SECTIUNE RASPUNSURI" HorizontalAlignment="Left" Margin="289,10,0,0" VerticalAlignment="Top" Width="359" FontSize="30"/>
+
+        <TextBox x:Name="txtRaspuns" Cursor="Arrow" CaretBrush="White" HorizontalAlignment="Left" Height="45" Margin="28,392,0,0" TextWrapping="Wrap" Background="Gray"  Foreground="#C0C0C0" VerticalAlignment="Top" Width="464"/>
     </Grid>
 </Window>

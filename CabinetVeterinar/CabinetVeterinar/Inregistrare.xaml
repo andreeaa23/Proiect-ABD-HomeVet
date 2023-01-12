@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CabinetVeterinar"
         mc:Ignorable="d"
-        Title="Inregistrare" Height="540" Width="540" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown"
+        Title="Inregistrare" Height="540" Width="590" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" MouseDown="Window_MouseDown"
         Icon="/Images/Vetlogo.png">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,16 +20,16 @@
                 <GradientStop Color="#FF772864" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="txtNume" HorizontalAlignment="Left" Height="34" Margin="47,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" TextAlignment="Center" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
-        <Label x:Name="lblNume" Content="Nume" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Margin="80,121,0,0" Width="69" Height="37" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtNume" CaretBrush="White" TextWrapping="Wrap" HorizontalAlignment="Left" Height="34" Margin="47,121,0,0"  VerticalAlignment="Top" Width="254"  Cursor="Arrow" TextAlignment="Center" Background="Gray" BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
+        <Label x:Name="lblNume"  Content="Nume" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Margin="80,121,0,0" Width="69" Height="37" Grid.ColumnSpan="2"/>
         <Label x:Name="lblPrenume" Content="Prenume" HorizontalAlignment="Left" Margin="80,202,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="100" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtPrenume" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
+        <TextBox x:Name="txtPrenume" Cursor="Arrow" CaretBrush="White" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
         <Label x:Name="lblEmail" Content="Email"  HorizontalAlignment="Left" Margin="80,280,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="66"/>
-        <TextBox x:Name="txtEmail" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
+        <TextBox x:Name="txtEmail" Cursor="Arrow" CaretBrush="White" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1" />
         <Label x:Name="lblParola" Content="Parola"  HorizontalAlignment="Left" Margin="80,366,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#C0C0C0" FontWeight="Bold" Height="37" Width="69" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtParola" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1"/>
-        <Button x:Name="btnLogare"  Foreground="#C0C0C0" Content="Inregistreaza-te" HorizontalAlignment="Left" Margin="208.8,445,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnLogare_Click_1" Grid.Column="1" />
-        <Button x:Name="btnCancel"  Foreground="#C0C0C0" Content="Cancel" HorizontalAlignment="Left" Margin="74,445,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnCancel_Click" Grid.ColumnSpan="2" />
+        <TextBox x:Name="txtParola" Cursor="Arrow" CaretBrush="White" Background="Gray" TextAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="47,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"  BorderBrush="#C0C0C0" FontSize="13" Foreground="#C0C0C0" Grid.Column="1"/>
+        <Button x:Name="btnLogare"  Foreground="#C0C0C0" Content="Inregistreaza-te" HorizontalAlignment="Left" Margin="227.2,445,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnLogare_Click_1" Grid.Column="1" />
+        <Button x:Name="btnCancel"  Foreground="#C0C0C0" Content="Cancel" HorizontalAlignment="Left" Margin="93,445,0,0" VerticalAlignment="Top" Width="120" Height="35" FontSize="15" FontWeight="Bold" Background="Gray" Click="btnCancel_Click" Grid.ColumnSpan="2" />
         <Label x:Name="lblCreare" Content="CREARE CONT" HorizontalAlignment="Left" Margin="77,38,0,0" VerticalAlignment="Top" FontSize="27" Foreground="#C0C0C0" FontWeight="Bold" Height="52" Width="194" Grid.Column="1"/>
         <Image x:Name="BtnImagine" Source="/Images/Vetlogo.png" HorizontalAlignment="Left" Height="64" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
 
