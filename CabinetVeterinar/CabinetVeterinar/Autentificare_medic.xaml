@@ -31,11 +31,12 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="140"/>
+                <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="120"/>
                 <DataGridTextColumn Header="Pacient" Binding="{Binding numePacient}" Width="120"/>
-                <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="120"/>
-                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="60"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="70"/>
+                <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="100"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="70"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="50"/>
+                <DataGridTextColumn Header="Ora" Binding="{Binding ora}" Width="50"/>
 
             </DataGrid.Columns>
         </DataGrid>

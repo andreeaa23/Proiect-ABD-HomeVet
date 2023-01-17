@@ -27,12 +27,12 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="120"/>
-                <DataGridTextColumn Header="Pacient" Binding="{Binding numePacient}" Width="120"/>
+                <DataGridTextColumn Header="Stapan" Binding="{Binding numeStapan}" Width="100"/>
+                <DataGridTextColumn Header="Pacient" Binding="{Binding numePacient}" Width="100"/>
                 <DataGridTextColumn Header="Specie" Binding="{Binding specie}" Width="120"/>
-                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="70"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="90"/>
-
+                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="60"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding tip}" Width="70"/>
+                <DataGridTextColumn Header="Ora" Binding="{Binding ora}" Width="70"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnDeconectare" Background="Gray" Foreground="#C0C0C0" Content="Deconectare" HorizontalAlignment="Left" Margin="608,367,0,0" VerticalAlignment="Top" Width="137"  Height="30" FontSize="16" Click="BtnDeconectare_Click_1"/>

@@ -14,16 +14,14 @@ using System.Windows.Shapes;
 
 namespace CabinetVeterinar
 {
-    /// <summary>
-    /// Interaction logic for ValidareProgramari.xaml
-    /// </summary>
+  
     public partial class ValidareProgramari : Window
     {
         string numeMedic, prenumeMedic;
         int id;
         int idMedic;
         int ok;
-       // int idMedic;
+      
         public class Programare
         {
             public int idProg { get; set; }

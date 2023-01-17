@@ -26,6 +26,7 @@ namespace CabinetVeterinar
         public Nullable<System.DateTime> DataProgramare { get; set; }
         public string Tip { get; set; }
         public string StatusProgramare { get; set; }
+        public string Ora { get; set; }
     
         public virtual Medici Medici { get; set; }
         public virtual Pacienti Pacienti { get; set; }

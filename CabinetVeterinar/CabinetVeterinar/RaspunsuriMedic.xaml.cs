@@ -108,6 +108,9 @@ namespace CabinetVeterinar
                 context.SaveChanges();
                 LoadIntrebari();
             }
+            else
+                MessageBox.Show("Selecteaza intrebarea", "ERROR",  MessageBoxButton.OK,MessageBoxImage.Error);
+            txtRaspuns.Clear();
         }
        
     }

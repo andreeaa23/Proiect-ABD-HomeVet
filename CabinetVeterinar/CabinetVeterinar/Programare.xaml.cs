@@ -18,7 +18,7 @@ namespace CabinetVeterinar
     {
         int idUser; //utilizator
         int idA;
-        DateTime data;
+        
         private HomeVetEntities1 context;
 
         private static bool isLoadedCabinete = false;
@@ -26,13 +26,13 @@ namespace CabinetVeterinar
         public Programare(int ID)
         {
             idUser = ID;
-            data = DateTime.Now;
             context = new HomeVetEntities1();
 
             InitializeComponent();
             LoadListaAnimale();
             LoadListaOrase();
             LoadTipProgramare();
+            
 
         }
         public void LoadListaOrase()
@@ -125,7 +125,8 @@ namespace CabinetVeterinar
 
                          ).ToList();
 
-            cbMedic.ItemsSource = medici; //to do
+            cbMedic.ItemsSource = medici;
+          
 
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -142,29 +143,33 @@ namespace CabinetVeterinar
 
         private void btnProgramare_Click(object sender, RoutedEventArgs e)
         {
-            
-            string tipProg = cbTipProgramare.SelectedItem.ToString();
-            string tip ="";
-
-            if (tipProg == "Urgenta")
-                tip = "D";
-            else if (tipProg == "Control")
-                tip = "N";
-
-            var newProg = new Programari()
+            if (cbMedic.SelectedItem!=null)
             {
-                idPacient = idA,
-                idMedic = getIdMedic(),
-                DataProgramare = data,
-                Tip = tip,
-                StatusProgramare = "Pending"
-            };
+                string tipProg = cbTipProgramare.SelectedItem.ToString();
+                string tip = "";
 
-            context.Programari.Add(newProg);
-            context.SaveChanges();
+                if (tipProg == "Urgenta")
+                    tip = "D";
+                else if (tipProg == "Control")
+                    tip = "N";
 
-            MessageBox.Show("Programare realizata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+                var newProg = new Programari()
+                {
+                    idPacient = idA,
+                    idMedic = getIdMedic(),
+                    DataProgramare = calendar.SelectedDate.Value,
+                    Ora = cbOra.SelectedItem.ToString(),
+                    Tip = tip,
+                    StatusProgramare = "Pending"
+                };
+
+                context.Programari.Add(newProg);
+                context.SaveChanges();
+
+                MessageBox.Show("Programare realizata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Close();
+               
+            }
         }   
 
         public void LoadListaAnimale()
@@ -206,6 +211,38 @@ namespace CabinetVeterinar
                       select a.idPacient).First();
 
                       
+        }
+  
+        private void cbOra_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbMedic_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string[] oreD = { "8.00", "9.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00", "19.00" };
+            var data = calendar.SelectedDate;
+            int idm = getIdMedic();
+            var ore = from p in context.Programari
+                      where p.DataProgramare == data && p.idMedic == idm
+                      select p.Ora;
+
+            int ok = 1;
+           // cbOra.ItemsSource = oreD;
+
+            foreach (string o in oreD)
+            {
+                foreach (var item in ore)
+                    if (o == item)
+                    {
+                        ok = 0;
+                    }
+                if (ok == 1)
+                    cbOra.Items.Add(o);
+                ok = 1;
+            }
+       
+            
         }
     }
 }

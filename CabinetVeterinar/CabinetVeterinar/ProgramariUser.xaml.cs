@@ -24,6 +24,7 @@ namespace CabinetVeterinar
             public string animal { get; set; }
             public string medic { get; set; }
             public string data { get; set; }
+            public string ora { get; set; }
 
 
         }
@@ -51,7 +52,8 @@ namespace CabinetVeterinar
                                  numeA = a.Nume,
                                  m.Nume,
                                  m.Prenume,
-                                 p.DataProgramare
+                                 p.DataProgramare,
+                                 p.Ora
                              };
 
             if(programari.Count()>0)
@@ -61,7 +63,8 @@ namespace CabinetVeterinar
                     Programare prog = new Programare();
                     prog.animal = item.numeA.ToString();
                     prog.medic = item.Nume.ToString() + " " + item.Prenume.ToString();
-                    prog.data = item.DataProgramare.ToString();
+                    prog.data = item.DataProgramare.Value.ToShortDateString();
+                    prog.ora = item.Ora.ToString();
 
                     gridProgramari.Items.Add(prog);
                 }

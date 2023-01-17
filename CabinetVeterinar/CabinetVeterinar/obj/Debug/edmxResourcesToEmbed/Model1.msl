@@ -88,6 +88,7 @@
           <ScalarProperty Name="DataProgramare" ColumnName="DataProgramare" />
           <ScalarProperty Name="Tip" ColumnName="Tip" />
           <ScalarProperty Name="StatusProgramare" ColumnName="StatusProgramare" />
+          <ScalarProperty Name="Ora" ColumnName="Ora" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

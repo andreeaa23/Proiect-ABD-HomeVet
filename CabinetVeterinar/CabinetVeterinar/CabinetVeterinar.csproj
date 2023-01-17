@@ -269,6 +269,8 @@
   <ItemGroup>
     <Resource Include="Images\password-76.png" />
     <Resource Include="Images\acc.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

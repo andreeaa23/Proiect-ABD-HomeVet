@@ -19,9 +19,11 @@ namespace CabinetVeterinar
     {
         private HomeVetEntities1 context;
         int ok = 0;
+
         int idProgramare;
         int idAsistent;
         int idMedic;
+        bool isSelected = false;
         public ColecteazaProbe(int id)
         {
             idMedic = id;
@@ -81,7 +83,7 @@ namespace CabinetVeterinar
                               join s in context.Specii
                               on a.idSpecie equals s.idSpecie
                               where p.StatusProgramare == "Accepted" && p.idMedic == idMedic
-                              orderby p.Tip descending ,p.DataProgramare
+                              orderby p.Tip  ,p.DataProgramare
                               select new
                               {
                                   p.idProgramare,
@@ -117,7 +119,7 @@ namespace CabinetVeterinar
 
         private void gridListaProgramari_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ok = 1;
+          
           
             string cellValue = "";
             foreach (DataGridCellInfo cell in gridListaProgramari.SelectedCells)
@@ -146,22 +148,28 @@ namespace CabinetVeterinar
                      select a.idAsistent).First();
 
             idAsistent = id;
+
+            isSelected = true;
+
         }
 
         private void BtnModifica_Click(object sender, RoutedEventArgs e)
         {
 
-            var newUpdate = new ProbeColectate()
-            {
-                idProgramare = idProgramare,
-                Locatie = cbLocatie.Text,
-                idAsistent=idAsistent
-            };
-            context.ProbeColectate.Add(newUpdate);
-            context.SaveChanges();
+            if (isSelected==true)
 
-            MessageBox.Show("Programare modificata!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            
+            {
+                var newUpdate = new ProbeColectate()
+                {
+                    idProgramare = idProgramare,
+                    Locatie = cbLocatie.Text,
+                    idAsistent = idAsistent
+                };
+                context.ProbeColectate.Add(newUpdate);
+                context.SaveChanges();
+                isSelected = false;
+                MessageBox.Show("Programare modificata!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)

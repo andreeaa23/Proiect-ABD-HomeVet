@@ -21,7 +21,7 @@ namespace CabinetVeterinar
 
         public class Intrebare
         {
-       
+            
             public string intrebare { get; set; }
             public string raspuns { get; set; }
             public string medic { get; set; }
@@ -32,7 +32,7 @@ namespace CabinetVeterinar
         public Intrebari_user(int ID)
         {
             idUser = ID;
-          
+            context = new HomeVetEntities1();
             InitializeComponent();
             context = new HomeVetEntities1();
             LoadIntrebari();
@@ -51,31 +51,37 @@ namespace CabinetVeterinar
 
         private void BtnAdaugaIntrebare_Click(object sender, RoutedEventArgs e)
         {
-            string intrebare = txtIntrebare.Text; //preiau ce scriun in text box
 
-            //introducere intrebare in BD
+            if (txtIntrebare.Text!="")
 
-            var intrebareNoua = new Intrebari()
             {
-                idUtilizator = idUser,
-                idMedic = null,
+                string intrebare = txtIntrebare.Text; //preiau ce scriun in text box
 
-                MesajIntrebare = intrebare,
-                MesajRaspuns = "",
-                StatusIntrebare = "NU"
-                
-            };
+                //introducere intrebare in BD
 
-            context.Intrebari.Add(intrebareNoua);
-            context.SaveChanges();
-            MessageBox.Show("Intrebare inregistrata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
-            txtIntrebare.Clear();
-            LoadIntrebari();
+                var intrebareNoua = new Intrebari()
+                {
+                    idUtilizator = idUser,
+                    idMedic = null,
+
+                    MesajIntrebare = intrebare,
+                    MesajRaspuns = "",
+                    StatusIntrebare = "NU"
+
+                };
+
+                context.Intrebari.Add(intrebareNoua);
+                context.SaveChanges();
+                MessageBox.Show("Intrebare inregistrata cu succes!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtIntrebare.Clear();
+                LoadIntrebari();
+            }
         }
 
         public void LoadIntrebari()
         {
             gridIntrebari.Items.Clear();
+
             var intrebari = (from i in context.Intrebari
                              join m in context.Medici on i.idMedic equals m.idMedic
                              where i.idUtilizator == idUser

@@ -81,6 +81,7 @@
     <Property Name="DataProgramare" Type="date" />
     <Property Name="Tip" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="StatusProgramare" Type="nvarchar" MaxLength="32" />
+    <Property Name="Ora" Type="nvarchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="Sectii">
     <Key>

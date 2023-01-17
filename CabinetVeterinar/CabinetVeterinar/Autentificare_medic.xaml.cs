@@ -39,6 +39,8 @@ namespace CabinetVeterinar
             public string specie { get; set; }
             public string data { get; set; }
             public string tip { get; set; }
+
+            public string ora { get; set; }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -74,7 +76,8 @@ namespace CabinetVeterinar
                                   NumeP = a.Nume,
                                   s.Denumire,
                                   p.DataProgramare,
-                                  p.Tip
+                                  p.Tip,
+                                  p.Ora
                               });
 
 
@@ -86,7 +89,8 @@ namespace CabinetVeterinar
                     prog.numeStapan = item.Nume.ToString() + " " + item.Prenume.ToString();
                     prog.numePacient = item.NumeP.ToString();
                     prog.specie = item.Denumire.ToString();
-                    prog.data = item.DataProgramare.ToString();
+                    prog.data = item.DataProgramare.Value.ToShortDateString();
+                    prog.ora = item.Ora.ToString();
 
                     if (item.Tip == "D")
                         prog.tip = "Urgenta";

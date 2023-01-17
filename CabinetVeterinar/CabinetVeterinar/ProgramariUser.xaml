@@ -21,7 +21,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Animal" Binding="{Binding animal}" Width="200"/>
                 <DataGridTextColumn Header="Medic" Binding="{Binding medic}" Width="240"/>
-                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="300"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding data}" Width="100"/>
+                <DataGridTextColumn Header="Ora" Binding="{Binding ora}" Width="170"/>
 
             </DataGrid.Columns>
             <DataGrid.Resources>
