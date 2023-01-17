@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HomeVetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Asistenti">
+    <Key>
+      <PropertyRef Name="idAsistent" />
+    </Key>
+    <Property Name="idAsistent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idMedic" Type="int" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cabinete">
+    <Key>
+      <PropertyRef Name="idCabinet" />
+    </Key>
+    <Property Name="idCabinet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adresa" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Oras" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="NrTelefon" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Program" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CabineteSectii">
+    <Key>
+      <PropertyRef Name="idCabineteSectii" />
+    </Key>
+    <Property Name="idCabineteSectii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCabinet" Type="int" />
+    <Property Name="idSectie" Type="int" />
+  </EntityType>
+  <EntityType Name="Intrebari">
+    <Key>
+      <PropertyRef Name="idIntrebare" />
+    </Key>
+    <Property Name="idIntrebare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUtilizator" Type="int" />
+    <Property Name="idMedic" Type="int" />
+    <Property Name="MesajIntrebare" Type="text" />
+    <Property Name="StatusIntrebare" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="MesajRaspuns" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="Medici">
+    <Key>
+      <PropertyRef Name="idMedic" />
+    </Key>
+    <Property Name="idMedic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCabineteSectii" Type="int" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pacienti">
+    <Key>
+      <PropertyRef Name="idPacient" />
+    </Key>
+    <Property Name="idPacient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUtilizator" Type="int" />
+    <Property Name="idSpecie" Type="int" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="32" />
+    <Property Name="Varsta" Type="int" Nullable="false" />
+    <Property Name="Greutate" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProbeColectate">
+    <Key>
+      <PropertyRef Name="idProba" />
+    </Key>
+    <Property Name="idProba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAsistent" Type="int" />
+    <Property Name="idProgramare" Type="int" />
+    <Property Name="Locatie" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Programari">
+    <Key>
+      <PropertyRef Name="idProgramare" />
+    </Key>
+    <Property Name="idProgramare" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPacient" Type="int" />
+    <Property Name="idMedic" Type="int" />
+    <Property Name="DataProgramare" Type="date" />
+    <Property Name="Tip" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="StatusProgramare" Type="nvarchar" MaxLength="32" />
+    <Property Name="Ora" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Sectii">
+    <Key>
+      <PropertyRef Name="idSectie" />
+    </Key>
+    <Property Name="idSectie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Denumire" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Specii">
+    <Key>
+      <PropertyRef Name="idSpecie" />
+    </Key>
+    <Property Name="idSpecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Denumire" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Utilizatori">
+    <Key>
+      <PropertyRef Name="idUtilizator" />
+    </Key>
+    <Property Name="idUtilizator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Prenume" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="DataInregistrare" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Asistenti__idMed__36B12243">
+    <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
+    <End Role="Asistenti" Type="Self.Asistenti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medici">
+        <PropertyRef Name="idMedic" />
+      </Principal>
+      <Dependent Role="Asistenti">
+        <PropertyRef Name="idMedic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CabineteS__idCab__300424B4">
+    <End Role="Cabinete" Type="Self.Cabinete" Multiplicity="0..1" />
+    <End Role="CabineteSectii" Type="Self.CabineteSectii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinete">
+        <PropertyRef Name="idCabinet" />
+      </Principal>
+      <Dependent Role="CabineteSectii">
+        <PropertyRef Name="idCabinet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CabineteS__idSec__30F848ED">
+    <End Role="Sectii" Type="Self.Sectii" Multiplicity="0..1" />
+    <End Role="CabineteSectii" Type="Self.CabineteSectii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sectii">
+        <PropertyRef Name="idSectie" />
+      </Principal>
+      <Dependent Role="CabineteSectii">
+        <PropertyRef Name="idSectie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Intrebari__idMed__3E52440B">
+    <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
+    <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medici">
+        <PropertyRef Name="idMedic" />
+      </Principal>
+      <Dependent Role="Intrebari">
+        <PropertyRef Name="idMedic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Intrebari__idUti__3D5E1FD2">
+    <End Role="Utilizatori" Type="Self.Utilizatori" Multiplicity="0..1" />
+    <End Role="Intrebari" Type="Self.Intrebari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizatori">
+        <PropertyRef Name="idUtilizator" />
+      </Principal>
+      <Dependent Role="Intrebari">
+        <PropertyRef Name="idUtilizator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medici__idCabine__33D4B598">
+    <End Role="CabineteSectii" Type="Self.CabineteSectii" Multiplicity="0..1" />
+    <End Role="Medici" Type="Self.Medici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CabineteSectii">
+        <PropertyRef Name="idCabineteSectii" />
+      </Principal>
+      <Dependent Role="Medici">
+        <PropertyRef Name="idCabineteSectii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pacienti__idSpec__29572725">
+    <End Role="Specii" Type="Self.Specii" Multiplicity="0..1" />
+    <End Role="Pacienti" Type="Self.Pacienti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specii">
+        <PropertyRef Name="idSpecie" />
+      </Principal>
+      <Dependent Role="Pacienti">
+        <PropertyRef Name="idSpecie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pacienti__idUtil__286302EC">
+    <End Role="Utilizatori" Type="Self.Utilizatori" Multiplicity="0..1" />
+    <End Role="Pacienti" Type="Self.Pacienti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizatori">
+        <PropertyRef Name="idUtilizator" />
+      </Principal>
+      <Dependent Role="Pacienti">
+        <PropertyRef Name="idUtilizator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProbeCole__idAsi__412EB0B6">
+    <End Role="Asistenti" Type="Self.Asistenti" Multiplicity="0..1" />
+    <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asistenti">
+        <PropertyRef Name="idAsistent" />
+      </Principal>
+      <Dependent Role="ProbeColectate">
+        <PropertyRef Name="idAsistent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProbeCole__idPro__4222D4EF">
+    <End Role="Programari" Type="Self.Programari" Multiplicity="0..1" />
+    <End Role="ProbeColectate" Type="Self.ProbeColectate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programari">
+        <PropertyRef Name="idProgramare" />
+      </Principal>
+      <Dependent Role="ProbeColectate">
+        <PropertyRef Name="idProgramare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Programar__idMed__3A81B327">
+    <End Role="Medici" Type="Self.Medici" Multiplicity="0..1" />
+    <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medici">
+        <PropertyRef Name="idMedic" />
+      </Principal>
+      <Dependent Role="Programari">
+        <PropertyRef Name="idMedic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Programar__idPac__398D8EEE">
+    <End Role="Pacienti" Type="Self.Pacienti" Multiplicity="0..1" />
+    <End Role="Programari" Type="Self.Programari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacienti">
+        <PropertyRef Name="idPacient" />
+      </Principal>
+      <Dependent Role="Programari">
+        <PropertyRef Name="idPacient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HomeVetModelStoreContainer">
+    <EntitySet Name="Asistenti" EntityType="Self.Asistenti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cabinete" EntityType="Self.Cabinete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CabineteSectii" EntityType="Self.CabineteSectii" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Intrebari" EntityType="Self.Intrebari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medici" EntityType="Self.Medici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pacienti" EntityType="Self.Pacienti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProbeColectate" EntityType="Self.ProbeColectate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programari" EntityType="Self.Programari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sectii" EntityType="Self.Sectii" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specii" EntityType="Self.Specii" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilizatori" EntityType="Self.Utilizatori" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Asistenti__idMed__36B12243" Association="Self.FK__Asistenti__idMed__36B12243">
+      <End Role="Medici" EntitySet="Medici" />
+      <End Role="Asistenti" EntitySet="Asistenti" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CabineteS__idCab__300424B4" Association="Self.FK__CabineteS__idCab__300424B4">
+      <End Role="Cabinete" EntitySet="Cabinete" />
+      <End Role="CabineteSectii" EntitySet="CabineteSectii" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CabineteS__idSec__30F848ED" Association="Self.FK__CabineteS__idSec__30F848ED">
+      <End Role="Sectii" EntitySet="Sectii" />
+      <End Role="CabineteSectii" EntitySet="CabineteSectii" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Intrebari__idMed__3E52440B" Association="Self.FK__Intrebari__idMed__3E52440B">
+      <End Role="Medici" EntitySet="Medici" />
+      <End Role="Intrebari" EntitySet="Intrebari" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Intrebari__idUti__3D5E1FD2" Association="Self.FK__Intrebari__idUti__3D5E1FD2">
+      <End Role="Utilizatori" EntitySet="Utilizatori" />
+      <End Role="Intrebari" EntitySet="Intrebari" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medici__idCabine__33D4B598" Association="Self.FK__Medici__idCabine__33D4B598">
+      <End Role="CabineteSectii" EntitySet="CabineteSectii" />
+      <End Role="Medici" EntitySet="Medici" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pacienti__idSpec__29572725" Association="Self.FK__Pacienti__idSpec__29572725">
+      <End Role="Specii" EntitySet="Specii" />
+      <End Role="Pacienti" EntitySet="Pacienti" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pacienti__idUtil__286302EC" Association="Self.FK__Pacienti__idUtil__286302EC">
+      <End Role="Utilizatori" EntitySet="Utilizatori" />
+      <End Role="Pacienti" EntitySet="Pacienti" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProbeCole__idAsi__412EB0B6" Association="Self.FK__ProbeCole__idAsi__412EB0B6">
+      <End Role="Asistenti" EntitySet="Asistenti" />
+      <End Role="ProbeColectate" EntitySet="ProbeColectate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProbeCole__idPro__4222D4EF" Association="Self.FK__ProbeCole__idPro__4222D4EF">
+      <End Role="Programari" EntitySet="Programari" />
+      <End Role="ProbeColectate" EntitySet="ProbeColectate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Programar__idMed__3A81B327" Association="Self.FK__Programar__idMed__3A81B327">
+      <End Role="Medici" EntitySet="Medici" />
+      <End Role="Programari" EntitySet="Programari" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Programar__idPac__398D8EEE" Association="Self.FK__Programar__idPac__398D8EEE">
+      <End Role="Pacienti" EntitySet="Pacienti" />
+      <End Role="Programari" EntitySet="Programari" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

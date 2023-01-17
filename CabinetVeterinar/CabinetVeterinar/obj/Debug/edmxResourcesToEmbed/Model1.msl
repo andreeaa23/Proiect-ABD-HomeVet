@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HomeVetModelStoreContainer" CdmEntityContainer="HomeVetEntities1">
+    <EntitySetMapping Name="Asistenti">
+      <EntityTypeMapping TypeName="HomeVetModel.Asistenti">
+        <MappingFragment StoreEntitySet="Asistenti">
+          <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cabinete">
+      <EntityTypeMapping TypeName="HomeVetModel.Cabinete">
+        <MappingFragment StoreEntitySet="Cabinete">
+          <ScalarProperty Name="idCabinet" ColumnName="idCabinet" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Oras" ColumnName="Oras" />
+          <ScalarProperty Name="NrTelefon" ColumnName="NrTelefon" />
+          <ScalarProperty Name="Program" ColumnName="Program" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CabineteSectii">
+      <EntityTypeMapping TypeName="HomeVetModel.CabineteSectii">
+        <MappingFragment StoreEntitySet="CabineteSectii">
+          <ScalarProperty Name="idCabineteSectii" ColumnName="idCabineteSectii" />
+          <ScalarProperty Name="idCabinet" ColumnName="idCabinet" />
+          <ScalarProperty Name="idSectie" ColumnName="idSectie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Intrebari">
+      <EntityTypeMapping TypeName="HomeVetModel.Intrebari">
+        <MappingFragment StoreEntitySet="Intrebari">
+          <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="MesajIntrebare" ColumnName="MesajIntrebare" />
+          <ScalarProperty Name="StatusIntrebare" ColumnName="StatusIntrebare" />
+          <ScalarProperty Name="MesajRaspuns" ColumnName="MesajRaspuns" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medici">
+      <EntityTypeMapping TypeName="HomeVetModel.Medici">
+        <MappingFragment StoreEntitySet="Medici">
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="idCabineteSectii" ColumnName="idCabineteSectii" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacienti">
+      <EntityTypeMapping TypeName="HomeVetModel.Pacienti">
+        <MappingFragment StoreEntitySet="Pacienti">
+          <ScalarProperty Name="idPacient" ColumnName="idPacient" />
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Varsta" ColumnName="Varsta" />
+          <ScalarProperty Name="Greutate" ColumnName="Greutate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProbeColectate">
+      <EntityTypeMapping TypeName="HomeVetModel.ProbeColectate">
+        <MappingFragment StoreEntitySet="ProbeColectate">
+          <ScalarProperty Name="idProba" ColumnName="idProba" />
+          <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
+          <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
+          <ScalarProperty Name="Locatie" ColumnName="Locatie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programari">
+      <EntityTypeMapping TypeName="HomeVetModel.Programari">
+        <MappingFragment StoreEntitySet="Programari">
+          <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
+          <ScalarProperty Name="idPacient" ColumnName="idPacient" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="DataProgramare" ColumnName="DataProgramare" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="StatusProgramare" ColumnName="StatusProgramare" />
+          <ScalarProperty Name="Ora" ColumnName="Ora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectii">
+      <EntityTypeMapping TypeName="HomeVetModel.Sectii">
+        <MappingFragment StoreEntitySet="Sectii">
+          <ScalarProperty Name="idSectie" ColumnName="idSectie" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specii">
+      <EntityTypeMapping TypeName="HomeVetModel.Specii">
+        <MappingFragment StoreEntitySet="Specii">
+          <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizatori">
+      <EntityTypeMapping TypeName="HomeVetModel.Utilizatori">
+        <MappingFragment StoreEntitySet="Utilizatori">
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="DataInregistrare" ColumnName="DataInregistrare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

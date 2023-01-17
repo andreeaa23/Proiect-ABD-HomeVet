@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31646cac204a48b2b284c8203c0df7fa" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="HomeVetModel.Asistenti" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Cabinete" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.CabineteSectii" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Intrebari" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Medici" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Pacienti" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.ProbeColectate" Width="1.5" PointX="9.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Programari" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Sectii" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Specii" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HomeVetModel.Utilizatori" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HomeVetModel.FK__Asistenti__idMed__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__ProbeCole__idAsi__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__CabineteS__idCab__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__CabineteS__idSec__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Medici__idCabine__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Intrebari__idMed__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Intrebari__idUti__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Programar__idMed__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Pacienti__idSpec__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Pacienti__idUtil__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__Programar__idPac__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="HomeVetModel.FK__ProbeCole__idPro__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

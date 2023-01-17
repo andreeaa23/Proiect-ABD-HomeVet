@@ -1,0 +1,192 @@
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe.config
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csprojAssemblyReference.cache
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.g.cs
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\App.g.cs
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.cache
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.lref
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.baml
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.g.resources
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.Properties.Resources.resources
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.GenerateResource.cache
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CoreCompileInputs.cache
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare.g.cs
+C:\Users\Deea\Desktop\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe.config
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csprojAssemblyReference.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\App.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.lref
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.g.resources
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.Properties.Resources.resources
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.GenerateResource.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CoreCompileInputs.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.dll
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.xml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_Content.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CopyComplete
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe.config
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.pdb
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.dll
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.dll
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.xml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.xml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.AssemblyReference.cache
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.SuggestedBindingRedirects.cache
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\App.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_Content.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.cache
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.lref
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.g.resources
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.Properties.Resources.resources
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.GenerateResource.cache
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CoreCompileInputs.cache
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CopyComplete
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.exe
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.pdb
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe.config
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.dll
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.xml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csprojAssemblyReference.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\App.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_Content.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.lref
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.g.resources
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.Properties.Resources.resources
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.GenerateResource.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CoreCompileInputs.cache
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CopyComplete
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.baml
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.g.cs
+E:\ABD\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.g.cs
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.baml
+C:\Users\Deea\Desktop\anul 3\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csprojAssemblyReference.cache
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\App.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_Content.g.cs
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.cache
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar_MarkupCompile.lref
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe.config
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.exe
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\CabinetVeterinar.pdb
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.dll
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.xml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\AdaugareAnimalNou.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_asistent.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_medic.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Autentificare_normal_user.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ColecteazaProbe.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_asistent.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Inregistrare_medic.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Intrebari_user.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\MainWindow.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Programare.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ProgramariUser.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\RaspunsuriMedic.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\Servicii.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\ValidareProgramari.baml
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.g.resources
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.Properties.Resources.resources
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.GenerateResource.cache
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CoreCompileInputs.cache
+C:\Users\Deea\Desktop\proiect abd\Proiect-ABD-HomeVet\CabinetVeterinar\CabinetVeterinar\obj\Debug\CabinetVeterinar.csproj.CopyComplete

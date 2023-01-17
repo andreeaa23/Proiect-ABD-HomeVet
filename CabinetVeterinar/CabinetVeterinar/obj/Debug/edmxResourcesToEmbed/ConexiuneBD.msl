@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HomeVetModelStoreContainer" CdmEntityContainer="HomeVetEntities">
+    <EntitySetMapping Name="Asistentis">
+      <EntityTypeMapping TypeName="HomeVetModel.Asistenti">
+        <MappingFragment StoreEntitySet="Asistenti">
+          <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cabinetes">
+      <EntityTypeMapping TypeName="HomeVetModel.Cabinete">
+        <MappingFragment StoreEntitySet="Cabinete">
+          <ScalarProperty Name="idCabinet" ColumnName="idCabinet" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Oras" ColumnName="Oras" />
+          <ScalarProperty Name="NrTelefon" ColumnName="NrTelefon" />
+          <ScalarProperty Name="Program" ColumnName="Program" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CabineteSectiis">
+      <EntityTypeMapping TypeName="HomeVetModel.CabineteSectii">
+        <MappingFragment StoreEntitySet="CabineteSectii">
+          <ScalarProperty Name="idCabineteSectii" ColumnName="idCabineteSectii" />
+          <ScalarProperty Name="idCabinet" ColumnName="idCabinet" />
+          <ScalarProperty Name="idSectie" ColumnName="idSectie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consultatiis">
+      <EntityTypeMapping TypeName="HomeVetModel.Consultatii">
+        <MappingFragment StoreEntitySet="Consultatii">
+          <ScalarProperty Name="idConsultatie" ColumnName="idConsultatie" />
+          <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
+          <ScalarProperty Name="Pret" ColumnName="Pret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Intrebaris">
+      <EntityTypeMapping TypeName="HomeVetModel.Intrebari">
+        <MappingFragment StoreEntitySet="Intrebari">
+          <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="MesajIntrebare" ColumnName="MesajIntrebare" />
+          <ScalarProperty Name="DataIntrebare" ColumnName="DataIntrebare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicis">
+      <EntityTypeMapping TypeName="HomeVetModel.Medici">
+        <MappingFragment StoreEntitySet="Medici">
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="idCabineteSectii" ColumnName="idCabineteSectii" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacientis">
+      <EntityTypeMapping TypeName="HomeVetModel.Pacienti">
+        <MappingFragment StoreEntitySet="Pacienti">
+          <ScalarProperty Name="idPacient" ColumnName="idPacient" />
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Varsta" ColumnName="Varsta" />
+          <ScalarProperty Name="Greutate" ColumnName="Greutate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProbeColectates">
+      <EntityTypeMapping TypeName="HomeVetModel.ProbeColectate">
+        <MappingFragment StoreEntitySet="ProbeColectate">
+          <ScalarProperty Name="idProba" ColumnName="idProba" />
+          <ScalarProperty Name="idAsistent" ColumnName="idAsistent" />
+          <ScalarProperty Name="TipProba" ColumnName="TipProba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programaris">
+      <EntityTypeMapping TypeName="HomeVetModel.Programari">
+        <MappingFragment StoreEntitySet="Programari">
+          <ScalarProperty Name="idProgramare" ColumnName="idProgramare" />
+          <ScalarProperty Name="idPacient" ColumnName="idPacient" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="DataProgramare" ColumnName="DataProgramare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raspunsuris">
+      <EntityTypeMapping TypeName="HomeVetModel.Raspunsuri">
+        <MappingFragment StoreEntitySet="Raspunsuri">
+          <ScalarProperty Name="idRaspuns" ColumnName="idRaspuns" />
+          <ScalarProperty Name="idMedic" ColumnName="idMedic" />
+          <ScalarProperty Name="idIntrebare" ColumnName="idIntrebare" />
+          <ScalarProperty Name="MesajRaspuns" ColumnName="MesajRaspuns" />
+          <ScalarProperty Name="DataRaspuns" ColumnName="DataRaspuns" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectiis">
+      <EntityTypeMapping TypeName="HomeVetModel.Sectii">
+        <MappingFragment StoreEntitySet="Sectii">
+          <ScalarProperty Name="idSectie" ColumnName="idSectie" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Speciis">
+      <EntityTypeMapping TypeName="HomeVetModel.Specii">
+        <MappingFragment StoreEntitySet="Specii">
+          <ScalarProperty Name="idSpecie" ColumnName="idSpecie" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HomeVetModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizatoris">
+      <EntityTypeMapping TypeName="HomeVetModel.Utilizatori">
+        <MappingFragment StoreEntitySet="Utilizatori">
+          <ScalarProperty Name="idUtilizator" ColumnName="idUtilizator" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="DataInregistrare" ColumnName="DataInregistrare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HomeVetModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HomeVetModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HomeVetModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HomeVetModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HomeVetModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HomeVetModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HomeVetModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HomeVetModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HomeVetModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
